@@ -1,0 +1,18 @@
+div{
+}
+.tdiv{
+	padding:20px 20px 0px 20px;
+	float:left;
+	width:30%;
+	height:400px;
+	background-color:#fff;
+	margin-left:15px;
+	margin-right:15px;
+	margin-top:15px;
+}
+body{
+	height:100%;	
+}
+th{
+	align:center;
+}

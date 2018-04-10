@@ -1,0 +1,40 @@
+#main form span{
+	padding-top: 0px;
+	margin-right:0px;
+	margin-left:200px;
+	font-size:14px;
+	color:#666666;
+	line-align:center;
+}
+#main{
+	margin:0 auto;
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+}
+#main form input{
+	 height:30px; line-height:30px;	
+}
+#main form select{
+	 height:30px; line-height:30px;	
+}
+.form-group{
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+}
+body{
+	text-align:center;
+}
+#formdiv{
+	text-align:center;
+}
+.form-group{
+	text-align:center;
+}
+.col-sm-3{
+	text-align:center;
+}
+.form-group span{
+	margin:0 auto;
+}

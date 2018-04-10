@@ -1,0 +1,17 @@
+.daohang button{
+	height:100%;
+	background-color:#fff;
+	color:white;
+}
+.daohang{
+	width:100%;
+	height:6%;
+	background-color:#fff;
+}
+.mian{
+	background-color:#eee;
+}
+#content{
+	width:100%;
+	height:93%;
+}

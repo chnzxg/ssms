@@ -1,0 +1,17 @@
+#main{
+	height:100%;
+	width:100%;
+	text-align:center;
+}
+.divtable{
+	margin:0 auto;
+	text-align:center;
+}
+.pagediv{
+	height:100px;
+	margin:0 auto;
+	background-color: white;
+}
+select{
+	background-color: gray;
+}

@@ -1,0 +1,52 @@
+
+iframe{
+	width:100%;
+	height:100%;
+}
+.tagbtn{
+	height:80%;
+}
+body{
+	background-color:#eee;
+	/* overflow:-Scroll;
+	overflow-y:hidden; */
+}
+/* 表格 */
+th{
+	font-size:13px;
+	text-align:center;
+	vertical-align:middle;
+}
+td{
+	font-size:12px;
+	text-align:center;
+	vertical-align:middle;
+}
+tr{
+	height:20px;
+}
+checkbox{
+	width:12px;
+	height:12px;
+}
+/*卡片*/
+.card{
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+}
+/* 分页按钮设置 */
+#pagination1 a{
+	font-size:12px;
+}
+select{
+text-align:center
+width: auto;
+padding: 0 2%;
+margin: 0;
+
+}
+
+option{
+
+text-align:center;
+
+}
