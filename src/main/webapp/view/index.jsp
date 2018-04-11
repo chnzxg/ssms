@@ -244,7 +244,7 @@
     <div id="main-content" style="width:100%;height:100%;background-color:#eee;">
         <div id="content" class="main">
             <iframe frameborder="no" style="width:100%;height:100%;" class="viewiframe" id="main-iframe"
-                    src="http://www.baidu.com" name="main"></iframe>
+                    src="welcome.jsp" name="main"></iframe>
         </div>
     </div>
 
