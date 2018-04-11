@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="ssms:war exploded">
-    <output-path>$PROJECT_DIR$/target/ssms</output-path>
+  <artifact type="exploded-war" name="testtomcat:war exploded">
+    <output-path>$PROJECT_DIR$/target/testtomcat</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

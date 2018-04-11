@@ -23,8 +23,6 @@
     <script>
         //主页面跳转
         function jumpTo(url) {
-            if(url==""||url==null)
-                return;
             $("#main-iframe").attr("src",url);
         }
     </script>
