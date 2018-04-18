@@ -9,6 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			limit #{firstRow},#{pageSize}
 		</if>
 	</select>
+	<select id="login" resultType="Employee" parameterType="Employee">
+		select * from employee
+		where eaccount = #{eaccount} and epwd = #{epwd}
+	</select>
 	<delete id="delEmp">
 		delete from employee
 		where empid = #{empid}

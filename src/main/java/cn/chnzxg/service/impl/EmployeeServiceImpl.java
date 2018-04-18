@@ -14,6 +14,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeDao.qryEmp(employee);
 	}
 
+	@Override
+	public List<Employee> login(Employee employee) {
+		return employeeDao.login(employee);
+	}
+
 	public Integer delEmp(Employee employee) {
 		return employeeDao.delEmp(employee);
 	}

@@ -3,18 +3,32 @@ package cn.chnzxg.entity;
 import java.util.Date;
 
 public class Employee {
+	//id
 	private Integer empid;
+	//编号
 	private Integer eno;
+	//姓名
 	private String ename;
+	//性别（1男2女）
 	private Integer esex;
+	//年龄
 	private Integer eage;
+	//入职时间
 	private Date etime;
+	//电话
 	private String etel;
+	//所有权限
 	private Integer epro;
+	//邮箱
 	private String email;
+	//薪水
+	private Double esal;
+	//密码
+	private String epwd;
+	//账号
+	private String eaccount;
 	private Integer firstRow;
 	private Integer pageSize;
-	private Double esal;
 	public Employee(Integer empid, Integer eno, String ename, Integer esex, Integer eage, Date etime, String etel,
 			Integer epro, String email, Double esal) {
 		super();
@@ -110,6 +124,21 @@ public class Employee {
 	public void setEtime(Date etime) {
 		this.etime = etime;
 	}
-	
-	
+
+
+	public String getEpwd() {
+		return epwd;
+	}
+
+	public void setEpwd(String epwd) {
+		this.epwd = epwd;
+	}
+
+	public String getEaccount() {
+		return eaccount;
+	}
+
+	public void setEaccount(String eaccount) {
+		this.eaccount = eaccount;
+	}
 }

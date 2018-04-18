@@ -131,7 +131,7 @@
     <!-- Add "fixed" class to make the sidebar fixed always to the browser viewport. -->
     <!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
     <!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
-    <div class="sidebar-menu toggle-others fixed" style="width:20%;">
+    <div class="sidebar-menu toggle-others fixed" style="width:16%;">
 
         <div class="sidebar-menu-inner" style="font-size:12px;">
 
@@ -244,7 +244,7 @@
     <div id="main-content" style="width:100%;height:100%;background-color:#eee;">
         <div id="content" class="main">
             <iframe frameborder="no" style="width:100%;height:100%;" class="viewiframe" id="main-iframe"
-                    src="welcome.jsp" name="main"></iframe>
+                    src="${pageContext.request.contextPath}/system/welcome.do" name="main"></iframe>
         </div>
     </div>
 
