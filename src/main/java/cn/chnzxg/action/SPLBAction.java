@@ -8,11 +8,13 @@ import cn.chnzxg.util.SSMSKey;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -27,13 +29,13 @@ public class SPLBAction {
 			Commodity comm = pageMethod(page, pageSize, new Commodity());
 			comm.setCstatus(SSMSKey.COMM_STATUS_NORMAL);
 			request.setAttribute("list", getCommList(comm));
-			request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(comm), pageSize));
+			request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity(SSMSKey.COMM_STATUS_NORMAL)), pageSize));
 			request.setAttribute("page", page);
 		}
 		return "splb";
 	}
 
-	@RequestMapping("/sphsz")
+	@RequestMapping(value = "/sphsz", method = RequestMethod.GET)
 	public String getSPHSZ(HttpServletRequest request, String page, String pageSize) {
 		if (!(MyUtil.isEmpty(page) || MyUtil.isEmpty(pageSize))) {
 			Commodity commodity = pageMethod(page, pageSize, new Commodity());
@@ -69,6 +71,7 @@ public class SPLBAction {
 				Commodity comm = pageMethod(page, pageSize, new Commodity());
 				comm.setComid(Integer.parseInt(comid));
 				commodityService.delComm(comm);
+				comm.setCstatus(SSMSKey.COMM_STATUS_REMOVE);
 				request.setAttribute("list", getCommList(comm));
 				request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(comm),pageSize));
 				request.setAttribute("page", page);
@@ -78,26 +81,36 @@ public class SPLBAction {
 		return "sphsz";
 	}
 	@RequestMapping("/updsplb.do")
+	@ResponseBody
 	public String updSPBL(Integer comid,Integer finid,Integer cweight,Integer cstock,String cname,String fname,String cspec,Integer month,Double cprice,String cproder,String ccode,String cdesc,String date,HttpServletRequest request,String page,String pageSize){
-		if(!"".equals(page)&&!"".equals(pageSize)){
-			Commodity comm = pageMethod(page, pageSize, new Commodity(comid, cname, finid, fname, cspec, month, cweight, cprice, cproder, Timestamp.valueOf(date+" 00:00:00"), ccode, cstock, cdesc));
-			if(comm!=null)
-				commodityService.updComm(comm);
-			request.setAttribute("list", getCommList(comm));
-			request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity()),pageSize));
-			request.setAttribute("page", page);
-			request.setAttribute("pageSize", pageSize);
+		try{
+			if(!"".equals(page)&&!"".equals(pageSize)){
+				Commodity comm = pageMethod(page, pageSize, new Commodity(comid, cname, finid, fname, cspec, month, cweight, cprice, cproder, Timestamp.valueOf(date+" 00:00:00"), ccode, cstock, cdesc));
+				if(comm!=null)
+					commodityService.updComm(comm);
+				request.setAttribute("list", getCommList(comm));
+				request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity(SSMSKey.COMM_STATUS_NORMAL)),pageSize));
+				request.setAttribute("page", page);
+				request.setAttribute("pageSize", pageSize);
+			}
+		}catch (Exception e){
+			return "0";
 		}
-		return "splb";
+		return "1";
 	}
 	@RequestMapping("/addsplb.do")
-	public String addSPLB(HttpServletRequest request,Commodity comm,String pageSize){
-		if(comm!=null)
-			commodityService.addComm(comm);
-		request.setAttribute("list", getCommList(new Commodity()));
-		request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity()),pageSize));
-		request.setAttribute("pageSize", pageSize);
-		return "splb";
+	@ResponseBody
+	public String addSPLB(String cprodatex, Commodity commodity){
+		try{
+		    if(!MyUtil.isEmpty(cprodatex) && !MyUtil.isEmpty(commodity)) {
+                commodity.setCprodate(Timestamp.valueOf(cprodatex + " 00:00:00"));
+                commodityService.addComm(commodity);
+            }
+		}catch (Exception e){
+		    e.printStackTrace();
+			return "0";
+		}
+		return "1";
 	}
 	@RequestMapping("/qryDetail.do")
 	@ResponseBody

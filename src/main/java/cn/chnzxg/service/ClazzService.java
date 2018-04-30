@@ -7,7 +7,7 @@ import cn.chnzxg.entity.Commodity;
 import cn.chnzxg.entity.Fine;
 
 public interface ClazzService {
-	public List<Clazz> qryClazz(Clazz clazz);
-	public List<Fine> qryFineByClazz(Clazz clazz);
-	public List<Commodity> qryCommByFine(Fine fine);
+	List<Clazz> qryClazz(Clazz clazz);
+	List<Fine> qryFineByClazz(Clazz clazz);
+	List<Commodity> qryCommByFine(Fine fine);
 }

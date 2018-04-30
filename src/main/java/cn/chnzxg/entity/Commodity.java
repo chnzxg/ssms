@@ -33,7 +33,11 @@ public class Commodity {
 	private Integer cstatus;
 	private Integer firstRow;
 	private Integer pageSize;
-	
+
+	public Commodity(int cstatus){
+		this.cstatus = cstatus;
+	}
+
 	public Commodity(Integer comid, String cname, Integer finid, String fname, String cspec, Integer month,
 			Integer cweight, Double cprice, String cproder, Timestamp cprodate, String ccode, Integer cstock,
 			String cdesc) {

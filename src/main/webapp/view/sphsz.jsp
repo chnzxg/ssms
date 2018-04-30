@@ -182,7 +182,7 @@
                             <td style="width:7%;">${comm.cstock}</td>
                             <td style="width:7%;">${comm.cproder}</td>
                             <td style="width:18%;">${comm.cprodate}</td>
-                            <td style="width:20%;"><a style="width:25px;height:20px;" href="${pageContext.request.contextPath}/splb/removecomm.do?comid=${comm.comid}&page=${page}&pageSize=15">x</a></td>
+                            <td style="width:20%;"><a style="width:25px;height:20px;" href="${pageContext.request.contextPath}/splb/delsplb.do?comid=${comm.comid}&page=${page}&pageSize=15">x</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

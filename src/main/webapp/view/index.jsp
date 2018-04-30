@@ -148,26 +148,6 @@
                     </a>
                 </div>
 
-                <!-- This will toggle the mobile menu and will be visible only on mobile devices -->
-                <div class="mobile-menu-toggle visible-xs">
-                    <a href="#" data-toggle="user-info-menu">
-                        <i class="fa-bell-o"></i>
-                        <span class="badge badge-success">7</span>
-                    </a>
-
-                    <a href="#" data-toggle="mobile-menu">
-                        <i class="fa-bars"></i>
-                    </a>
-                </div>
-
-                <!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
-                <div class="settings-icon">
-                    <a href="#" data-toggle="settings-pane" data-animate="true">
-                        <i class="linecons-cog"></i>
-                    </a>
-                </div>
-
-
             </header>
 
 
@@ -176,7 +156,7 @@
                 <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
                 <li class="active opened active">
                     <a href="dashboard-1.html">
-                        <i class="linecons-cog"></i>
+                        <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="title">商品管理</span>
                     </a>
                     <ul>
@@ -209,7 +189,30 @@
                 </li>
                 <li>
                     <a href="layout-variants.html">
-                        <i class="linecons-desktop"></i>
+                        <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="title">订单管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a name="yglb" href="javascript:void(0)">
+                                <span class="title">所有订单</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="xzyg" href="javascript:void(0)">
+                                <span class="title">新增订单</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="jgyg" href="javascript:void(0)">
+                                <span class="title">订单信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layout-variants.html">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="title">员工管理</span>
                     </a>
                     <ul>
@@ -231,6 +234,34 @@
                         <li>
                             <a name="yglb" href="javascript:void(0)">
                                 <span class="title">个人信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layout-variants.html">
+                        <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="title">实时统计</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a name="yglb" href="javascript:void(0)">
+                                <span class="title">商品统计</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="xzyg" href="javascript:void(0)">
+                                <span class="title">员工统计</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="jgyg" href="javascript:void(0)">
+                                <span class="title">订单统计</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="yglb" href="javascript:void(0)">
+                                <span class="title">其他统计</span>
                             </a>
                         </li>
                     </ul>
