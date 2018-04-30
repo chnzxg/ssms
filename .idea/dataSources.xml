@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ssms@192.168.254.128" uuid="170632d1-7529-4252-bdf9-f5822e450384">
+    <data-source source="LOCAL" name="ssms@azhou.top" uuid="9087cdb0-f888-4118-a31f-2b77e7ecf56a">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://192.168.254.128:3306/ssms?useUnicode=true&amp;characterEncoding=utf8</jdbc-url>
+      <jdbc-url>jdbc:mysql://azhou.top:3306/ssms</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

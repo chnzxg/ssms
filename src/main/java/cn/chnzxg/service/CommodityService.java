@@ -9,7 +9,7 @@ import cn.chnzxg.entity.Commodity;
 import org.springframework.stereotype.Service;
 
 
-public interface SPLBService {
+public interface CommodityService {
 	List<Commodity> qryAllComm(Commodity comm);
 	Integer delComm(Commodity comm);
 	Integer updComm(Commodity comm);

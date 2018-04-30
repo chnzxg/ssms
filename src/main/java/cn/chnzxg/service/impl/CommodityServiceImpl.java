@@ -6,10 +6,10 @@ import javax.annotation.Resource;
 
 import cn.chnzxg.dao.CommodityDao;
 import cn.chnzxg.entity.Commodity;
-import cn.chnzxg.service.SPLBService;
+import cn.chnzxg.service.CommodityService;
 import org.springframework.stereotype.Service;
-@Service("sPLBServiceImpl")
-public class SPLBServiceImpl implements SPLBService {
+@Service("commodityServiceImpl")
+public class CommodityServiceImpl implements CommodityService {
 	@Resource
 	private CommodityDao commodityDao;
 	public List<Commodity> qryAllComm(Commodity comm) {

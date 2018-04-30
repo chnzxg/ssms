@@ -186,7 +186,7 @@
                             </a>
                         </li>
                         <li>
-                            <a name="tjxsp" href="javascript:void(0)" onclick="jumpTo()">
+                            <a name="tjxsp" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/view/tjxsp.jsp')">
                                 <span class="title">添加新商品</span>
                             </a>
                         </li>
@@ -196,7 +196,7 @@
                             </a>
                         </li>
                         <li>
-                            <a name="sphsz" href="javascript:void(0)" >
+                            <a name="sphsz" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/sphsz/qrysphsz.do?page=1&pageSize=15')">
                                 <span class="title">商品回收站</span>
                             </a>
                         </li>

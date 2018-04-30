@@ -65,7 +65,7 @@
 			  <div class="form-group">
 			    <span for="cprodate" class="col-sm-2 control-label">生产日期：</span>
 			    <div class="col-sm-3">
-			      <input type="date" class="form-control" id="cprodate" name="cprodate" placeholder="请输入生产日期">
+			      <input type="date" class="form-control" id="cprodate" name="cprodate">
 			    </div>
 			  </div>
 			  <div class="form-group">
