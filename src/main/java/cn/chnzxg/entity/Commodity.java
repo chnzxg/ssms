@@ -3,19 +3,34 @@ package cn.chnzxg.entity;
 import java.sql.Timestamp;
 
 public class Commodity {
+	//id
 	private Integer comid;
+	//名称
 	private String cname;
+	//细类id
 	private Integer finid;
+	//细类名
 	private String fname;
+	//规格
 	private String cspec;
+	//保质期
 	private Integer month;
+	//重量
 	private Integer cweight;
+	//单价
 	private Double cprice;
+	//生产商
 	private String cproder;
+	//生产日期
 	private Timestamp cprodate;
+	//编码
 	private String ccode;
+	//库存
 	private Integer cstock;
+	//描述
 	private String cdesc;
+	//状态(1正常0回收站)
+	private Integer cstatus;
 	private Integer firstRow;
 	private Integer pageSize;
 	
@@ -130,5 +145,12 @@ public class Commodity {
 	public void setMonth(Integer month) {
 		this.month = month;
 	}
-	
+
+	public Integer getCstatus() {
+		return cstatus;
+	}
+
+	public void setCstatus(Integer cstatus) {
+		this.cstatus = cstatus;
+	}
 }

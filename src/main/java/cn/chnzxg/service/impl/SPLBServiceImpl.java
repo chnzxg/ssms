@@ -32,4 +32,8 @@ public class SPLBServiceImpl implements SPLBService {
 		return commodityDao.qryDetail(comm);
 	}
 
+	public void removeComm(Commodity commodity) {
+		commodityDao.removeComm(commodity);
+	}
+
 }

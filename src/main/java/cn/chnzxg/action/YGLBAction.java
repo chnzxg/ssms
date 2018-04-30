@@ -1,17 +1,15 @@
 package cn.chnzxg.action;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import cn.chnzxg.entity.Commodity;
 import cn.chnzxg.entity.Employee;
 import cn.chnzxg.service.EmployeeService;
 import cn.chnzxg.util.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 @Controller
 @RequestMapping("/yglb")
 public class YGLBAction {

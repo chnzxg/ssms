@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 
 
 public interface SPLBService {
-	public List<Commodity> qryAllComm(Commodity comm);
-	public Integer delComm(Commodity comm);
-	public Integer updComm(Commodity comm);
-	public Integer addComm(Commodity comm);
-	public Commodity qryDetail(Commodity comm);
+	List<Commodity> qryAllComm(Commodity comm);
+	Integer delComm(Commodity comm);
+	Integer updComm(Commodity comm);
+	Integer addComm(Commodity comm);
+	Commodity qryDetail(Commodity comm);
+	void removeComm(Commodity commodity);
 }

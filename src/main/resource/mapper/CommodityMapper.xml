@@ -6,9 +6,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qryAllComm" resultType="Commodity" >
 		SELECT c.*,f.fname 
 		FROM commodity c,fine f 
-		WHERE c.finid=f.finid
+		WHERE c.finid = f.finid
 		<if test='firstRow!=null &amp; pageSize!=null'>
 			limit #{firstRow},#{pageSize}
+		</if>
+		<if test="cstatus!=null">
+			and cstatus = #{cstatus}
 		</if>
 	</select>
 	<delete id="delComm">
@@ -39,4 +42,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from commodity
 		where comid = #{comid}
 	</select>
+	<update id="removeComm">
+		update commodity
+		set cstatus = 0
+		where comid = #{comid}
+	</update>
 </mapper>

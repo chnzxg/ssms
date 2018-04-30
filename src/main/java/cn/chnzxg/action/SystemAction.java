@@ -23,7 +23,7 @@ public class SystemAction {
     private EmployeeService employeeServiceImpl;
     @RequestMapping(value = "/welcome" ,method = RequestMethod.POST)
     @ResponseBody
-    public Integer welcome(Employee employee, HttpSession session, HttpServletRequest request){
+    public Integer welcome(Employee employee, HttpSession session){
         List<Employee> employeeList = employeeServiceImpl.login(employee);
         if (employeeList.isEmpty())
             return 0;
