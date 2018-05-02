@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.chnzxg.dao.StatisticsDao">
+	<select id="getCommodityStatistics" resultType="Statistics">
+        select cname name,sum(num) value
+        from class c,
+        (select fname,claid,count(1) num
+        from commodity c,fine f
+        where f.finid = c.finid
+        group by f.finid) f
+        where c.claid = f.claid
+        group by c.claid
+    </select>
+</mapper>
