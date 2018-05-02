@@ -245,22 +245,27 @@
                     </a>
                     <ul>
                         <li>
-                            <a name="yglb" href="javascript:void(0)">
+                            <a href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/stat/comm.do')">
                                 <span class="title">商品统计</span>
                             </a>
                         </li>
                         <li>
-                            <a name="xzyg" href="javascript:void(0)">
+                            <a href="javascript:void(0)">
+                                <span class="title">分类统计</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
                                 <span class="title">员工统计</span>
                             </a>
                         </li>
                         <li>
-                            <a name="jgyg" href="javascript:void(0)">
+                            <a href="javascript:void(0)">
                                 <span class="title">订单统计</span>
                             </a>
                         </li>
                         <li>
-                            <a name="yglb" href="javascript:void(0)">
+                            <a href="javascript:void(0)">
                                 <span class="title">其他统计</span>
                             </a>
                         </li>
@@ -273,8 +278,9 @@
     </div>
 
     <div id="main-content" style="width:100%;height:100%;background-color:#eee;">
+        <div id="tools" style="width: 100%;height: 7%;background-color: darkgray"></div>
         <div id="content" class="main">
-            <iframe frameborder="no" style="width:100%;height:100%;" class="viewiframe" id="main-iframe"
+            <iframe frameborder="no" style="width:100%;height:93%;" class="viewiframe" id="main-iframe"
                     src="${pageContext.request.contextPath}/system/welcome.do" name="main"></iframe>
         </div>
     </div>

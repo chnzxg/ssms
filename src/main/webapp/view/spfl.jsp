@@ -24,7 +24,7 @@
 	
 		function getFine(claid){
 			$.ajax({
-				url:"${pageContext.request.contextPath}/spfl/qryfine.do?claid="+claid,
+				url:"${pageContext.request.contextPath}/spfl/qryfine.do?page=1&claid="+claid,
 				success:function(data){
 					$("#finetb").children().remove();
 					$("#commtb").children().remove();
@@ -37,7 +37,7 @@
 		}
 		function getComm(finid){
 			$.ajax({
-				url:"${pageContext.request.contextPath}/spfl/qrycomm.do?finid="+finid,
+				url:"${pageContext.request.contextPath}/spfl/qrycomm.do?page=1&finid="+finid,
 				success:function(data){
 					$("#commtb").children().remove();
 					for(var i=0;i<data.length;i++){

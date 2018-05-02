@@ -21,7 +21,7 @@ import java.util.List;
 public class SystemAction {
     @Resource
     private EmployeeService employeeServiceImpl;
-    @RequestMapping(value = "/welcome" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/welcome.do" ,method = RequestMethod.POST)
     @ResponseBody
     public Integer welcome(Employee employee, HttpSession session){
         List<Employee> employeeList = employeeServiceImpl.login(employee);

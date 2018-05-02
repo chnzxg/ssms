@@ -11,14 +11,14 @@ body{
 	/* overflow:-Scroll;
 	overflow-y:hidden; */
 }
-/* ±í¸ñ */
+/* ï¿½ï¿½ï¿½ */
 th{
-	font-size:13px;
+	font-size:16px;
 	text-align:center;
 	vertical-align:middle;
 }
 td{
-	font-size:12px;
+	font-size:15px;
 	text-align:center;
 	vertical-align:middle;
 }
@@ -29,16 +29,16 @@ checkbox{
 	width:12px;
 	height:12px;
 }
-/*¿¨Æ¬*/
+/*ï¿½ï¿½Æ¬*/
 .card{
 	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
 }
-/* ·ÖÒ³°´Å¥ÉèÖÃ */
+/* ï¿½ï¿½Ò³ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ */
 #pagination1 a{
 	font-size:12px;
 }
 select{
-text-align:center
+text-align:center;
 width: auto;
 padding: 0 2%;
 margin: 0;
