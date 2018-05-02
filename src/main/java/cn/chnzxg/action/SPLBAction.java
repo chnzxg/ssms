@@ -8,13 +8,11 @@ import cn.chnzxg.util.SSMSKey;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,16 +34,16 @@ public class SPLBAction {
 	}
 
 	@RequestMapping(value = "/sphsz", method = RequestMethod.GET)
-	public String getSPHSZ(HttpServletRequest request, String page, String pageSize) {
+	public String getSPHSZ(HttpServletRequest request, String page, String pageSize, Commodity commodity) {
 		if (!(MyUtil.isEmpty(page) || MyUtil.isEmpty(pageSize))) {
-			Commodity commodity = pageMethod(page, pageSize, new Commodity());
+			commodity = pageMethod(page, pageSize, commodity);
 			request.setAttribute("list", getCommRmList(commodity));
 			request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity()), pageSize));
 			request.setAttribute("page", page);
 		}
 		return "sphsz";
 	}
-
+	//Commodity放入回收站
 	@RequestMapping("/removecomm")
 	public String removeComm(Commodity commodity, String page, String pageSize ,HttpServletRequest request) {
 		if (!(MyUtil.isEmpty(page) || MyUtil.isEmpty(pageSize))) {
@@ -63,7 +61,7 @@ public class SPLBAction {
 		}
 		return "splb";
 	}
-
+	//Commodity彻底删除
 	@RequestMapping("/delsplb.do")
 	public String delSPBL(HttpServletRequest request,String page,String pageSize,String comid){
 		if(!"".equals(page)&&!"".equals(pageSize)){

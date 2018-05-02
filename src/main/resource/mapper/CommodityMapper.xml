@@ -10,9 +10,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="cstatus!=null">
 			and cstatus = #{cstatus}
 		</if>
-		<if test='firstRow!=null &amp; pageSize!=null'>
-			limit #{firstRow},#{pageSize}
+		<if test="cname!=null">
+			and cname = #{cname}
 		</if>
+		<if test="finid!=null">
+			and finid = #{finid}
+		</if>
+		<if test="ccode!=null">
+			and ccode = #{ccode}
+		</if>
+		<if test="cproder!=null">
+			and cproder = #{cproder}
+		</if>
+		<if test="cpricelow!=null">
+			and cprice &gt; #{cpricelow}
+		</if>
+		<if test="cpricehigh!=null">
+			and cprice &lt; #{cpricehigh}
+		</if>
+        <if test='firstRow!=null &amp; pageSize!=null'>
+            limit #{firstRow},#{pageSize}
+        </if>
 	</select>
 	<delete id="delComm">
 		delete from commodity

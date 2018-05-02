@@ -33,6 +33,8 @@ public class Commodity {
 	private Integer cstatus;
 	private Integer firstRow;
 	private Integer pageSize;
+	private Double cpricelow;
+	private Double cpricehigh;
 
 	public Commodity(int cstatus){
 		this.cstatus = cstatus;
@@ -156,5 +158,21 @@ public class Commodity {
 
 	public void setCstatus(Integer cstatus) {
 		this.cstatus = cstatus;
+	}
+
+	public Double getCpricelow() {
+		return cpricelow;
+	}
+
+	public void setCpricelow(Double cpricelow) {
+		this.cpricelow = cpricelow;
+	}
+
+	public Double getCpricehigh() {
+		return cpricehigh;
+	}
+
+	public void setCpricehigh(Double cpricehigh) {
+		this.cpricehigh = cpricehigh;
 	}
 }

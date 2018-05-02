@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.chnzxg.dao.MemberDao">
+	<select id="qryMember" resultType="Member">
+		SELECT *
+		FROM member
+		<where>
+			<if test="mname!=null">
+				and mname = #{mname}
+			</if>
+			<if test="mtel!=null">
+				and mtel = #{mtel}
+			</if>
+			<if test="mlevel!=null">
+				and mlevel = #{mlevel}
+			</if>
+		</where>
+		<if test='firstRow!=null &amp; pageSize!=null'>
+			limit #{firstRow},#{pageSize}
+		</if>
+	</select>
+    <delete id="delMember">
+        delete from member
+        where memid = #{memid}
+    </delete>
+</mapper>

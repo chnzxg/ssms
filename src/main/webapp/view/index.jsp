@@ -240,6 +240,34 @@
                 </li>
                 <li>
                     <a href="layout-variants.html">
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="title">会员管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a name="yglb" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
+                                <span class="title">会员列表</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="xzyg" href="javascript:void(0)">
+                                <span class="title">新增会员</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="jgyg" href="javascript:void(0)">
+                                <span class="title">解雇员工</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a name="yglb" href="javascript:void(0)">
+                                <span class="title">个人信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layout-variants.html">
                         <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="title">实时统计</span>
                     </a>
