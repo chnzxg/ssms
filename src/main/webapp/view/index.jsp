@@ -240,7 +240,7 @@
                 </li>
                 <li>
                     <a href="layout-variants.html">
-                        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="title">会员管理</span>
                     </a>
                     <ul>
@@ -269,7 +269,7 @@
                 <li>
                     <a href="layout-variants.html">
                         <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="title">实时统计</span>
+                        <span class="title">统计图表</span>
                     </a>
                     <ul>
                         <li>
