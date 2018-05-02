@@ -13,205 +13,331 @@
     <schema id="7" parent="1" name="mysql"/>
     <schema id="8" parent="1" name="performance_schema"/>
     <schema id="9" parent="1" name="sys"/>
-    <table id="10" parent="2" name="class"/>
-    <table id="11" parent="2" name="commodity"/>
-    <table id="12" parent="2" name="employee"/>
-    <table id="13" parent="2" name="fine"/>
-    <table id="14" parent="2" name="member"/>
-    <column id="15" parent="10" name="claid">
+    <table id="10" parent="2" name="admin"/>
+    <table id="11" parent="2" name="adminrole"/>
+    <table id="12" parent="2" name="class"/>
+    <table id="13" parent="2" name="commodity"/>
+    <table id="14" parent="2" name="employee"/>
+    <table id="15" parent="2" name="fine"/>
+    <table id="16" parent="2" name="member"/>
+    <table id="17" parent="2" name="power"/>
+    <table id="18" parent="2" name="role"/>
+    <table id="19" parent="2" name="rolepower"/>
+    <column id="20" parent="10" name="aid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="16" parent="10" name="cname">
+    <column id="21" parent="10" name="aname">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="17" parent="10" name="ccode">
+    <column id="22" parent="10" name="apassword">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="creattime">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="24" parent="10" name="lastlogintime">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="25" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>aid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="11" name="aid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="27" parent="11" name="rid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="28" parent="11" name="adminrole_admin_aid_fk">
+      <ColNames>aid</ColNames>
+    </index>
+    <index id="29" parent="11" name="adminrole_role_rid_fk">
+      <ColNames>rid</ColNames>
+    </index>
+    <foreign-key id="30" parent="11" name="adminrole_admin_aid_fk">
+      <ColNames>aid</ColNames>
+      <RefSchemaName>ssms</RefSchemaName>
+      <RefTableName>admin</RefTableName>
+      <RefColNames>aid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="31" parent="11" name="adminrole_role_rid_fk">
+      <ColNames>rid</ColNames>
+      <RefSchemaName>ssms</RefSchemaName>
+      <RefTableName>role</RefTableName>
+      <RefColNames>rid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="32" parent="12" name="claid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="12" name="cname">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="34" parent="12" name="ccode">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <key id="18" parent="10" name="PRIMARY">
+    <key id="35" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>claid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="19" parent="11" name="comid">
+    <column id="36" parent="13" name="comid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="20" parent="11" name="cname">
+    <column id="37" parent="13" name="cname">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="21" parent="11" name="finid">
+    <column id="38" parent="13" name="finid">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="22" parent="11" name="cspec">
+    <column id="39" parent="13" name="cspec">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="23" parent="11" name="month">
+    <column id="40" parent="13" name="month">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="24" parent="11" name="cweight">
+    <column id="41" parent="13" name="cweight">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="25" parent="11" name="cprice">
+    <column id="42" parent="13" name="cprice">
       <Position>7</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="26" parent="11" name="cproder">
+    <column id="43" parent="13" name="cproder">
       <Position>8</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="27" parent="11" name="cprodate">
+    <column id="44" parent="13" name="cprodate">
       <Position>9</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="28" parent="11" name="ccode">
+    <column id="45" parent="13" name="ccode">
       <Position>10</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="29" parent="11" name="cstock">
+    <column id="46" parent="13" name="cstock">
       <Position>11</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="30" parent="11" name="cdesc">
+    <column id="47" parent="13" name="cdesc">
       <Position>12</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="31" parent="11" name="cstatus">
+    <column id="48" parent="13" name="cstatus">
       <Position>13</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="32" parent="11" name="PRIMARY">
+    <key id="49" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>comid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="33" parent="12" name="empid">
+    <column id="50" parent="14" name="empid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="34" parent="12" name="eno">
+    <column id="51" parent="14" name="eno">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="35" parent="12" name="ename">
+    <column id="52" parent="14" name="ename">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="36" parent="12" name="esex">
+    <column id="53" parent="14" name="esex">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="37" parent="12" name="eage">
+    <column id="54" parent="14" name="eage">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="38" parent="12" name="etime">
+    <column id="55" parent="14" name="etime">
       <Position>6</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="39" parent="12" name="etel">
+    <column id="56" parent="14" name="etel">
       <Position>7</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="40" parent="12" name="epro">
+    <column id="57" parent="14" name="epro">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="41" parent="12" name="email">
+    <column id="58" parent="14" name="email">
       <Position>9</Position>
       <DataType>varchar(40)|0</DataType>
     </column>
-    <column id="42" parent="12" name="esal">
+    <column id="59" parent="14" name="esal">
       <Position>10</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="43" parent="12" name="epwd">
+    <column id="60" parent="14" name="epwd">
       <Position>11</Position>
       <DataType>varchar(40)|0</DataType>
     </column>
-    <column id="44" parent="12" name="eaccount">
+    <column id="61" parent="14" name="eaccount">
       <Position>12</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <key id="45" parent="12" name="PRIMARY">
+    <key id="62" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>empid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="46" parent="13" name="finid">
+    <column id="63" parent="15" name="finid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="47" parent="13" name="claid">
+    <column id="64" parent="15" name="claid">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="48" parent="13" name="fname">
+    <column id="65" parent="15" name="fname">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="49" parent="13" name="fcode">
+    <column id="66" parent="15" name="fcode">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <key id="50" parent="13" name="PRIMARY">
+    <key id="67" parent="15" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>finid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="51" parent="14" name="memid">
+    <column id="68" parent="16" name="memid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="52" parent="14" name="mname">
+    <column id="69" parent="16" name="mname">
       <Position>2</Position>
       <DataType>varchar(40)|0</DataType>
     </column>
-    <column id="53" parent="14" name="mtel">
+    <column id="70" parent="16" name="mtel">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="54" parent="14" name="mcode">
+    <column id="71" parent="16" name="mcode">
       <Position>4</Position>
       <DataType>varchar(40)|0</DataType>
     </column>
-    <column id="55" parent="14" name="mlevel">
+    <column id="72" parent="16" name="mlevel">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="56" parent="14" name="mrem">
+    <column id="73" parent="16" name="mrem">
       <Position>6</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="57" parent="14" name="mdate">
+    <column id="74" parent="16" name="mdate">
       <Position>7</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="58" parent="14" name="mcount">
+    <column id="75" parent="16" name="mcount">
       <Position>8</Position>
       <DataType>double|0</DataType>
     </column>
-    <key id="59" parent="14" name="PRIMARY">
+    <key id="76" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>memid</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="77" parent="17" name="pid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="78" parent="17" name="pname">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="79" parent="17" name="purl">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="80" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>pid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="81" parent="18" name="rid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="18" name="rname">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="83" parent="18" name="creattime">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="84" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>rid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="85" parent="19" name="rid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="86" parent="19" name="pid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="87" parent="19" name="rolepower_power_pid_fk">
+      <ColNames>pid</ColNames>
+    </index>
+    <index id="88" parent="19" name="rolepower_role_rid_fk">
+      <ColNames>rid</ColNames>
+    </index>
+    <foreign-key id="89" parent="19" name="rolepower_role_rid_fk">
+      <ColNames>rid</ColNames>
+      <RefSchemaName>ssms</RefSchemaName>
+      <RefTableName>role</RefTableName>
+      <RefColNames>rid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="90" parent="19" name="rolepower_power_pid_fk">
+      <ColNames>pid</ColNames>
+      <RefSchemaName>ssms</RefSchemaName>
+      <RefTableName>power</RefTableName>
+      <RefColNames>pid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
   </database-model>
 </dataSource>

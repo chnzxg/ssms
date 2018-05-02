@@ -15,18 +15,18 @@
 </head>
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="div1" style="float: left;width: 40%;height: 400px;background-color: white;margin: 0px;padding: 40px;"></div>
+<div id="div1" style="float: left;width: 42%;height: 80%;background-color: white;margin: 40px;padding: 0px;"></div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('div1'));
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: 'ECharts 入门示例'
+            text: '商品大类'
         },
         tooltip: {},
         legend: {
-            data: ['销量']
+            data: ['类别']
         },
         xAxis: {
             data: ${CommodityInfoNames}
@@ -41,7 +41,7 @@
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 </script>
-<div id="div2" style="float: left;width: 40%;height: 400px;background-color: white;margin: 0px;padding: 40px;"></div>
+<div id="div2" style="float: left;width: 42%;height: 80%;background-color: white;margin: 40px;padding: 0px;"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('div2'));
     var option = {
