@@ -2,6 +2,7 @@ package cn.chnzxg.service.impl;
 
 import cn.chnzxg.dao.PowerDao;
 import cn.chnzxg.dao.RoleDao;
+import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Power;
 import cn.chnzxg.entity.Role;
 import cn.chnzxg.service.RoleService;

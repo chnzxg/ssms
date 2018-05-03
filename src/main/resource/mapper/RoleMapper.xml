@@ -41,4 +41,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into adminrole values
         (#{aid}, #{rid})
     </insert>
+    <select id="qryRoleByAdmin" resultType="Role">
+        SELECT *
+        FROM role
+        WHERE rid IN (SELECT rid
+        FROM adminrole ar
+        WHERE ar.aid = 1);
+    </select>
+    <select id="qryPowerByAdmin" resultType="Power">
+        SELECT *
+        FROM power
+        WHERE pid IN (SELECT pid
+        FROM rolepower
+        WHERE rid IN (SELECT rid
+        FROM adminrole ar
+        WHERE ar.aid = 1));
+    </select>
 </mapper>

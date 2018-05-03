@@ -23,14 +23,18 @@ import java.util.List;
 @Controller
 @RequestMapping("/system")
 public class SystemAction {
+
     @Resource
     private AdminService adminService;
+
     @RequestMapping(value = "/login.do" ,method = RequestMethod.POST)
     @ResponseBody
     public Integer login(HttpSession session, Admin admin){
-        List<Admin> user = adminService.login(MyUtil.beanToMap(admin));
-        if(user.size() != 0){
-            session.setAttribute("user", user.get(0));
+        List<Admin> admins = adminService.login(MyUtil.beanToMap(admin));
+        if(admins.size() != 0){
+            Admin user = admins.get(0);
+            adminService.updLoginTime(user);
+            session.setAttribute("user", user);
             return 1;
         }
         return 0;

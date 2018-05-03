@@ -14,4 +14,5 @@ public interface AdminService {
     Integer updAdmin(Map<String, Object> paramMap);
     Integer addAdmin(Map<String, Object> paramMap);
     List<Admin> login(Map<String, Object> paramMap);
+    Admin updLoginTime(Admin admin);
 }

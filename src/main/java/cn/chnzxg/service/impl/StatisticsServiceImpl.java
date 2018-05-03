@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/5/2.
@@ -20,5 +21,20 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public List<Statistics> getCommodityInfo() {
         return statisticsDao.getCommodityStatistics();
+    }
+
+    @Override
+    public List<Statistics> getEmployeeInfo() {
+        return statisticsDao.getEmployeeStatistics();
+    }
+
+    @Override
+    public List<Statistics> getMemberInfo() {
+        return statisticsDao.getMemberStatistics();
+    }
+
+    @Override
+    public List<Statistics> getFineInfo(Map<String, String> paramMap) {
+        return statisticsDao.getFineStatistics(paramMap);
     }
 }

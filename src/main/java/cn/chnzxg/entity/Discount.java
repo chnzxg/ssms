@@ -5,7 +5,8 @@ package cn.chnzxg.entity;
  */
 public class Discount {
     private Integer mlevel;
-    private Integer percent;
+    private double percent;
+    private double money;
 
     public Integer getMlevel() {
         return mlevel;
@@ -15,12 +16,27 @@ public class Discount {
         this.mlevel = mlevel;
     }
 
-    public Integer getPercent() {
+    public double getPercent() {
         return percent;
     }
 
-    public void setPercent(Integer percent) {
+    public void setPercent(double percent) {
         this.percent = percent;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    public Discount(Integer mlevel, double percent, double money) {
+
+        this.mlevel = mlevel;
+        this.percent = percent;
+        this.money = money;
     }
 
     @Override
@@ -28,12 +44,8 @@ public class Discount {
         return "Discount{" +
                 "mlevel=" + mlevel +
                 ", percent=" + percent +
+                ", money=" + money +
                 '}';
-    }
-
-    public Discount(Integer mlevel, Integer percent) {
-        this.mlevel = mlevel;
-        this.percent = percent;
     }
 
     public Discount() {

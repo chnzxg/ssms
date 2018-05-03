@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.chnzxg.dao.StatisticsDao">
-	<select id="getCommodityStatistics" resultType="Statistics">
+    <select id="getCommodityStatistics" resultType="Statistics">
         select cname name,sum(num) value
         from class c,
         (select fname,claid,count(1) num
@@ -12,5 +12,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         group by f.finid) f
         where c.claid = f.claid
         group by c.claid
+    </select>
+    <select id="getEmployeeStatistics" resultType="Statistics">
+        SELECT
+        sum(epro) value,
+        epro      name
+        FROM employee
+        GROUP BY epro
+    </select>
+    <select id="getMemberStatistics" resultType="Statistics">
+        SELECT
+        concat('level', mlevel),
+        sum(1)
+        FROM member
+        GROUP BY mlevel
+    </select>
+    <select id="getFineStatistics" resultType="Statistics">
+        SELECT
+        count(1) value,
+        fname    name
+        FROM (SELECT
+        finid,
+        fname
+        FROM fine
+        WHERE claid = (SELECT claid
+        FROM class
+        WHERE cname = #{cname})) a, commodity c
+        WHERE a.finid = c.finid
+        GROUP BY c.finid
     </select>
 </mapper>

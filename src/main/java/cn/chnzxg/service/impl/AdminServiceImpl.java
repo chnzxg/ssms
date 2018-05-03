@@ -9,6 +9,7 @@ import cn.chnzxg.util.MyUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,12 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Admin> qryAdmin(Map<String, Object> paramMap) {
-        return adminDao.qryAdmin(paramMap);
+        List<Admin> admins = adminDao.qryAdmin(paramMap);
+        for(Admin admin : admins){
+            admin.setRoles(roleDao.qryRoleByAdmin(admin));
+            admin.setPowers(roleDao.qryPowerByAdmin(admin));
+        }
+        return admins;
     }
 
     @Override
@@ -71,7 +77,19 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Admin> login(Map<String, Object> paramMap) {
-        return adminDao.login(paramMap);
+        List<Admin> admins = adminDao.qryAdmin(paramMap);
+        for(Admin admin : admins){
+            admin.setRoles(roleDao.qryRoleByAdmin(admin));
+            admin.setPowers(roleDao.qryPowerByAdmin(admin));
+        }
+        return admins;
+    }
+
+    @Override
+    public Admin updLoginTime(Admin admin) {
+        admin.setLastlogintime(new Date());
+        adminDao.updLoginTime(admin);
+        return admin;
     }
 
     private void setAdminRole(int[] rids, Integer aid) {

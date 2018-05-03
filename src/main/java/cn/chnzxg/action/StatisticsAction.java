@@ -1,7 +1,6 @@
 package cn.chnzxg.action;
 
-import cn.chnzxg.entity.Commodity;
-import cn.chnzxg.entity.Statistics;
+import cn.chnzxg.entity.*;
 import cn.chnzxg.service.StatisticsService;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.Gson;
@@ -11,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/5/1.
@@ -31,6 +32,41 @@ public class StatisticsAction {
         return "statistics/commstat";
     }
 
+    @RequestMapping(value = "/fine.do", method = RequestMethod.GET)
+    public String getFineStat(HttpServletRequest request, String cname){
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("cname", cname);
+        List<Statistics> fineInfo = statisticsService.getFineInfo(paramMap);
+        setAttibute(request, fineInfo, Fine.class);
+        return "statistics/finestat";
+    }
+
+    @RequestMapping(value = "/emp.do", method = RequestMethod.GET)
+    public String getEmployeeStat(HttpServletRequest request){
+        List<Statistics> employeeInfo = statisticsService.getEmployeeInfo();
+        for(Statistics s : employeeInfo){
+            int name = Integer.parseInt(s.getName());
+            switch (name){
+                case 1: s.setName("店长"); break;
+                case 2: s.setName("经理"); break;
+                case 3: s.setName("促销员"); break;
+                case 4: s.setName("收银员"); break;
+                case 5: s.setName("收货员"); break;
+                case 6: s.setName("理货员"); break;
+                case 7: s.setName("保洁"); break;
+            }
+        }
+        setAttibute(request, employeeInfo, Employee.class);
+        return "statistics/empstat";
+    }
+
+    @RequestMapping(value = "/mem.do", method = RequestMethod.GET)
+    public String getMemberStat(HttpServletRequest request){
+        List<Statistics> memberInfo = statisticsService.getMemberInfo();
+        setAttibute(request, memberInfo, Member.class);
+        return "statistics/memstat";
+    }
+
     //处理数据，生成json格式的name和value字符串
     private void setAttibute(HttpServletRequest request, List<Statistics> list, Class clazz){
         String[] names = new String[list.size()];
@@ -43,4 +79,5 @@ public class StatisticsAction {
         request.setAttribute(clazz.getSimpleName()+"InfoNames", gson.toJson(names).toString());
         request.setAttribute(clazz.getSimpleName()+"InfoValues", gson.toJson(values).toString());
     }
+
 }

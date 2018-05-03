@@ -1,5 +1,6 @@
 package cn.chnzxg.service;
 
+import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Power;
 import cn.chnzxg.entity.Role;
 

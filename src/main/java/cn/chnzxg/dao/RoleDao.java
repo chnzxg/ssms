@@ -1,5 +1,6 @@
 package cn.chnzxg.dao;
 
+import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Power;
 import cn.chnzxg.entity.Role;
 
@@ -17,4 +18,6 @@ public interface RoleDao {
     Integer addRole(Role role);
     Integer delAdminRole(Map<String, Object> paramMap);
     Integer addAdminRole(Map<String, Object> paramMap);
+    List<Role> qryRoleByAdmin(Admin admin);
+    List<Power> qryPowerByAdmin(Admin admin);
 }

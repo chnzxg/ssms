@@ -84,7 +84,7 @@
 				<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">年龄：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;width:100%;" type="text" class="form-control" name="eage" id="eage" placeholder="请输入年龄"><span class="input-group-addon">岁</span></div></td><td style="width:50px;"></td></tr>
 				<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">入职：</td><td style="width:240px;"><input style="height:28px;" type="date" class="form-control" name="etime" id="etime" placeholder="请输入入职时间" disabled></td><td style="width:50px;"></td></tr>
 				<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">电话：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="etel" id="etel" placeholder="请输入电话号码"></td><td style="width:50px;"></td></tr>
-				<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">工种：</td><td style="width:240px;"><select style="height:28px;" class="form-control" name="epro" id="epro">
+				<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">：</td><td style=工种"width:240px;"><select style="height:28px;" class="form-control" name="epro" id="epro">
 																																	<option value ="1">店长</option>
 																																	<option value ="2">经理</option>
 																																	<option value ="3">促销员</option>

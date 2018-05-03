@@ -23,7 +23,7 @@
     <script>
         //主页面跳转
         function jumpTo(url) {
-            $("#main-iframe").attr("src",url);
+            $("#main-iframe").attr("src", url);
         }
     </script>
 </head>
@@ -161,22 +161,26 @@
                     </a>
                     <ul>
                         <li class="active">
-                            <a name="splb" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/splb/qrysplb.do?page=1&pageSize=15')">
+                            <a name="splb" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/splb/qrysplb.do?page=1&pageSize=15')">
                                 <span class="title">商品列表</span>
                             </a>
                         </li>
                         <li>
-                            <a name="tjxsp" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/view/tjxsp.jsp')">
+                            <a name="tjxsp" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/view/tjxsp.jsp')">
                                 <span class="title">添加新商品</span>
                             </a>
                         </li>
                         <li>
-                            <a name="spfl" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?page=1&pageSize=15')">
+                            <a name="spfl" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?page=1&pageSize=15')">
                                 <span class="title">商品分类</span>
                             </a>
                         </li>
                         <li>
-                            <a name="sphsz" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/sphsz/qrysphsz.do?page=1&pageSize=15')">
+                            <a name="sphsz" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/sphsz/qrysphsz.do?page=1&pageSize=15')">
                                 <span class="title">商品回收站</span>
                             </a>
                         </li>
@@ -217,7 +221,8 @@
                     </a>
                     <ul>
                         <li>
-                            <a name="yglb" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
+                            <a name="yglb" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
                                 <span class="title">员工列表</span>
                             </a>
                         </li>
@@ -245,7 +250,8 @@
                     </a>
                     <ul>
                         <li>
-                            <a name="yglb" href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
+                            <a name="yglb" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
                                 <span class="title">会员列表</span>
                             </a>
                         </li>
@@ -268,12 +274,36 @@
                 </li>
                 <li>
                     <a href="layout-variants.html">
+                        <span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="title">权限管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span class="title">管理员管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span class="title">角色管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span class="title">修改信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layout-variants.html">
                         <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="title">统计图表</span>
                     </a>
                     <ul>
                         <li>
-                            <a href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/stat/comm.do')">
+                            <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/stat/comm.do')">
                                 <span class="title">商品统计</span>
                             </a>
                         </li>
@@ -299,6 +329,20 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="layout-variants.html">
+                        <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="title">系统设置</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span class="title">设置</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
             </ul>
 
         </div>

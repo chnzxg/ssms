@@ -34,4 +34,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select * from admin
         where aname = #{aname} and apassword = #{apassword}
     </select>
+    <update id="updLoginTime">
+        update admin set lastlogintime = #{lastlogintime}
+        where aid = #{aid}
+    </update>
 </mapper>
