@@ -26,4 +26,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         delete from role
         where rid = #{rid}
     </delete>
+    <insert id="addRole" useGeneratedKeys="true" keyProperty="rid" keyColumn="rid">
+        insert into role (rname, creattime) values
+        (#{rname},now())
+    </insert>
+    <update id="updRole">
+        update role set rname = #{rname} where rid = #{rid}
+    </update>
+    <delete id="delAdminRole">
+        delete from adminrole
+        where aid = #{aid}
+    </delete>
+    <insert id="addAdminRole">
+        insert into adminrole values
+        (#{aid}, #{rid})
+    </insert>
 </mapper>

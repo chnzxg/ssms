@@ -1,19 +1,17 @@
 package cn.chnzxg.action;
 
-import cn.chnzxg.entity.Admin;
-import cn.chnzxg.entity.Power;
 import cn.chnzxg.entity.Role;
-import cn.chnzxg.service.AdminService;
 import cn.chnzxg.service.RoleService;
 import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.condition.ParamsRequestCondition;
 
 import javax.annotation.Resource;
-import javax.management.relation.RoleResult;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +34,26 @@ public class RoleAction {
     @RequestMapping(value = "/delrole.do", method = RequestMethod.DELETE)
     public String delRole(HttpServletRequest request, String page, String pageSize, Role role){
         roleService.delRole(MyUtil.beanToMap(role));
+        getRoles(role, page, pageSize, request);
+        return "JSLB";
+    }
+
+    @RequestMapping(value = "/addrole.do", method = RequestMethod.POST)
+    public String addRole(HttpServletRequest request, String page, String pageSize, Role role, int[] pid){
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("role", role);
+        paramMap.put("pids", pid);
+        roleService.addRole(paramMap);
+        getRoles(role, page, pageSize, request);
+        return "JSLB";
+    }
+
+    @RequestMapping(value = "/updrole.do", method = RequestMethod.POST)
+    public String updRole(HttpServletRequest request, String page,String pageSize, Role role, int[] pid){
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("role", role);
+        paramMap.put("pids", pid);
+        roleService.updRole(paramMap);
         getRoles(role, page, pageSize, request);
         return "JSLB";
     }

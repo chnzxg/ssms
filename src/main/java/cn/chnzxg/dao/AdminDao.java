@@ -12,5 +12,6 @@ public interface AdminDao {
     List<Admin> qryAdmin(Map<String, Object> paramMap);
     Integer delAdmin(Map<String, Object> paramMap);
     Integer updAdmin(Map<String, Object> paramMap);
-    Integer addAdmin(Map<String, Object> paramMap);
+    Integer addAdmin(Admin admin);
+    List<Admin> login(Map<String, Object> paramMap);
 }

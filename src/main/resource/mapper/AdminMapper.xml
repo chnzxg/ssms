@@ -15,4 +15,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             limit #{firstRow},#{pageSize}
         </if>
     </select>
+    <delete id="delAdmin">
+        delete from admin
+        where aid = #{aid}
+    </delete>
+    <update id="updAdmin">
+        update admin set
+        aname = #{aname}, apassword = #{apassword}
+        <if test="lastlogintime!=null">
+            , lastlogintime = #{lastlogintime}
+        </if>
+    </update>
+    <insert id="addAdmin">
+        insert into admin (aname, apassword, creattime) values
+        (#{aname}, #{apassword}, now())
+    </insert>
+    <select id="login" resultType="Admin">
+        select * from admin
+        where aname = #{aname} and apassword = #{apassword}
+    </select>
 </mapper>

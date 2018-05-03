@@ -13,4 +13,5 @@ public interface AdminService {
     Integer delAdmin(Map<String, Object> paramMap);
     Integer updAdmin(Map<String, Object> paramMap);
     Integer addAdmin(Map<String, Object> paramMap);
+    List<Admin> login(Map<String, Object> paramMap);
 }

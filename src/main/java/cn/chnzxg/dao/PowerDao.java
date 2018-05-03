@@ -10,4 +10,6 @@ import java.util.Map;
  */
 public interface PowerDao {
     List<Power> qryPower(Map<String, Object> paramMap);
+    Integer delRolePower(Map<String, Object> paramMap);
+    Integer addRolePower(Map<String, Object> paramMap);
 }

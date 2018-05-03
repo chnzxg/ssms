@@ -39,11 +39,11 @@
     </column>
     <column id="23" parent="10" name="creattime">
       <Position>4</Position>
-      <DataType>date|0</DataType>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="24" parent="10" name="lastlogintime">
       <Position>5</Position>
-      <DataType>date|0</DataType>
+      <DataType>datetime|0</DataType>
     </column>
     <key id="25" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -304,7 +304,7 @@
     </column>
     <column id="83" parent="18" name="creattime">
       <Position>3</Position>
-      <DataType>date|0</DataType>
+      <DataType>datetime|0</DataType>
     </column>
     <key id="84" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
