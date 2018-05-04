@@ -1,4 +1,4 @@
 driver=com.mysql.jdbc.Driver
-url=jdbc:mysql://azhou.top:3306/ssms
+url=jdbc:mysql://120.77.202.252:3306/ssms
 username=root
-password=1231
+password=123
