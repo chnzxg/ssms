@@ -15,11 +15,11 @@
 			    totalPages: ${pageCount},
 			    visiblePages: 7,
 			    currentPage: ${page},
-			    first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=1&pageSize=15">首页</a></li>',
-			    prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page-1}&pageSize=15">上一页</a></li>',
-			    next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page+1}&pageSize=15">下一页</a></li>',
-			    last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${pageCount}&pageSize=15">末页</a></li>',
-			    page: '<li class="page"><a href="${pageContext.request.contextPath}/splb/qrysplb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
+			    first: '<li class="first"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=1&pageSize=15">&laquo;</a></li>',
+			    prev: '<li class="prev"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page-1}&pageSize=15">&lsaquo;</a></li>',
+			    next: '<li class="next"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page+1}&pageSize=15">&rsaquo;</a></li>',
+			    last: '<li class="last"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${pageCount}&pageSize=15">&raquo;</a></li>',
+			    page: '<li class="page"><a style="font-size: 16px" href="${pageContext.request.contextPath}/splb/qrysplb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
 			    onPageChange: function (num) {
 			        $('#text').html('当前第' + num + '页');
 			    }
@@ -33,7 +33,7 @@
 				  $(this).attr("src", "../img/fail.jpg");
 				});
 			
-			
+
 			var imgs = $(".commimg");
 			for(var i=0;i<imgs.length;i++){
 				var id = $(imgs[i]).attr("id");
@@ -81,7 +81,9 @@
 	<body>
 		<div id="main" style="background-color:#eee;">
 		<button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示</button>
-		<button class="button button-rounded button-small" data-dismiss="modal" onclick="javascript:location.reload()">刷新</button><br>
+		<button class="button button-rounded button-small" data-dismiss="modal" onclick="javascript:location.reload()">刷新</button>
+		<button class="button button-rounded button-small" data-dismiss="modal" onclick="javascript:location.reload()">导出</button>
+			<br>
 			<div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
 			<!-- 修改页面 -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -100,11 +102,6 @@
 						<img style="height:100%;width:100%;" id="cimg" onerror="this.src='../img/commodity/1.jpg'">
 					</div>
 					<div  style="float:left;height:400px;width:70%;">
-					<!-- <div style="float:left;height:30px;width:20%;font-size:15px;line-height:30px;">商品名称：</div>
-					<div ><input style="width:150px;height:30px;" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></div>
-					<div style="float:left;height:30px;width:20%;font-size:15px;line-height:30px;">商品名称：</div>
-					<div ><input style="width:150px" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></div>
-					-->
 					<table style="table-layout:fixed;">
 					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">商品名称：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
 					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">分类：</td><td style="width:240px;"><select style="height:28px;" class="form-control" name="finid" id="finid">
@@ -169,10 +166,10 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="comm" varStatus="status">
-					<tr style="height:20px;">
+					<tr style="cursor:pointer;" onclick="qryDetail(${comm.comid})" data-toggle="modal" data-target="#myModal">
 					    <td id="comid" style="display:none">${comm.comid}</td>
 					    <td style="width:6%;">${status.count}</td>
-					    <td style="width:12%;"><a href="javascript:void(0);" onclick="qryDetail(${comm.comid})" data-toggle="modal" data-target="#myModal">${comm.cname}</a></td>
+					    <td style="width:12%;">${comm.cname}</td>
 					    <td style="width:8%;">${comm.fname}</td>
 					    <td style="width:7%;">${comm.cspec}</td>
 					    <td style="width:7%;">${comm.cweight}g</td>
@@ -181,7 +178,7 @@
 					    <td style="width:6%;">${comm.ccode}</td>
 					    <td style="width:7%;">${comm.cstock}</td>
 					    <td style="width:7%;">${comm.cproder}</td>
-					    <td style="width:18%;">${comm.cprodate}</td>
+					    <td style="width:18%;"><fmt:formatDate pattern="yyyy-MM-dd" value="${comm.cprodate}" /></td>
 					    <td style="width:20%;"><a style="width:25px;height:20px;" href="${pageContext.request.contextPath}/splb/removecomm.do?comid=${comm.comid}&page=${page}&pageSize=15">x</a></td>
 					</tr>
 					</c:forEach>

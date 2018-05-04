@@ -43,7 +43,7 @@ public class SystemAction {
     @RequestMapping(value = "/logout.do" ,method = RequestMethod.GET)
     public String logout(HttpSession session){
         session.invalidate();
-        return "Login";
+        return "login";
     }
 
 }

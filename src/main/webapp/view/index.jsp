@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../assets/css/xenon-core.css">
     <link rel="stylesheet" href="../assets/css/xenon-forms.css">
     <link rel="stylesheet" href="../assets/css/xenon-components.css">
-    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
+    <%--<link rel="stylesheet" href="../assets/css/xenon-skins.css">--%>
     <link rel="stylesheet" href="../assets/css/custom.css">
     <link rel="stylesheet" href="../css/index.css">
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
@@ -279,13 +279,15 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="javascript:void(0)">
-                                <span class="title">管理员管理</span>
+                            <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15')">
+                            <span class="title">管理员管理</span>
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">
-                                <span class="title">角色管理</span>
+                            <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15')">
+                            <span class="title">角色管理</span>
                             </a>
                         </li>
                         <li>
@@ -350,11 +352,16 @@
     </div>
 
     <div id="main-content" style="width:100%;height:100%;background-color:#eee;">
-        <div id="tools" style="width: 100%;height: 7%;background-color: darkgray"></div>
+
+        <div id="tools" style="width: 100%;height: 7%;background-color: darkgray">
+            <div style="height: 100%; width: 200px;">欢迎！${user.aname}<br>在线时间：</div>
+        </div>
+
         <div id="content" class="main">
             <iframe frameborder="no" style="width:100%;height:93%;" class="viewiframe" id="main-iframe"
                     src="${pageContext.request.contextPath}/system/welcome.do" name="main"></iframe>
         </div>
+
     </div>
 
     <!-- start: Chat Section -->
@@ -490,6 +497,7 @@
 </div>
 
 
+
 <!-- Bottom Scripts -->
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/TweenMax.min.js"></script>
@@ -508,6 +516,7 @@
 
 <!-- JavaScripts initializations and stuff -->
 <script src="../assets/js/xenon-custom.js"></script>
+
 
 </body>
 </html>

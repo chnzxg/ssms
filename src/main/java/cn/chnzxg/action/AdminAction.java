@@ -1,7 +1,6 @@
 package cn.chnzxg.action;
 
 import cn.chnzxg.entity.Admin;
-import cn.chnzxg.entity.Role;
 import cn.chnzxg.service.AdminService;
 import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
@@ -28,14 +27,14 @@ public class AdminAction {
     @RequestMapping(value = "/qryadmin.do", method = RequestMethod.GET)
     public String qryAdmin(HttpServletRequest request, String page, String pageSize, Admin admin){
         getAdmins(admin, page, pageSize, request);
-        return "GLYLB";
+        return "glylb";
     }
 
     @RequestMapping(value = "/deladmin.do", method = RequestMethod.DELETE)
     public String delAdmin(HttpServletRequest request, String page, String pageSize, Admin admin){
         adminService.delAdmin(MyUtil.beanToMap(admin));
         getAdmins(admin, page, pageSize, request);
-        return "GLYLB";
+        return "glylb";
     }
 
     @RequestMapping(value = "/addadmin.do", method = RequestMethod.POST)
@@ -45,7 +44,7 @@ public class AdminAction {
         paramMap.put("rids", rid);
         adminService.addAdmin(paramMap);
         getAdmins(admin, page, pageSize, request);
-        return "GLYLB";
+        return "glylb";
     }
 
     @RequestMapping(value = "/updadmin.do", method = RequestMethod.POST)

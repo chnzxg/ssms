@@ -29,7 +29,7 @@
 					$("#finetb").children().remove();
 					$("#commtb").children().remove();
 					for(var i=0;i<data.length;i++){
-						$("#finetb").append('<tr id="ftr'+i+'" onclick="getComm('+data[i].finid+')" style="cursor:pointer;height:20px;display:none;"><td id="claid" style="display:none">'+data[i].finid+'</td><td style="width:33%;">'+(i+1)+'</td><td style="width:33%;">'+data[i].fname+'</td><td style="width:33%;">'+data[i].fcode+'</td></tr>');
+						$("#finetb").append('<tr id="ftr'+i+'" onclick="getComm('+data[i].finid+')" style="cursor:pointer;display:none;"><td id="claid" style="display:none">'+data[i].finid+'</td><td style="width:33%;">'+(i+1)+'</td><td style="width:33%;">'+data[i].fname+'</td><td style="width:33%;">'+data[i].fcode+'</td></tr>');
 						$("#ftr"+i).fadeIn();
 					}
 				}
@@ -41,7 +41,7 @@
 				success:function(data){
 					$("#commtb").children().remove();
 					for(var i=0;i<data.length;i++){
-						$("#commtb").append('<tr id="ctr'+i+'" style="cursor:pointer;height:20px;display:none;"><td id="claid" style="display:none">'+data[i].claid+'</td><td style="width:33%;">'+(i+1)+'</td><td style="width:33%;">'+data[i].cname+'</td><td style="width:33%;">'+data[i].cprice+'元</td></tr>');
+						$("#commtb").append('<tr id="ctr'+i+'" style="cursor:pointer;display:none;"><td id="claid" style="display:none">'+data[i].claid+'</td><td style="width:33%;">'+(i+1)+'</td><td style="width:33%;">'+data[i].cname+'</td><td style="width:33%;">'+data[i].cprice+'元</td></tr>');
 						$("#ctr"+i).fadeIn();
 					}
 				}
@@ -50,7 +50,7 @@
 	</script>
 	</head>
 	<body>
-	
+
 		<button class="button button-rounded button-small" data-dismiss="modal" onclick="javascript:location.reload()">刷新</button><br>
 		<div id="main" style="wdith:100%;height:100%;background-color:#eee;">
 		<div id="tdiv1" class="tdiv">
@@ -65,7 +65,7 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${listclazz}" var="clazz" varStatus="status">
-					<tr style="height:20px;cursor:pointer;" onclick="getFine(${clazz.claid})">
+					<tr style="cursor:pointer;" onclick="getFine(${clazz.claid})">
 					    <td id="claid" style="display:none">${clazz.claid}</td>
 					    <td style="width:33%;">${status.count}</td>
 					    <td style="width:33%;">${clazz.cname}</td>
@@ -87,7 +87,7 @@
 				</thead>
 				<tbody id="finetb">
 					<%-- <c:forEach items="${listfine}" var="fine" varStatus="status">
-					<tr style="height:20px;">
+					<tr style="">
 					    <td id="claid" style="display:none">${fine.findi}</td>
 					    <td style="width:33%;">${status.count}</td>
 					    <td style="width:33%;">${fine.fname}</td>
@@ -109,7 +109,7 @@
 				</thead>
 				<tbody id="commtb">
 					<%-- <c:forEach items="${listcomm}" var="comm" varStatus="status">
-					<tr style="height:20px;">
+					<tr style="">
 					    <td id="claid" style="display:none">${comm.comid}</td>
 					    <td style="width:33%;">${status.count}</td>
 					    <td style="width:33%;">${comm.cname}</td>

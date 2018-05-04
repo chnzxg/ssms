@@ -13,8 +13,8 @@
                 totalPages: ${pageCount},
                 visiblePages: 7,
                 currentPage: ${page},
-                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/yglb..do?page=1&pageSize=15">首页</a></li>',
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/yglb..do?page=${page-1}&pageSize=15">上一页</a></li>',
+                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">首页</a></li>',
+                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">上一页</a></li>',
                 next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">下一页</a></li>',
                 last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">末页</a></li>',
                 page: '<li class="page"><a href="${pageContext.request.contextPath}/yglb/qryyglb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
@@ -27,27 +27,6 @@
             if(${pageCount==page})
                 $(".down").attr("href","javascript:void(0)");
         });
-        function qryDetail(empid){
-            $.ajax({
-                url:"${pageContext.request.contextPath}/yglb/qryDetail.do?empid="+empid,
-                success:function(data){
-                    $("#myModalLabel").text(data.ename);
-                    $("#eno").val(data.eno);
-                    $("#ename").val(data.ename);
-                    if(data.esex=="1")
-                        $("#radio1").iCheck('check')
-                    else
-                        $("#radio0").iCheck('check')
-                    $("#eage").val(data.eage);
-                    $("#etime").val(data.etime);
-                    $("#etel").val(data.etel);
-                    $("#epro").val(data.epro);
-                    $("#email").val(data.email);
-                    $("#esal").val(data.esal);
-                    $("#eimg").attr("src","../img/employee/"+data.empid+".jpg");
-                }
-            });
-        }
     </script>
 </head>
 <body>

@@ -22,7 +22,7 @@
     // 指定图表的配置项和数据
     var option = {
         title: {
-            text: '商品大类'
+            text: '商品类别'
         },
         tooltip: {},
         legend: {
@@ -32,8 +32,19 @@
             data: ${CommodityInfoNames}
         },
         yAxis: {},
+        /*itemStyle: {
+            normal: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                },
+                color: 'black'
+            }
+        },*/
+
         series: [{
-            name: '销量',
+            name: '类别',
             type: 'bar',
             data: ${CommodityInfoValues}
         }]
@@ -51,11 +62,10 @@
                 type: 'pie',
                 radius: '55%',
                 data: ${CommodityInfo},
-                roseType: 'angle',
                 itemStyle: {
                     normal: {
-                        shadowBlur: 200,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        shadowBlur: 0,
+                        shadowColor: 'rgba(0, 0, 0, 00)'
                     }
                 }
             }

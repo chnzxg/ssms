@@ -28,14 +28,14 @@ public class RoleAction {
     @RequestMapping(value = "/qryrole.do", method = RequestMethod.GET)
     public String getRole(HttpServletRequest request, String page, String pageSize, Role role){
         getRoles(role, page, pageSize, request);
-        return "JSLB";
+        return "jslb";
     }
 
     @RequestMapping(value = "/delrole.do", method = RequestMethod.DELETE)
     public String delRole(HttpServletRequest request, String page, String pageSize, Role role){
         roleService.delRole(MyUtil.beanToMap(role));
         getRoles(role, page, pageSize, request);
-        return "JSLB";
+        return "jslb";
     }
 
     @RequestMapping(value = "/addrole.do", method = RequestMethod.POST)
@@ -45,7 +45,7 @@ public class RoleAction {
         paramMap.put("pids", pid);
         roleService.addRole(paramMap);
         getRoles(role, page, pageSize, request);
-        return "JSLB";
+        return "jslb";
     }
 
     @RequestMapping(value = "/updrole.do", method = RequestMethod.POST)
@@ -55,7 +55,7 @@ public class RoleAction {
         paramMap.put("pids", pid);
         roleService.updRole(paramMap);
         getRoles(role, page, pageSize, request);
-        return "JSLB";
+        return "jslb";
     }
 
     private void getRoles(Role role, String page, String pageSize, HttpServletRequest request){
