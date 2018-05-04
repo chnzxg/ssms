@@ -168,7 +168,7 @@
                         </li>
                         <li>
                             <a name="tjxsp" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/view/tjxsp.jsp')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?flag=1')">
                                 <span class="title">添加新商品</span>
                             </a>
                         </li>

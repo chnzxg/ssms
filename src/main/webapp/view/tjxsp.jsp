@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="../css/page/tjxsp.css">
     <script src="../js/page/tjxsp.js"></script>
     <script>
+        $(function () {
+            $('#claid').on('change',function () {
+                var options = $('#claid option:selected');
+                $("#finid").children().remove();
+                getFineList(options.val());
+            });
+        })
         function addComm() {
             $.ajax({
                 url: '${pageContext.request.contextPath}/splb/addsplb.do',
@@ -21,6 +28,17 @@
                 }
             })
             //$("#form").submit();
+        }
+        function getFineList(claid){
+            $.ajax({
+                url: '${pageContext.request.contextPath}/spfl/qryfine.do?claid='+claid,
+                success: function (json) {
+                    for(var i=0;i<json.length;i++){
+                        $("#finid").append('<option value="'+json[i].finid+'">'+json[i].fname+'</option>');
+                    }
+                    $('#finid').removeAttr('disabled');
+                }
+            })
         }
     </script>
 </head>
@@ -57,14 +75,20 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <span for="finid" class="col-sm-2 control-label">类别：</span>
+                    <span for="claid" class="col-sm-2 control-label">大类：</span>
                     <div class="col-sm-3">
-                        <select class="form-control" name="finid" id="finid">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select class="form-control" name="claid" id="claid">
+                            <option></option>
+                            <c:forEach items="${listclazz}" var="clazz">
+                                <option value="${clazz.claid}">${clazz.cname}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span for="finid" class="col-sm-2 control-label">细类：</span>
+                    <div class="col-sm-3">
+                        <select disabled="disabled" class="form-control" name="finid" id="finid">
                         </select>
                     </div>
                 </div>

@@ -8,20 +8,20 @@
 }
 #main{
 	margin:0 auto;
-    display:flex;/*Flex²¼¾Ö*/
+    display:flex;/*Flexï¿½ï¿½ï¿½ï¿½*/
     display: -webkit-flex; /* Safari */
-    align-items:center;/*Ö¸¶¨´¹Ö±¾ÓÖÐ*/
+    align-items:center;/*Ö¸ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½*/
 }
 #main form input{
-	 height:30px; line-height:30px;	
+	 height:33px; line-height:33px;
 }
 #main form select{
-	 height:30px; line-height:30px;	
+	 height:33px; line-height:33px;
 }
 .form-group{
-    display:flex;/*Flex²¼¾Ö*/
+    display:flex;/*Flexï¿½ï¿½ï¿½ï¿½*/
     display: -webkit-flex; /* Safari */
-    align-items:center;/*Ö¸¶¨´¹Ö±¾ÓÖÐ*/
+    align-items:center;/*Ö¸ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½*/
 }
 body{
 	text-align:center;

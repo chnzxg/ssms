@@ -120,6 +120,7 @@ public class SPLBAction {
 		}
 		return comm;
 	}
+
 	//获取商品集合
 	public List<Commodity> getCommList(Commodity comm){
 		return commodityService.qryAllComm(comm);
