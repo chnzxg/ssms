@@ -1,4 +1,5 @@
 $(function(){
+	$(':input').attr('autocomplete','off');
 	//icheck初始化
 	$('input').iCheck({
 	    checkboxClass: 'icheckbox_flat-blue',

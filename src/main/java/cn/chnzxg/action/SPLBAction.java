@@ -79,14 +79,13 @@ public class SPLBAction {
 		return "sphsz";
 	}
 	@RequestMapping("/updsplb.do")
-	@ResponseBody
-	public String updSPBL(Integer comid,Integer finid,Integer cweight,Integer cstock,String cname,String fname,String cspec,Integer month,Double cprice,String cproder,String ccode,String cdesc,String date,HttpServletRequest request,String page,String pageSize){
+    @ResponseBody
+	public String updSPBL(Commodity commodity, HttpServletRequest request,String page,String pageSize){
 		try{
 			if(!"".equals(page)&&!"".equals(pageSize)){
-				Commodity comm = pageMethod(page, pageSize, new Commodity(comid, cname, finid, fname, cspec, month, cweight, cprice, cproder, Timestamp.valueOf(date+" 00:00:00"), ccode, cstock, cdesc));
-				if(comm!=null)
-					commodityService.updComm(comm);
-				request.setAttribute("list", getCommList(comm));
+				if(commodity!=null)
+					commodityService.updComm(commodity);
+				request.setAttribute("list", getCommList(commodity));
 				request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity(SSMSKey.COMM_STATUS_NORMAL)),pageSize));
 				request.setAttribute("page", page);
 				request.setAttribute("pageSize", pageSize);

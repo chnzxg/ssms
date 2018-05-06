@@ -22,8 +22,8 @@
     </select>
     <select id="getMemberStatistics" resultType="Statistics">
         SELECT
-        concat('level', mlevel),
-        sum(1)
+        concat('等级', mlevel) name,
+        sum(1) value
         FROM member
         GROUP BY mlevel
     </select>

@@ -21,29 +21,29 @@
     var myChart = echarts.init(document.getElementById('div1'));
     // 指定图表的配置项和数据
     var option = {
-            tooltip: {},
+        tooltip: {},
         legend: {
-            data: ['类别']
+            data: ['会员']
         },
         xAxis: {
-            data: ${CommodityInfoNames}
+            data: ${MemberInfoNames}
         },
         yAxis: {},
         /*itemStyle: {
-            normal: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                },
-                color: 'black'
-            }
-        },*/
+         normal: {
+         emphasis: {
+         shadowBlur: 10,
+         shadowOffsetX: 0,
+         shadowColor: 'rgba(0, 0, 0, 0.5)'
+         },
+         color: 'black'
+         }
+         },*/
 
         series: [{
-            name: '类别',
+            name: '会员',
             type: 'bar',
-            data: ${CommodityInfoValues}
+            data: ${MemberInfoValues}
         }]
     };
     // 使用刚指定的配置项和数据显示图表。
@@ -58,7 +58,7 @@
                 name: '访问来源',
                 type: 'pie',
                 radius: '55%',
-                data: ${CommodityInfo},
+                data: ${MemberInfo},
                 itemStyle: {
                     normal: {
                         shadowBlur: 0,

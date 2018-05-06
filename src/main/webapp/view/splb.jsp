@@ -103,23 +103,21 @@
 					</div>
 					<div  style="float:left;height:400px;width:70%;">
 					<table style="table-layout:fixed;">
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">商品名称：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">分类：</td><td style="width:240px;"><select style="height:28px;" class="form-control" name="finid" id="finid">
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">商品名称：</td><td style="width:240px;"><input style="height:33px;" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">分类：</td><td style="width:240px;"><select style="height:28px;" class="form-control" name="finid" id="finid">
 																																		<option>1</option>
 																																		<option>2</option>
 																																		<option>3</option>
 																																		<option>4</option>
 																																		<option>5</option>
 																																	</select></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">规格：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cspec" id="cspec" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">重量：</td><td style="width:298px;"><div class="input-group"><input style="height:28px;width:100%;" type="text" class="form-control" name="cweight" id="cweight" placeholder="请输入名称"><span class="input-group-addon">克</span></div></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">单价：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;" type="text" class="form-control" name="cprice" id="cprice" placeholder="请输入名称"><span class="input-group-addon">元</span></div></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">保质期：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;" type="text" class="form-control" name="month" id="month" placeholder="请输入名称"><span class="input-group-addon">月</span></div></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">代码：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="ccode" id="ccode" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">库存：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;" type="text" class="form-control" name="cstock" id="cstock" placeholder="请输入名称"><span class="input-group-addon">个</span></div></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">生产商：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cproder" id="cproder" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">生产日期：</td><td style="width:240px;"><input style="height:28px;" type="date" class="form-control" name="date" id="cprodate"></td><td style="width:50px;"></td></tr>
-					<tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">描述：</td><td style="width:240px;"><div class="form-group"><textarea style="height:56px;" rows="2" class="form-control" name="cdesc" id="cdesc" placeholder="请输入不超过20字的描述"></textarea></div></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">重量：</td><td style="width:298px;"><div class="input-group"><input style="height:33px;width:100%;" type="text" class="form-control" name="cweight" id="cweight" placeholder="请输入名称"><span class="input-group-addon">克</span></div></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">单价：</td><td style="width:240px;"><div class="input-group"><input style="height:33px;" type="text" class="form-control" name="cprice" id="cprice" placeholder="请输入名称"><span class="input-group-addon">元</span></div></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">保质期：</td><td style="width:240px;"><div class="input-group"><input style="height:33px;" type="text" class="form-control" name="month" id="month" placeholder="请输入名称"><span class="input-group-addon">月</span></div></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">库存：</td><td style="width:240px;"><div class="input-group"><input style="height:33px;" type="text" class="form-control" name="cstock" id="cstock" placeholder="请输入名称"><span class="input-group-addon">个</span></div></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">生产商：</td><td style="width:240px;"><input style="height:33px;" type="text" class="form-control" name="cproder" id="cproder" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">生产日期：</td><td style="width:240px;"><input style="height:33px;" type="date" class="form-control" name="date" id="cprodate"></td><td style="width:50px;"></td></tr>
+					<tr style="height:40px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">描述：</td><td style="width:240px;"><div class="form-group"><textarea style="height:56px;" rows="2" class="form-control" name="cdesc" id="cdesc" placeholder="请输入不超过20字的描述"></textarea></div></td><td style="width:50px;"></td></tr>
 					</table>
 					</div>
 				</form>
@@ -144,7 +142,7 @@
 			</div>
 			</div>
 			<br>
-			<div id="dtable" style="width:96%;height:100%;margin:0 auto;">
+			<div id="dtable card" style="width:96%;height:100%;margin:0 auto;">
 			<div id="divtable" class="divtable" style="background-color:#fff;">
 			<table class="table table-hover table-condensed table-striped"  id="commtable">
 				<thead>
@@ -153,7 +151,6 @@
 					<th style="text-align:center;vertical-align:middle;">序号</th>
 					<th style="text-align:center;vertical-align:middle;">商品名称</th>
 					<th style="text-align:center;vertical-align:middle;">分类</th>
-					<th style="text-align:center;vertical-align:middle;">规格</th>
 					<th style="text-align:center;vertical-align:middle;">重量</th>
 					<th style="text-align:center;vertical-align:middle;">单价</th>
 					<th style="text-align:center;vertical-align:middle;">保质期</th>
@@ -171,7 +168,6 @@
 					    <td style="width:6%;">${status.count}</td>
 					    <td style="width:12%;">${comm.cname}</td>
 					    <td style="width:8%;">${comm.fname}</td>
-					    <td style="width:7%;">${comm.cspec}</td>
 					    <td style="width:7%;">${comm.cweight}g</td>
 					    <td style="width:7%;">${comm.cprice}元</td>
 					    <td style="width:8%;">${comm.month}个月</td>

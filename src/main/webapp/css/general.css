@@ -1,4 +1,13 @@
-
+input{
+	autocomplete: off;
+}
+.tool-right{
+	float: right;
+	background-color: black;
+	height: 100%;
+	border: 10px solid white;
+	width: 70px;
+}
 iframe{
 	width:100%;
 	height:100%;

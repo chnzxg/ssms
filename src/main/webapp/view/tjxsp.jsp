@@ -6,35 +6,124 @@
 <head>
     <%@include file="../include/general.jsp" %>
     <link rel="stylesheet" href="../css/page/tjxsp.css">
+    <link rel="stylesheet" href="../css/fileinput/fileinput.css">
     <script src="../js/page/tjxsp.js"></script>
+    <script src="../js/fileinput/fileinput.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap/bootstrapValidator.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap/zh_CN.js"></script>
     <script>
         $(function () {
-            $('#claid').on('change',function () {
+            $('#claid').on('change', function () {
                 var options = $('#claid option:selected');
                 $("#finid").children().remove();
                 getFineList(options.val());
             });
-        })
-        function addComm() {
-            $.ajax({
-                url: '${pageContext.request.contextPath}/splb/addsplb.do',
-                data: $('#form').serialize(),
-                success: function (data) {
-                    if (data == '1')
-                        $('#info').text('添加商品成功');
-                    else
-                        $('#info').text('添加商品失败，请稍后重试');
-                    $('#addinfo').modal('show')
+
+            //表单验证
+            $('#form').bootstrapValidator({
+                    message: 'This value is not valid',
+                    live: 'enabled',
+                    submitButtons: 'button[type="submit"]',
+                    fields: {
+                        month: {
+                            enabled: true,
+                            message: '输入值不合法',
+                            validators: {
+                                notEmpty: {
+                                    message: '名称不能为空'
+                                }
+                            }
+                        },
+                        month: {
+                            enabled: true,
+                            message: '输入值不合法',
+                            validators: {
+                                notEmpty: {
+                                    message: '保质期不能为空'
+                                },
+                                stringLength: {
+                                    min: 1,
+                                    max: 3,
+                                    message: '必须为1-3位'
+                                },
+                                regexp: {
+                                    regexp: /^[0-9]+$/,
+                                    message: '必须为纯数字'
+                                }
+                            }
+                        },
+                        cweight: {
+                            enabled: true,
+                            message: '输入值不合法',
+                            validators: {
+                                regexp: {
+                                    regexp: /^[0-9]+$/,
+                                    message: '必须为纯数字'
+                                }
+                            }
+                        },
+                        cprice: {
+                            validators: {
+                                notEmpty: {
+                                    message: '价格不能为空'
+                                },
+                                regexp: {
+                                    regexp: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+                                    message: '必须为纯数字'
+                                }
+                            }
+                        },
+                        cdesc: {
+                            validators: {
+                                stringLength: {
+                                    min: 0,
+                                    max: 20,
+                                    message: '必须小于20位'
+                                },
+                            }
+                        },
+                        cstock: {
+                            validators: {
+                                regexp: {
+                                    regexp: /^[0-9]+$/,
+                                    message: '必须为纯数字'
+                                }
+                            }
+                        }
+                    }
                 }
-            })
+            );
+        });
+
+        function addComm() {
+            $('#form').bootstrapValidator('validate');
+            if ($('#form').data("bootstrapValidator").isValid()) {
+                $.ajax({
+                    url: '${pageContext.request.contextPath}/splb/addsplb.do',
+                    data: $('#form').serialize(),
+                    success: function (data) {
+                        if (data == '1') {
+                            $('#info').text('添加商品成功');
+                            setTimeout(function () {
+                                location.reload();
+                            },500);
+                        }
+                        else
+                            $('#info').text('添加商品失败，请稍后重试');
+                        $('#addinfo').modal('show')
+                    }
+                })
+            }
+
             //$("#form").submit();
         }
-        function getFineList(claid){
+
+        function getFineList(claid) {
             $.ajax({
-                url: '${pageContext.request.contextPath}/spfl/qryfine.do?claid='+claid,
+                url: '${pageContext.request.contextPath}/spfl/qryfine.do?claid=' + claid,
                 success: function (json) {
-                    for(var i=0;i<json.length;i++){
-                        $("#finid").append('<option value="'+json[i].finid+'">'+json[i].fname+'</option>');
+                    for (var i = 0; i < json.length; i++) {
+                        $("#finid").append('<option value="' + json[i].finid + '">' + json[i].fname + '</option>');
                     }
                     $('#finid').removeAttr('disabled');
                 }
@@ -93,12 +182,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <span for="cspec" class="col-sm-2 control-label">规格：</span>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" id="cspec" name="cspec" placeholder="请输入规格">
-                    </div>
-                </div>
-                <div class="form-group">
                     <span for="cweight" class="col-sm-2 control-label">重量：</span>
                     <div class="col-sm-3">
                         <div class="input-group"><input type="text" class="form-control" id="cweight" name="cweight"
@@ -134,18 +217,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <%--<div class="form-group">
                     <span for="ccode" class="col-sm-2 control-label">代码：</span>
                     <div class="col-sm-3">
                         <input type="text" class="form-control" id="ccode" name="ccode" placeholder="请输入商品代码，只能为数字">
                     </div>
-                </div>
+                </div>--%>
                 <div class="form-group">
                     <span for="cstock" class="col-sm-2 control-label">库存：</span>
                     <div class="col-sm-3">
                         <div class="input-group"><input type="text" class="form-control" id="cstock" name="cstock"
                                                         placeholder="请输入库存数量"><span class="input-group-addon">个</span>
                         </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span for="cstock" class="col-sm-2 control-label">图片：</span>
+                    <div class="col-sm-3">
+                        <input type="file" name="cimg" value=""/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -157,7 +246,6 @@
                 <button type="button" class="button button-rounded button-small" data-dismiss="modal"
                         onclick="javascript:location.reload()">刷新
                 </button>
-                <button type="button" class="button button-rounded button-small" data-dismiss="modal">重置</button>
                 <button type="button" onclick="addComm()"
                         class="button button-rounded button-small button-primary button-glow">提交
                 </button>

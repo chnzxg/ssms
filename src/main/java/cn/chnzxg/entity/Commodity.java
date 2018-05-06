@@ -1,6 +1,6 @@
 package cn.chnzxg.entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Commodity {
 	//id
@@ -22,7 +22,7 @@ public class Commodity {
 	//生产商
 	private String cproder;
 	//生产日期
-	private Timestamp cprodate;
+	private Date cprodate;
 	//编码
 	private String ccode;
 	//库存
@@ -41,7 +41,7 @@ public class Commodity {
 	}
 
 	public Commodity(Integer comid, String cname, Integer finid, String fname, String cspec, Integer month,
-			Integer cweight, Double cprice, String cproder, Timestamp cprodate, String ccode, Integer cstock,
+			Integer cweight, Double cprice, String cproder, Date cprodate, String ccode, Integer cstock,
 			String cdesc) {
 		super();
 		this.comid = comid;
@@ -139,10 +139,10 @@ public class Commodity {
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
-	public Timestamp getCprodate() {
+	public Date getCprodate() {
 		return cprodate;
 	}
-	public void setCprodate(Timestamp cprodate) {
+	public void setCprodate(Date cprodate) {
 		this.cprodate = cprodate;
 	}
 	public Integer getMonth() {
