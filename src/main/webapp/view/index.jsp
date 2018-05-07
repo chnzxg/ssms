@@ -22,6 +22,49 @@
     <link rel="stylesheet" href="../css/general.css">
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
     <script>
+        function showTime() {
+            var date1 = '${user.lastlogintime}';  //开始时间
+            var date2 = new Date();    //结束时间
+            var date3 = new Date(date1).getTime()*1000 - date2.getTime();   //时间差的毫秒数
+            //date3 = Math.ceil(date3/1000);
+            //alert(new Date(date1).getTime()+" "+date2.getTime()+" "+date3);
+            //计算出小时数
+            var leave1 = date3 % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+            var hours = Math.floor(leave1 / (3600 * 1000))
+            //计算相差分钟数
+            var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数
+            var minutes = Math.floor(leave2 / (60 * 1000))
+            //计算相差秒数
+            var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+            var seconds = Math.round(leave3 / 1000)
+            str = "<b style='font-size: 15px; color: white;'>欢迎，${user.aname}</b><br><b>您已登录" +hours + ":" + minutes + ":" + seconds + "</b>";
+            //将str的内容写入到id=result的<div>中去
+            var obj = document.getElementById("result");
+            obj.innerHTML = str;
+            //延时器
+            window.setTimeout("showTime()", 1000);
+            /*//分别取出年、月、日、时、分、秒
+             var year = today.getFullYear();
+             var month = today.getMonth() + 1;
+             var day = today.getDate();
+             var hours = today.getHours();
+             var minutes = today.getMinutes();
+             var seconds = today.getSeconds();
+             //如果是单个数，则前面补0
+             month = month < 10 ? "0" + month : month;
+             day = day < 10 ? "0" + day : day;
+             hours = hours < 10 ? "0" + hours : hours;
+             minutes = minutes < 10 ? "0" + minutes : minutes;
+             seconds = seconds < 10 ? "0" + seconds : seconds;
+             //构建要输出的字符串
+             var str = year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds;
+             //获取id=result的对象
+             var obj = document.getElementById("result");
+             //将str的内容写入到id=result的<div>中去
+             obj.innerHTML = str;
+             //延时器
+             window.setTimeout("showTime()", 1000);*/
+        }
         //主页面跳转
         function jumpTo(url) {
             $("#main-iframe").attr("src", url);
@@ -36,8 +79,18 @@
             location.href = '${pageContext.request.contextPath}/system/logout.do';
         }
     </script>
+    <style type="text/css">
+        #result {
+            width: 15%;
+            height: 100%;
+            font-size: 15px;
+            margin: 0px auto;
+            color: white;
+            float: left;
+        }
+    </style>
 </head>
-<body class="page-body" style="height: 99%;">
+<body class="page-body" style="height: 99%;" onload="showTime()">
 <div class="settings-pane">
     <a href="#" data-toggle="settings-pane" data-animate="true">
         &times;
@@ -336,7 +389,8 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/view/xgxx.jsp')">
+                            <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/view/xgxx.jsp')">
                                 <span class="title">修改密码</span>
                             </a>
                         </li>
@@ -358,9 +412,10 @@
 
     <div id="main-content" style="width:100%;height:100%;background-color:#eee;">
 
-        <div id="tools" class="card" style="width: 100%;height: 40px;background-color: #686868;">
+        <div id="tools" class="card" style="width: 100%;height: 40px;background-color: #505050;">
             <%--<div style="height: 100%; width: 200px;">欢迎！${user.aname}<br>在线时间：
             </div>--%>
+            <div id="result"></div>
             <button style="float: right; height: 100%;margin-left: 6px; font-size: 16px;"
                     class="button button-longshadow-right button-lowercase button-tiny button-inverse "><span
                     class="glyphicon glyphicon-log-out" onclick="ilogout()"></span>
