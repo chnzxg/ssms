@@ -15,4 +15,5 @@ public interface AdminDao {
     Integer addAdmin(Admin admin);
     List<Admin> login(Map<String, Object> paramMap);
     Integer updLoginTime(Admin admin);
+    Integer updAPassword(Admin admin);
 }

@@ -13,4 +13,5 @@ public interface MemberDao {
     Integer delMember(Map<String, Object> paramMap);
     Integer updMember(Map<String, Object> paramMap);
     Integer addMember(Map<String, Object> paramMap);
+    List<Member> qryAllMember();
 }

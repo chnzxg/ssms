@@ -72,81 +72,46 @@
                 $("#divtable").fadeIn();
             }
         }
-        function updateComm(){
-            $("#form").submit();
+        function delComm1(comid) {
+            $('#delcomid').val(comid);
+        }
+        function delComm2() {
+            var comid = $('#delcomid').val();
+            location.href = '${pageContext.request.contextPath}/splb/delsplb.do?comid=' + comid + '&page=${page}&pageSize=15';
         }
 
     </script>
 </head>
 <body>
 <div id="main" style="background-color:#eee;">
-    <button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示</button>
-    <button class="button button-rounded button-small" data-dismiss="modal" onclick="javascript:location.reload()">刷新</button><br>
     <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
-        <!-- 修改页面 -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <br>
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel"></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel1">
+                            注意
+                        </h4>
                     </div>
-                    <div class="modal-body" style="height:420px;width:600px;">
-                        <!-- 表单 -->
-                        <form id="form" method="post" class="bs-example bs-example-form" action="${pageContext.request.contextPath}/splb/updsplb.do?page=1&pageSize=15">
-                            <input type="hidden" id="ucomid" name="comid">
-                            <input type="hidden" name="fname" value="">
-                            <div class="card" style="float:left;background-color:white;height:200px;width:30%;">
-                                <img style="height:100%;width:100%;" id="cimg" onerror="this.src='../img/commodity/1.jpg'">
-                            </div>
-                            <div  style="float:left;height:400px;width:70%;">
-                                <!-- <div style="float:left;height:30px;width:20%;font-size:15px;line-height:30px;">商品名称：</div>
-                                <div ><input style="width:150px;height:30px;" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></div>
-                                <div style="float:left;height:30px;width:20%;font-size:15px;line-height:30px;">商品名称：</div>
-                                <div ><input style="width:150px" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></div>
-                                -->
-                                <table style="table-layout:fixed;">
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">商品名称：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cname" id="cname" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">分类：</td><td style="width:240px;"><select style="height:28px;" class="form-control" name="finid" id="finid">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">规格：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cspec" id="cspec" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">重量：</td><td style="width:298px;"><div class="input-group"><input style="height:28px;width:100%;" type="text" class="form-control" name="cweight" id="cweight" placeholder="请输入名称"><span class="input-group-addon">克</span></div></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">单价：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;" type="text" class="form-control" name="cprice" id="cprice" placeholder="请输入名称"><span class="input-group-addon">元</span></div></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">保质期：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;" type="text" class="form-control" name="month" id="month" placeholder="请输入名称"><span class="input-group-addon">月</span></div></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">代码：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="ccode" id="ccode" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">库存：</td><td style="width:240px;"><div class="input-group"><input style="height:28px;" type="text" class="form-control" name="cstock" id="cstock" placeholder="请输入名称"><span class="input-group-addon">个</span></div></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">生产商：</td><td style="width:240px;"><input style="height:28px;" type="text" class="form-control" name="cproder" id="cproder" placeholder="请输入名称"></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">生产日期：</td><td style="width:240px;"><input style="height:28px;" type="date" class="form-control" name="date" id="cprodate"></td><td style="width:50px;"></td></tr>
-                                    <tr style="height:34px;"><td style="width:50px;"></td><td align="right" style="width:100px;font-size:14px;">描述：</td><td style="width:240px;"><div class="form-group"><textarea style="height:56px;" rows="2" class="form-control" name="cdesc" id="cdesc" placeholder="请输入不超过20字的描述"></textarea></div></td><td style="width:50px;"></td></tr>
-                                </table>
-                            </div>
-                        </form>
+                    <input id="delcomid" type="hidden" value="">
+                    <div class="modal-body">
+                        这会将此商品永久删除且无法恢复，是否继续？
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="button button-rounded button-small" data-dismiss="modal">关闭</button>
-                        <button type="button" onclick="updateComm()" class="button button-rounded button-small button-primary button-glow">提交</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="delComm2()">
+                            确定
+                        </button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
-        <div id="dimg" style="width:95%;height:100%; background-color:white;margin:0 auto;">
-            <div id="divimg" style="display:none;margin:0 auto;padding-top:20px;" class="divtable">
-                <c:forEach items="${list}" var="comm" varStatus="status">
-                    <div style="float:left;width:190px;height:250px;" onclick="qryDetail(${comm.comid})" data-toggle="modal" data-target="#myModal">
-                        <div class="card" style="cursor:pointer;float:left;width:170px;height:230px;">
-                            <img style="height:200px;width:170px;" alt="${comm.cname}" class="commimg" id="i${comm.comid}">
-                            <div style="height:50px;width:170px;">${comm.cname}&nbsp;&nbsp;${comm.cprice}元</div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-        <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
                 <table class="table table-hover table-condensed table-striped"  id="commtable">
@@ -182,7 +147,10 @@
                             <td style="width:7%;">${comm.cstock}</td>
                             <td style="width:7%;">${comm.cproder}</td>
                             <td style="width:18%;">${comm.cprodate}</td>
-                            <td style="width:20%;"><a style="width:25px;height:20px;" href="${pageContext.request.contextPath}/splb/delsplb.do?comid=${comm.comid}&page=${page}&pageSize=15">x</a></td>
+                            <td style="width:20%;"><a style="width:25px;height:20px;"
+                                                      href="javascript:void(0)" onclick="delComm1(${comm.comid})"
+                                                      data-toggle="modal"
+                                                      data-target="#myModal1"><b>x</b></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

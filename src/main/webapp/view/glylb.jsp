@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
@@ -8,26 +8,26 @@
     <%@include file="../include/general.jsp" %>
     <link rel="stylesheet" href="../css/page/splb.css">
     <script>
-        $(function(){
-            //分页插件初始化
-            $('#pagination').jqPaginator({
-                totalPages: ${pageCount},
-                visiblePages: 7,
-                currentPage: ${page},
-                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=${pageSize}">首页</a></li>',
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page-1}&pageSize=${pageSize}">上一页</a></li>',
-                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page+1}&pageSize=${pageSize}">下一页</a></li>',
-                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${pageCount}&pageSize=${pageSize}">末页</a></li>',
-                page: '<li class="page"><a href="${pageContext.request.contextPath}/admin/qryadmin.do?page={{page}}&pageSize=${pageSize}">{{page}}</a></li>',
-                onPageChange: function (num) {
-                    $('#text').html('当前第' + num + '页');
-                }
-            });
-            if(${page==1})
-                $(".up").attr("href","javascript:void(0)");
-            if(${pageCount==page})
-                $(".down").attr("href","javascript:void(0)");
-        }
+        $(function () {
+                //分页插件初始化
+                $('#pagination').jqPaginator({
+                    totalPages: ${pageCount},
+                    visiblePages: 7,
+                    currentPage: ${page},
+                    first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=${pageSize}">首页</a></li>',
+                    prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page-1}&pageSize=${pageSize}">上一页</a></li>',
+                    next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page+1}&pageSize=${pageSize}">下一页</a></li>',
+                    last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${pageCount}&pageSize=${pageSize}">末页</a></li>',
+                    page: '<li class="page"><a href="${pageContext.request.contextPath}/admin/qryadmin.do?page={{page}}&pageSize=${pageSize}">{{page}}</a></li>',
+                    onPageChange: function (num) {
+                        $('#text').html('当前第' + num + '页');
+                    }
+                });
+                if (${page==1})
+                    $(".up").attr("href", "javascript:void(0)");
+                if (${pageCount==page})
+                    $(".down").attr("href", "javascript:void(0)");
+            }
         );
     </script>
 </head>
@@ -38,7 +38,7 @@
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
-                <table class="table table-hover table-condensed table-striped"  id="commtable">
+                <table class="table table-hover table-condensed table-striped" id="commtable">
                     <thead>
                     <tr>
                         <th style="display:none">aid</th>
@@ -53,15 +53,18 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${admins}" var="admin" varStatus="i">
-                        <tr>
-                            <td >${i.count}</td>
+                        <tr <c:if test="${admin.aid==sessionScope.user.aid}">style="background-color: #2c9fc9"</c:if>>
+                            <td>${i.count}</td>
                             <td id="comid" style="display:none">${admin.aid}</td>
-                            <td >${admin.aname}</td>
-                            <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.creattime}" /></td>
-                            <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.lastlogintime}" /></td>
-                            <td ></td>
-                            <td ></td>
-                            <td ><a style="width:25px;" href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=${pageSize}">x</a></td>
+                            <td>${admin.aname}</td>
+                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.creattime}"/></td>
+                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.lastlogintime}"/></td>
+                            <td><div style="margin:0 auto;width: 350px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.roles}</div></td>
+                            <td><div style="margin:0 auto;width: 350px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.powers}</div></td>
+                            <td><a style="width:25px;"
+                                   <c:if test="${admin.aid==sessionScope.user.aid}">href ="javascript:return false;" style="opacity: 0.2"</c:if>
+                                   <c:if test="${admin.aid==sessionScope.user.aid}">href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=${pageSize}"</c:if>
+                            >x</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -73,7 +76,6 @@
         </div>
     </div>
 </div>
-
 
 
 </body>

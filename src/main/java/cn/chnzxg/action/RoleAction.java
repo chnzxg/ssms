@@ -1,5 +1,6 @@
 package cn.chnzxg.action;
 
+import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Role;
 import cn.chnzxg.service.RoleService;
 import cn.chnzxg.util.MyUtil;
@@ -24,6 +25,12 @@ public class RoleAction {
 
     @Resource
     private RoleService roleService;
+
+    @RequestMapping(value = "/qryallrole.do", method = RequestMethod.GET)
+    public String qryAllRole(HttpServletRequest request){
+        request.setAttribute("roles", roleService.qryAllRole());
+        return "";
+    }
 
     @RequestMapping(value = "/qryrole.do", method = RequestMethod.GET)
     public String getRole(HttpServletRequest request, String page, String pageSize, Role role){
@@ -64,5 +71,13 @@ public class RoleAction {
         request.setAttribute("roles", roles);
         request.setAttribute("page", page);
         request.setAttribute("pageSize", pageSize);
+        request.setAttribute("pageCount", getPageCount(role, pageSize));
+    }
+
+    private Integer getPageCount(Role role, String pageSize){
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("rname", role.getRname());
+        List<Role> roles = roleService.qryRole(paramMap);
+        return PageUtil.getPageCount(roles.size(), pageSize);
     }
 }

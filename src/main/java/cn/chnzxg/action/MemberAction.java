@@ -55,6 +55,12 @@ public class MemberAction {
         request.setAttribute("members", members);
         request.setAttribute("page", page);
         request.setAttribute("pageSize", pageSize);
+        request.setAttribute("pageCount", getPageCount(member, pageSize));
+    }
+
+    private Integer getPageCount(Member member, String pageSize){
+        List<Member> members = memberService.qryAllMember();
+        return PageUtil.getPageCount(members.size(), pageSize);
     }
 
 }

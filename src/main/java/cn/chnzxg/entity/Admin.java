@@ -80,16 +80,28 @@ public class Admin {
         this.lastlogintime = lastlogintime;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public String getRoles() {
+        StringBuffer stringBuffer = new StringBuffer();
+        for(Role role : roles){
+            stringBuffer.append(role.getRname());
+            stringBuffer.append(",");
+        }
+        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        return stringBuffer.toString();
     }
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 
-    public List<Power> getPowers() {
-        return powers;
+    public String getPowers() {
+        StringBuffer stringBuffer = new StringBuffer();
+        for(Power power : powers){
+            stringBuffer.append(power.getPname());
+            stringBuffer.append(",");
+        }
+        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        return stringBuffer.toString();
     }
 
     public void setPowers(List<Power> powers) {

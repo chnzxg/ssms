@@ -16,4 +16,5 @@ public interface RoleService {
     Integer delRole(Map<String, Object> paramMap);
     Integer updRole(Map<String, Object> paramMap);
     Integer addRole(Map<String, Object> paramMap);
+    List<Role> qryAllRole();
 }

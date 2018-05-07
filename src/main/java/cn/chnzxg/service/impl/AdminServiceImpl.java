@@ -77,7 +77,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Admin> login(Map<String, Object> paramMap) {
-        List<Admin> admins = adminDao.qryAdmin(paramMap);
+        List<Admin> admins = adminDao.login(paramMap);
         for(Admin admin : admins){
             admin.setRoles(roleDao.qryRoleByAdmin(admin));
             admin.setPowers(roleDao.qryPowerByAdmin(admin));
@@ -90,6 +90,11 @@ public class AdminServiceImpl implements AdminService {
         admin.setLastlogintime(new Date());
         adminDao.updLoginTime(admin);
         return admin;
+    }
+
+    @Override
+    public Integer updAPassword(Admin admin) {
+        return adminDao.updAPassword(admin);
     }
 
     private void setAdminRole(int[] rids, Integer aid) {

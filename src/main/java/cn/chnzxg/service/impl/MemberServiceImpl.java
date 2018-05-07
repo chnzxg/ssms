@@ -37,4 +37,9 @@ public class MemberServiceImpl implements MemberService{
     public Integer addMember(Map<String, Object> paramMap) {
         return memberDao.addMember(paramMap);
     }
+
+    @Override
+    public List<Member> qryAllMember() {
+        return memberDao.qryAllMember();
+    }
 }

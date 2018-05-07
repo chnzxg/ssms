@@ -27,10 +27,10 @@
             $("#main-iframe").attr("src", url);
         }
         function ihome() {
-            $('#main-iframe').attr('src','${pageContext.request.contextPath}/view/login.jsp');
+            //$('#main-iframe').attr('src','${pageContext.request.contextPath}/view/login.jsp');
         }
         function irefresh() {
-            $('#main-iframe').src=src;
+            document.getElementById('main-iframe').contentWindow.location.reload(true);
         }
         function ilogout() {
             location.href = '${pageContext.request.contextPath}/system/logout.do';
@@ -242,16 +242,6 @@
                                 <span class="title">新增员工</span>
                             </a>
                         </li>
-                        <li>
-                            <a name="jgyg" href="javascript:void(0)">
-                                <span class="title">解雇员工</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a name="yglb" href="javascript:void(0)">
-                                <span class="title">个人信息</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -301,11 +291,6 @@
                                 <span class="title">角色管理</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span class="title">修改信息</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li>
@@ -351,8 +336,15 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="javascript:void(0)">
-                                <span class="title">设置</span>
+                            <a href="javascript:void(0)" onclick="jumpTo('${pageContext.request.contextPath}/view/xgxx.jsp')">
+                                <span class="title">修改密码</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" onclick="ilogout()">
+                                <span class="title">退出登录</span>
                             </a>
                         </li>
                     </ul>
@@ -385,7 +377,7 @@
         <br>
         <div id="content" class="main">
             <iframe frameborder="no" style="width:100%;height:98%;" class="viewiframe" id="main-iframe"
-                    src="${pageContext.request.contextPath}/system/welcome.do" name="main"></iframe>
+                    src="${pageContext.request.contextPath}/view/welcome.jsp" name="main"></iframe>
         </div>
 
     </div>

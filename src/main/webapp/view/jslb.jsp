@@ -54,7 +54,7 @@
                             <td >${i.count}</td>
                             <td >${role.rname}</td>
                             <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${role.creattime}" /></td>
-                            <td ></td>
+                            <td><div style=" margin:0 auto;width: 450px; height: 32px; overflow-y:auto; overflow-x:auto;">${role.powers}</div></td>
                             <td ><a style="width:25px;height:20px;" href="${pageContext.request.contextPath}/role/delrole.do?aid=${role.rid}&page=${page}&pageSize=15">x</a></td>
                         </tr>
                     </c:forEach>

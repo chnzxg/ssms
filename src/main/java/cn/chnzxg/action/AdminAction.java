@@ -67,7 +67,9 @@ public class AdminAction {
     }
 
     private Integer getPageCount(Admin admin, String pageSize){
-        List<Admin> admins = adminService.qryAdmin(MyUtil.beanToMap(admin));
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("aname", admin.getAname());
+        List<Admin> admins = adminService.qryAdmin(paramMap);
         return PageUtil.getPageCount(admins.size(), pageSize);
     }
 

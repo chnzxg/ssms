@@ -25,4 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         delete from member
         where memid = #{memid}
     </delete>
+	<select id="qryAllMember" resultType="Member">
+		select * from member
+	</select>
 </mapper>

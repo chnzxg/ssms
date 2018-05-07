@@ -57,4 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         FROM adminrole ar
         WHERE ar.aid = 1));
     </select>
+    <select id="qryAllRole" resultType="Role">
+        select * from role
+    </select>
 </mapper>

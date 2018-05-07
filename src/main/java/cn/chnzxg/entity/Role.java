@@ -12,8 +12,14 @@ public class Role {
     private Date creattime;
     private List<Power> powers;
 
-    public List<Power> getPowers() {
-        return powers;
+    public String getPowers() {
+        StringBuffer stringBuffer = new StringBuffer();
+        for(Power power : powers){
+            stringBuffer.append(power.getPname());
+            stringBuffer.append(",");
+        }
+        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        return stringBuffer.toString();
     }
 
     public void setPowers(List<Power> powers) {

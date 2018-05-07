@@ -34,6 +34,12 @@ public class SPFLAction {
             return "spfl";
     }
 
+    @RequestMapping("/qryclass.do")
+    @ResponseBody
+    public List<Clazz> qryClazz(){
+        return clazzService.qryClazz(new Clazz());
+    }
+
     @RequestMapping("/qryfine.do")
     @ResponseBody
     public List<?> qryFine(Integer claid, String page) {

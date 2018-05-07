@@ -46,4 +46,18 @@ public class SystemAction {
         return "login";
     }
 
+    @RequestMapping(value = "/password.do" ,method = RequestMethod.POST)
+    @ResponseBody
+    public Integer updPassword(HttpSession session, String apassword){
+        try{
+            Admin admin = (Admin) session.getAttribute("user");
+            admin.setApassword(apassword);
+            adminService.updAPassword(admin);
+        }catch (Exception e){
+            return 0;
+        }
+        session.invalidate();
+        return 1;
+    }
+
 }

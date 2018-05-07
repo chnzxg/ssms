@@ -20,4 +20,5 @@ public interface RoleDao {
     Integer addAdminRole(Map<String, Object> paramMap);
     List<Role> qryRoleByAdmin(Admin admin);
     List<Power> qryPowerByAdmin(Admin admin);
+    List<Role> qryAllRole();
 }
