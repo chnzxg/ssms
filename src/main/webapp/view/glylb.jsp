@@ -6,18 +6,19 @@
 <html>
 <head>
     <%@include file="../include/general.jsp" %>
+    <link rel="stylesheet" href="../css/page/splb.css">
     <script>
         $(function(){
             //分页插件初始化
-            $('#pagination1').jqPaginator({
+            $('#pagination').jqPaginator({
                 totalPages: ${pageCount},
                 visiblePages: 7,
                 currentPage: ${page},
-                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15">首页</a></li>',
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page-1}&pageSize=15">上一页</a></li>',
-                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page+1}&pageSize=15">下一页</a></li>',
-                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${pageCount}&pageSize=15">末页</a></li>',
-                page: '<li class="page"><a href="${pageContext.request.contextPath}/admin/qryadmin.do?page={{page}}&pageSize=15">{{page}}</a></li>',
+                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=${pageSize}">首页</a></li>',
+                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page-1}&pageSize=${pageSize}">上一页</a></li>',
+                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page+1}&pageSize=${pageSize}">下一页</a></li>',
+                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${pageCount}&pageSize=${pageSize}">末页</a></li>',
+                page: '<li class="page"><a href="${pageContext.request.contextPath}/admin/qryadmin.do?page={{page}}&pageSize=${pageSize}">{{page}}</a></li>',
                 onPageChange: function (num) {
                     $('#text').html('当前第' + num + '页');
                 }
@@ -60,7 +61,7 @@
                             <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.lastlogintime}" /></td>
                             <td ></td>
                             <td ></td>
-                            <td ><a style="width:25px;" href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=15">x</a></td>
+                            <td ><a style="width:25px;" href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=${pageSize}">x</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -68,7 +69,7 @@
             </div>
         </div>
         <div class="pagediv" style="width:95%;height:15%;">
-            <ul class="pagination" id="pagination1"></ul>
+            <ul class="pagination" id="pagination"></ul>
         </div>
     </div>
 </div>

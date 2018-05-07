@@ -50,8 +50,8 @@
                     <tbody>
                     <c:forEach items="${roles}" var="role" varStatus="i">
                         <tr >
-                            <td >${i.count}</td>
                             <td id="comid" style="display:none">${role.rid}</td>
+                            <td >${i.count}</td>
                             <td >${role.rname}</td>
                             <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${role.creattime}" /></td>
                             <td ></td>

@@ -40,27 +40,29 @@
                 <table class="table table-hover table-condensed table-striped"  id="commtable">
                     <thead>
                     <tr>
-                        <th style="display:none">aid</th>
+                        <th style="display:none">memid</th>
                         <th style="text-align:center;vertical-align:middle;">序号</th>
-                        <th style="text-align:center;vertical-align:middle;">账号</th>
+                        <th style="text-align:center;vertical-align:middle;">会员名称</th>
+                        <th style="text-align:center;vertical-align:middle;">电话</th>
+                        <th style="text-align:center;vertical-align:middle;">会员等级</th>
+                        <th style="text-align:center;vertical-align:middle;">余额</th>
                         <th style="text-align:center;vertical-align:middle;">创建时间</th>
-                        <th style="text-align:center;vertical-align:middle;">最后登录时间</th>
-                        <th style="text-align:center;vertical-align:middle;">拥有角色</th>
-                        <th style="text-align:center;vertical-align:middle;">所有权限</th>
+                        <th style="text-align:center;vertical-align:middle;">总消费金额</th>
                         <th style="text-align:center;vertical-align:middle;">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${admins}" var="admin" varStatus="i">
+                    <c:forEach items="${members}" var="member" varStatus="i">
                         <tr>
+                            <th style="display:none">${member.memid}</th>
                             <td >${i.count}</td>
-                            <td id="comid" style="display:none">${admin.aid}</td>
-                            <td >${admin.aname}</td>
-                            <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.creattime}" /></td>
-                            <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${admin.lastlogintime}" /></td>
-                            <td ></td>
-                            <td ></td>
-                            <td ><a style="width:25px;" href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=15">x</a></td>
+                            <td >${member.mname}</td>
+                            <td >${member.mtel}</td>
+                            <td >${member.mlevel}</td>
+                            <td >${member.mrem}</td>
+                            <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${member.mdate}" /></td>
+                            <td >${member.mcount}</td>
+                            <td ><a style="width:25px;" href="${pageContext.request.contextPath}/member/delmember.do?memid=${member.memid}&page=${page}&pageSize=15">x</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

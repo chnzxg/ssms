@@ -63,5 +63,12 @@ public class AdminAction {
         request.setAttribute("admins", admins);
         request.setAttribute("page", page);
         request.setAttribute("pageSize", pageSize);
+        request.setAttribute("pageCount", getPageCount(admin, pageSize));
     }
+
+    private Integer getPageCount(Admin admin, String pageSize){
+        List<Admin> admins = adminService.qryAdmin(MyUtil.beanToMap(admin));
+        return PageUtil.getPageCount(admins.size(), pageSize);
+    }
+
 }

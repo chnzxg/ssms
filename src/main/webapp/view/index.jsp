@@ -262,7 +262,7 @@
                     <ul>
                         <li>
                             <a name="yglb" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/member/qrymember.do?page=1&pageSize=15')">
                                 <span class="title">会员列表</span>
                             </a>
                         </li>
