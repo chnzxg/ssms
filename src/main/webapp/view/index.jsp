@@ -25,7 +25,7 @@
         function showTime() {
             var date1 = '${user.lastlogintime}';  //开始时间
             var date2 = new Date();    //结束时间
-            var date3 = new Date(date1).getTime()*1000 - date2.getTime();   //时间差的毫秒数
+            var date3 = new Date(date1).getTime() * 1000 - date2.getTime();   //时间差的毫秒数
             //date3 = Math.ceil(date3/1000);
             //alert(new Date(date1).getTime()+" "+date2.getTime()+" "+date3);
             //计算出小时数
@@ -37,7 +37,7 @@
             //计算相差秒数
             var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
             var seconds = Math.round(leave3 / 1000)
-            str = "<b style='font-size: 15px; color: white;'>欢迎，${user.aname}</b><br><b>您已登录" +hours + ":" + minutes + ":" + seconds + "</b>";
+            str = "<b style='font-size: 15px; color: white;'>欢迎，${user.aname}</b><br><b>您已登录" + hours + ":" + minutes + ":" + seconds + "</b>";
             //将str的内容写入到id=result的<div>中去
             var obj = document.getElementById("result");
             obj.innerHTML = str;
@@ -252,27 +252,10 @@
                                 <span class="title">库存管理</span>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="layout-variants.html">
-                        <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="title">订单管理</span>
-                    </a>
-                    <ul>
                         <li>
-                            <a name="yglb" href="javascript:void(0)">
-                                <span class="title">所有订单</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a name="xzyg" href="javascript:void(0)">
-                                <span class="title">新增订单</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a name="jgyg" href="javascript:void(0)">
-                                <span class="title">订单信息</span>
+                            <a name="kcgl" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/form/qryform.do?page=1&pageSize=15')">
+                                <span class="title">订单列表</span>
                             </a>
                         </li>
                     </ul>

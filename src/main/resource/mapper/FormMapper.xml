@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.chnzxg.dao.FormDao">
+    <select id="qryForm" resultType="Form">
+        select * from form
+        <where>
+            <if test="fstatus!=null">
+                and fstatus = #{fstatus}
+            </if>
+        </where>
+        <if test='firstRow!=null &amp; pageSize!=null'>
+            limit #{firstRow},#{pageSize}
+        </if>
+    </select>
+    <update id="updForm">
+        update form set fstatus = #{fstatus}
+        where forid = #{forid}
+    </update>
+    <insert id="addForm">
+        insert into form (comid,cname,finid,cprodate,month,cprice,ccount,memid,mname,creattime,lastmoditime,fstatus)
+        values(#{comid},#{cname},#{finid},#{cprodate},#{month},#{cprice},#{ccount},#{memid},#{mname},now(),#{lastmoditime},0)
+    </insert>
+</mapper>
