@@ -7,6 +7,7 @@ import cn.chnzxg.util.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -25,30 +26,34 @@ public class AdminAction {
     private AdminService adminService;
 
     @RequestMapping(value = "/qryadmin.do", method = RequestMethod.GET)
-    public String qryAdmin(HttpServletRequest request, String page, String pageSize, Admin admin){
+    public String qryAdmin(HttpServletRequest request, String page, String pageSize, Admin admin) {
         getAdmins(admin, page, pageSize, request);
         return "glylb";
     }
 
     @RequestMapping(value = "/deladmin.do", method = RequestMethod.DELETE)
-    public String delAdmin(HttpServletRequest request, String page, String pageSize, Admin admin){
+    public String delAdmin(HttpServletRequest request, String page, String pageSize, Admin admin) {
         adminService.delAdmin(MyUtil.beanToMap(admin));
         getAdmins(admin, page, pageSize, request);
         return "glylb";
     }
 
     @RequestMapping(value = "/addadmin.do", method = RequestMethod.POST)
-    public String addAdmin(HttpServletRequest request, String page, String pageSize, Admin admin, int[] rid){
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("admin", admin);
-        paramMap.put("rids", rid);
-        adminService.addAdmin(paramMap);
-        getAdmins(admin, page, pageSize, request);
-        return "glylb";
+    @ResponseBody
+    public Integer addAdmin(Admin admin, int[] rid) {
+        try {
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put("admin", admin);
+            paramMap.put("rids", rid);
+            adminService.addAdmin(paramMap);
+        } catch (Exception e) {
+            return 0;
+        }
+        return 1;
     }
 
     @RequestMapping(value = "/updadmin.do", method = RequestMethod.POST)
-    public String updAdmin(HttpServletRequest request, String page, String pageSize, Admin admin, int[] rid){
+    public String updAdmin(HttpServletRequest request, String page, String pageSize, Admin admin, int[] rid) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("admin", admin);
         paramMap.put("rids", rid);
@@ -57,7 +62,7 @@ public class AdminAction {
         return "JSLB";
     }
 
-    private void getAdmins(Admin admin, String page, String pageSize, HttpServletRequest request){
+    private void getAdmins(Admin admin, String page, String pageSize, HttpServletRequest request) {
         Map<String, Object> paramMap = PageUtil.getParamMap(admin, page, pageSize);
         List<Admin> admins = adminService.qryAdmin(paramMap);
         request.setAttribute("admins", admins);
@@ -66,7 +71,7 @@ public class AdminAction {
         request.setAttribute("pageCount", getPageCount(admin, pageSize));
     }
 
-    private Integer getPageCount(Admin admin, String pageSize){
+    private Integer getPageCount(Admin admin, String pageSize) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("aname", admin.getAname());
         List<Admin> admins = adminService.qryAdmin(paramMap);

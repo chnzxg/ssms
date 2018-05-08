@@ -106,7 +106,7 @@
                             $('#info').text('添加商品成功');
                             setTimeout(function () {
                                 location.reload();
-                            },500);
+                            },1000);
                         }
                         else
                             $('#info').text('添加商品失败，请稍后重试');

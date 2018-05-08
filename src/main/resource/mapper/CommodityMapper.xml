@@ -28,6 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="cpricehigh!=null">
 			and cprice &lt; #{cpricehigh}
 		</if>
+		order by comid DESC
         <if test='firstRow!=null &amp; pageSize!=null'>
             limit #{firstRow},#{pageSize}
         </if>

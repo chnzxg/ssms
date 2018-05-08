@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.chnzxg.dao.EmployeeDao">
 	<select id="qryEmp" resultType="Employee">
-		SELECT * from employee
+		SELECT * from employee order BY empid DESC
 		<if test='firstRow!=null &amp; pageSize!=null'>
 			limit #{firstRow},#{pageSize}
 		</if>

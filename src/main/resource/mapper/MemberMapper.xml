@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and mlevel = #{mlevel}
 			</if>
 		</where>
+		order by memid desc
 		<if test='firstRow!=null &amp; pageSize!=null'>
 			limit #{firstRow},#{pageSize}
 		</if>

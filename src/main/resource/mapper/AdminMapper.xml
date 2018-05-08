@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 and aname = #{aname}
             </if>
         </where>
+        order by aid desc
         <if test='firstRow!=null &amp; pageSize!=null'>
             limit #{firstRow},#{pageSize}
         </if>

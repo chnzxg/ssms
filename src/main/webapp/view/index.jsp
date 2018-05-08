@@ -313,7 +313,7 @@
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryallrole.do?page=1&pageSize=15')">
                                 <span class="title">添加管理员</span>
                             </a>
                         </li>
@@ -325,7 +325,7 @@
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryallpower.do')">
                                 <span class="title">添加角色</span>
                             </a>
                         </li>
