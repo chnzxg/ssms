@@ -5,10 +5,6 @@
 	<script src="../js/bootstrap/bootstrap.min.js"></script>
 	<!-- Buttons -->
     <link rel="stylesheet" href="../css/buttons.css">
-    <!-- ICheck -->
-    <link rel="stylesheet" href="../css/flat/blue.css">
-    <script src="../js/icheck/icheck.js"></script>
-	<link rel="stylesheet" href="../css/amazeui.min.css" />
 	<!-- JQuery分页 -->
     <script src="../js/paginator/jqPaginator.js"></script>
     <!-- nav -->

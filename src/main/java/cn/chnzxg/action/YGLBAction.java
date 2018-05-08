@@ -5,6 +5,7 @@ import cn.chnzxg.service.EmployeeService;
 import cn.chnzxg.util.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -25,6 +26,18 @@ public class YGLBAction {
 		}
 		return "yglb";
 	}
+
+	@RequestMapping(value = "/updyglb.do", method = RequestMethod.POST)
+    public String updYGLB(HttpServletRequest request, String page, String pageSize, Employee employee){
+        Employee employee1 = pageMethod(page, pageSize, new Employee());
+        employeeService.updEmp(employee1);
+        request.setAttribute("list", getEmployeeList(employee1));
+        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),pageSize));
+        request.setAttribute("page", page);
+        request.setAttribute("pageSize", pageSize);
+	    return "yglb";
+    }
+
 	@RequestMapping("/delyglb.do")
 	public String delYGLB(HttpServletRequest request,String page,String pageSize,String empid){
 		if(!"".equals(page)&&!"".equals(pageSize)){
@@ -40,6 +53,7 @@ public class YGLBAction {
 		}
 		return "yglb";
 	}
+
 	@RequestMapping("/qryDetail.do")
 	@ResponseBody
 	public Employee qryDetail(String empid){

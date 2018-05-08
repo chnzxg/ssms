@@ -109,21 +109,7 @@
                 }
             });
 
-        })
-        function addComm() {
-            /*$.ajax({
-                url: '${pageContext.request.contextPath}/splb/addsplb.do',
-                data: $('#form').serialize(),
-                success: function (data) {
-                    if (data == '1')
-                        $('#info').text('添加商品成功');
-                    else
-                        $('#info').text('添加商品失败，请稍后重试');
-                    $('#addinfo').modal('show')
-                }
-            })*/
-            //$("#form").submit();
-        }
+        });
         function getFineList(claid){
             $.ajax({
                 url: '${pageContext.request.contextPath}/spfl/qryfine.do?claid='+claid,
@@ -173,10 +159,10 @@
                     <span for="claid" class="col-sm-2 control-label">性别：</span>
                     <div class="col-sm-3">
                         <label class="radio-inline">
-                            <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 选项 1
+                            <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline" id="optionsRadios3" value="1" checked> 男
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 选项 2
+                            <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="2"> 女
                         </label>
                     </div>
                 </div>
@@ -218,13 +204,13 @@
                 <div class="form-group">
                     <span for="claid" class="col-sm-2 control-label">工种：</span>
                     <div class="col-sm-3">
-                        <select class="form-control" name="claid" id="claid">
-                            <option>经理</option>
-                            <option>促销员</option>
-                            <option>收银员</option>
-                            <option>收货员</option>
-                            <option>理货员</option>
-                            <option>保洁</option>
+                        <select class="form-control" name="epro" id="epro">
+                            <option value="2">经理</option>
+                            <option value="3">促销员</option>
+                            <option value="4">收银员</option>
+                            <option value="5">收货员</option>
+                            <option value="6">理货员</option>
+                            <option value="7">保洁</option>
                         </select>
                     </div>
                 </div>
@@ -243,7 +229,7 @@
                 <button type="button" class="button button-rounded button-small" data-dismiss="modal"
                         onclick="javascript:location.reload()">刷新
                 </button>
-                <button type="submit" onclick="addComm()"
+                <button type="submit" onclick="addEmployee()"
                         class="button button-rounded button-small button-primary button-glow">提交
                 </button>
             </form>

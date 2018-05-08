@@ -7,6 +7,9 @@
 <head>
     <%@include file="../include/general.jsp" %>
     <link rel="stylesheet" href="../css/page/splb.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrapValidator.css">
+    <script src="${pageContext.request.contextPath}/js/bootstrap/bootstrapValidator.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap/zh_CN.js"></script>
     <script>
         $(function () {
             //分页插件初始化
@@ -39,9 +42,9 @@
                 id = id.substring(1);
                 $(imgs[i]).attr("src", "${pageContext.request.contextPath}/img/commodity/" + id + ".jpg");
             }
+
         });
         function qryDetail(comid) {
-            getClassList();
             $.ajax({
                 url: "${pageContext.request.contextPath}/splb/qryDetail.do?comid=" + comid,
                 success: function (data) {
@@ -80,27 +83,8 @@
             location.href = '${pageContext.request.contextPath}/splb/removecomm.do?comid=' + comid + '&page=${page}&pageSize=15';
         }
 
-        function getClassList() {
-            $.ajax({
-                url: '${pageContext.request.contextPath}/spfl/qryclass.do?',
-                success: function (json) {
-                    for (var i = 0; i < json.length; i++) {
-                        $("#claid").append('<option value="' + json[i].claid + '" onclick=getFineList('+json[i].claid+')>' + json[i].cname + '</option>');
-                    }
-                }
-            })
-        }
-        function getFineList(claid) {
-            $.ajax({
-                url: '${pageContext.request.contextPath}/spfl/qryfine.do?claid=' + claid,
-                success: function (json) {
-                    for (var i = 0; i < json.length; i++) {
-                        $("#finid").append('<option value="' + json[i].finid + '">' + json[i].fname + '</option>');
-                    }
-                    $('#finid').removeAttr('disabled');
-                }
-            })
-        }
+
+
     </script>
 </head>
 <body>
@@ -164,27 +148,11 @@
                                     </tr>
                                     <tr style="height:40px;">
                                         <td style="width:50px;"></td>
-                                        <td align="right" style="width:100px;font-size:14px;">大类：</td>
-                                        <td style="width:240px;"><select class="form-control"
-                                                                         name="finid" id="claid">
-                                        </select></td>
-                                        <td style="width:50px;"></td>
-                                    </tr>
-                                    <tr style="height:40px;">
-                                        <td style="width:50px;"></td>
-                                        <td align="right" style="width:100px;font-size:14px;">细类：</td>
-                                        <td style="width:240px;"><select class="form-control" disabled="disabled"
-                                                                         name="finid" id="finid">
-                                        </select></td>
-                                        <td style="width:50px;"></td>
-                                    </tr>
-                                    <tr style="height:40px;">
-                                        <td style="width:50px;"></td>
                                         <td align="right" style="width:100px;font-size:14px;">重量：</td>
                                         <td style="width:298px;">
                                             <div class="input-group"><input style="height:33px;width:100%;" type="text"
                                                                             class="form-control" name="cweight"
-                                                                            id="cweight" placeholder="请输入名称"><span
+                                                                            id="cweight" placeholder="请输入重量"><span
                                                     class="input-group-addon">克</span></div>
                                         </td>
                                         <td style="width:50px;"></td>
@@ -195,7 +163,7 @@
                                         <td style="width:240px;">
                                             <div class="input-group"><input style="height:33px;" type="text"
                                                                             class="form-control" name="cprice"
-                                                                            id="cprice" placeholder="请输入名称"><span
+                                                                            id="cprice" placeholder="请输入单价"><span
                                                     class="input-group-addon">元</span></div>
                                         </td>
                                         <td style="width:50px;"></td>
@@ -206,7 +174,7 @@
                                         <td style="width:240px;">
                                             <div class="input-group"><input style="height:33px;" type="text"
                                                                             class="form-control" name="month" id="month"
-                                                                            placeholder="请输入名称"><span
+                                                                            placeholder="请输入保质期"><span
                                                     class="input-group-addon">月</span></div>
                                         </td>
                                         <td style="width:50px;"></td>
@@ -217,7 +185,7 @@
                                         <td style="width:240px;">
                                             <div class="input-group"><input style="height:33px;" type="text"
                                                                             class="form-control" name="cstock"
-                                                                            id="cstock" placeholder="请输入名称"><span
+                                                                            id="cstock" placeholder="请输入库存"><span
                                                     class="input-group-addon">个</span></div>
                                         </td>
                                         <td style="width:50px;"></td>
@@ -227,15 +195,15 @@
                                         <td align="right" style="width:100px;font-size:14px;">生产商：</td>
                                         <td style="width:240px;"><input style="height:33px;" type="text"
                                                                         class="form-control" name="cproder" id="cproder"
-                                                                        placeholder="请输入名称"></td>
+                                                                        placeholder="请输入生产商"></td>
                                         <td style="width:50px;"></td>
                                     </tr>
                                     <tr style="height:40px;">
                                         <td style="width:50px;"></td>
                                         <td align="right" style="width:100px;font-size:14px;">生产日期：</td>
                                         <td style="width:240px;"><input style="height:33px;" type="date"
-                                                                        class="form-control" name="date" id="cprodate">
-                                        </td>
+                                                                        class="form-control" name="cprodate" id="cprodate"
+                                                                        placeholder="请输入生产日期"></td>
                                         <td style="width:50px;"></td>
                                     </tr>
                                     <tr style="height:40px;">
@@ -291,7 +259,6 @@
                         <th style="text-align:center;vertical-align:middle;">重量</th>
                         <th style="text-align:center;vertical-align:middle;">单价</th>
                         <th style="text-align:center;vertical-align:middle;">保质期</th>
-                        <th style="text-align:center;vertical-align:middle;">代码</th>
                         <th style="text-align:center;vertical-align:middle;">库存</th>
                         <th style="text-align:center;vertical-align:middle;">生产商</th>
                         <th style="text-align:center;vertical-align:middle;">生产日期</th>
@@ -306,7 +273,8 @@
                             <td
                                     style="width:6%;">${status.count}</td>
                             <td
-                                    style="width:12%;"><a href="javascript:void(0)" data-toggle="modal" onclick="qryDetail(${comm.comid})"
+                                    style="width:12%;"><a href="javascript:void(0)" data-toggle="modal"
+                                                          onclick="qryDetail(${comm.comid})"
                                                           data-target="#myModal">${comm.cname}</a></td>
                             <td
                                     style="width:8%;">${comm.fname}</td>
@@ -317,8 +285,6 @@
                             <td
                                     style="width:8%;">${comm.month}个月
                             </td>
-                            <td
-                                    style="width:6%;">${comm.ccode}</td>
                             <td
                                     style="width:7%;">${comm.cstock}</td>
                             <td
@@ -340,8 +306,10 @@
         <div class="pagediv" style="width:95%;height:15%;">
             <ul class="pagination" id="pagination1"></ul>
             <div style="float: right; margin-top: 20px">
-                <button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示</button>
-                <button class="button button-rounded button-small" data-dismiss="modal" onclick="javascript:location.reload()">导出
+                <button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示
+                </button>
+                <button class="button button-rounded button-small" data-dismiss="modal"
+                        onclick="javascript:location.reload()">导出
                 </button>
             </div>
         </div>

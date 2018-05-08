@@ -1,11 +1,5 @@
 $(function(){
 	$(':input').attr('autocomplete','off');
-	//icheck初始化
-	$('input').iCheck({
-	    checkboxClass: 'icheckbox_flat-blue',
-	    radioClass: 'iradio_flat-blue',
-	    increaseArea: '80%' // optional
-	  });
 	//卡片式div
 	$(".card").mouseover(function(){
 		$(this).css("box-shadow","0 6px 10px 0 rgba(255, 204, 102, 1.0), 0 8px 25px 0 rgba(255, 204, 102, 1.0)");

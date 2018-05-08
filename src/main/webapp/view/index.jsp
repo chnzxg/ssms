@@ -232,7 +232,7 @@
                         <li>
                             <a name="tjxsp" href="javascript:void(0)"
                                onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?flag=1')">
-                                <span class="title">添加新商品</span>
+                                <span class="title">添加商品</span>
                             </a>
                         </li>
                         <li>
@@ -245,11 +245,6 @@
                             <a name="sphsz" href="javascript:void(0)"
                                onclick="jumpTo('${pageContext.request.contextPath}/sphsz/qrysphsz.do?page=1&pageSize=15')">
                                 <span class="title">商品回收站</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a name="kcgl" href="javascript:void(0)">
-                                <span class="title">库存管理</span>
                             </a>
                         </li>
                         <li>
@@ -275,7 +270,7 @@
                         <li>
                             <a name="xzyg" href="javascript:void(0)"
                                onclick="jumpTo('${pageContext.request.contextPath}/view/tjxyg.jsp')">
-                                <span class="title">新增员工</span>
+                                <span class="title">添加员工</span>
                             </a>
                         </li>
                     </ul>
@@ -294,17 +289,12 @@
                         </li>
                         <li>
                             <a name="xzyg" href="javascript:void(0)">
-                                <span class="title">新增会员</span>
+                                <span class="title">添加会员</span>
                             </a>
                         </li>
                         <li>
                             <a name="jgyg" href="javascript:void(0)">
-                                <span class="title">解雇员工</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a name="yglb" href="javascript:void(0)">
-                                <span class="title">个人信息</span>
+                                <span class="title">折扣设置</span>
                             </a>
                         </li>
                     </ul>
@@ -323,8 +313,20 @@
                         </li>
                         <li>
                             <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15')">
+                                <span class="title">添加管理员</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"
                                onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15')">
                                 <span class="title">角色管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15')">
+                                <span class="title">添加角色</span>
                             </a>
                         </li>
                     </ul>
@@ -356,11 +358,6 @@
                         <li>
                             <a href="javascript:void(0)">
                                 <span class="title">订单统计</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span class="title">其他统计</span>
                             </a>
                         </li>
                     </ul>

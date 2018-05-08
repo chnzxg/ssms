@@ -3,25 +3,31 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.chnzxg.dao.EmployeeDao">
-	<select id="qryEmp" resultType="Employee" >
+	<select id="qryEmp" resultType="Employee">
 		SELECT * from employee
 		<if test='firstRow!=null &amp; pageSize!=null'>
 			limit #{firstRow},#{pageSize}
 		</if>
-	</select>
-	<select id="login" resultType="Employee">
-		select * from employee
-		where eaccount = #{eaccount} and epwd = #{epwd}
 	</select>
 	<delete id="delEmp">
 		delete from employee
 		where empid = #{empid}
 	</delete>
 	<insert id="addEmp">
+		insert into ssms.employee(ename, esex, eage, etime, etel, epro, email, esal)
+		values(#{ename}, #{esex}, #{eage}, #{etime}, #{etel}, #{epro}, #{email}, #{esal})
 	</insert>
 	<update id="updEmp">
+		update ssms.employee
+		set ename = #{ename},
+		esex = #{esex},
+		eage = #{eage},
+		epro = #{epro},
+		etel = #{etel},
+		email = #{email},
+		esal = #{esal}
 	</update>
-	<select id="qryDetail" resultType="Employee" >
+	<select id="qryDetail" resultType="Employee">
 		select * from employee
 		where empid = #{empid}
 	</select>
