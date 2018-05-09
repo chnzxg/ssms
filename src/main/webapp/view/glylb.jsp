@@ -7,6 +7,13 @@
 <head>
     <%@include file="../include/general.jsp" %>
     <script>
+        function del1(id) {
+            $('#delvalue').val(id);
+        }
+        function del2() {
+            var id = $('#delvalue').val();
+            location.href = '${pageContext.request.contextPath}/admin/deladmin.do?aid='+id+'&page=${page}&pageSize=15';
+        }
         $(function () {
                 //分页插件初始化
                 $('#pagination').jqPaginator({
@@ -43,6 +50,32 @@
 <div id="main" style="background-color:#eee;">
     <br>
     <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel1">
+                            注意
+                        </h4>
+                    </div>
+                    <input id="delvalue" type="hidden" value="">
+                    <div class="modal-body">
+                        此操作会删除管理员且无法恢复，是否继续？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="del2()">
+                            确定
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
@@ -61,10 +94,13 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${admins}" var="admin" varStatus="i">
-                        <tr <c:if test="${admin.aid==sessionScope.user.aid}">style="background-color: #2c9fc9"</c:if>>
+                        <tr <c:if test="${admin.aid==sessionScope.user.aid}">style="background-color: #CCCCCC"</c:if>>
                             <td>${i.count}</td>
                             <td id="comid" style="display:none">${admin.aid}</td>
-                            <td><a href="${pageContext.request.contextPath}/admin/qrydetail.do?aid=${admin.aid}">${admin.aname}</a></td>
+                            <td><a <c:if
+                                    test="${admin.aid==sessionScope.user.aid}"> href="javascript:return false;"</c:if>
+                                    <c:if test="${admin.aid!=sessionScope.user.aid}">href="${pageContext.request.contextPath}/admin/qrydetail.do?aid=${admin.aid}"</c:if>>${admin.aname}</a>
+                            </td>
                             <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${admin.creattime}"/></td>
                             <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${admin.lastlogintime}"/></td>
                             <td>
@@ -76,7 +112,10 @@
                             <td><a style="width:25px;"
                                    <c:if test="${admin.aid==sessionScope.user.aid}">href="javascript:return false;"
                                    style="opacity: 0.2"</c:if>
-                                   <c:if test="${admin.aid==sessionScope.user.aid}">href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=${pageSize}"</c:if>
+                                   <c:if test="${admin.aid!=sessionScope.user.aid}">href="javascript:void(0)"
+                                   onclick="del1(${admin.aid})"
+                                   data-toggle="modal"
+                                   data-target="#myModal1"</c:if>
                             >x</a></td>
                         </tr>
                     </c:forEach>

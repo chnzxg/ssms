@@ -14,11 +14,14 @@ public class Role {
 
     public String getPowers() {
         StringBuffer stringBuffer = new StringBuffer();
+        if(powers == null)
+            return "";
         for(Power power : powers){
             stringBuffer.append(power.getPname());
             stringBuffer.append(",");
         }
-        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        if(stringBuffer.length()!=0)
+            stringBuffer.deleteCharAt(stringBuffer.length()-1);
         return stringBuffer.toString();
     }
 

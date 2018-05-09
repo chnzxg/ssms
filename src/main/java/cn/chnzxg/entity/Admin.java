@@ -82,11 +82,12 @@ public class Admin {
 
     public String getRoles() {
         StringBuffer stringBuffer = new StringBuffer();
-        for(Role role : roles){
+        for (Role role : roles) {
             stringBuffer.append(role.getRname());
             stringBuffer.append(",");
         }
-        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        if (stringBuffer.length() != 0)
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
         return stringBuffer.toString();
     }
 
@@ -96,18 +97,20 @@ public class Admin {
 
     public String getPowers() {
         StringBuffer stringBuffer = new StringBuffer();
-        for(Power power : powers){
+        for (Power power : powers) {
             stringBuffer.append(power.getPname());
             stringBuffer.append(",");
         }
-        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        if (stringBuffer.length() != 0)
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
         return stringBuffer.toString();
     }
 
-    public List<Power> getPower(){
+    public List<Power> getPower() {
         return powers;
     }
-    public List<Role> getRole(){
+
+    public List<Role> getRole() {
         return roles;
     }
 

@@ -1,6 +1,5 @@
 package cn.chnzxg.action;
 
-import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Form;
 import cn.chnzxg.service.FormService;
 import cn.chnzxg.util.MyUtil;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +29,7 @@ public class FormAction {
         return "ddlb";
     }
 
-    @RequestMapping(value = "/updform.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/updform.do", method = RequestMethod.GET)
     public String updFrom(HttpServletRequest request, Form form, String page, String pageSize){
         formService.updFrom(MyUtil.beanToMap(form));
         getForms(form, page, pageSize, request);

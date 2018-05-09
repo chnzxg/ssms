@@ -48,7 +48,7 @@ public class RoleAction {
         return "jslb";
     }
 
-    @RequestMapping(value = "/delrole.do", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delrole.do", method = RequestMethod.GET)
     public String delRole(HttpServletRequest request, String page, String pageSize, Role role){
         roleService.delRole(MyUtil.beanToMap(role));
         getRoles(role, page, pageSize, request);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.chnzxg.dao.RoleDao">
     <select id="qryRole" resultType="Role">
         SELECT *
@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT *
         FROM power
         WHERE pid IN (SELECT pid
-        FROM rolepower rp, role r
-        WHERE rp.rid = r.rid)
+                      FROM rolepower rp, role r
+                      WHERE rp.rid = r.rid and rp.rid = #{rid})
     </select>
     <delete id="delRole">
         delete from role

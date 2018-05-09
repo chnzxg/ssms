@@ -6,7 +6,15 @@
 <html>
 <head>
     <%@include file="../include/general.jsp" %>
+    <link rel="stylesheet" href="../css/page/splb.css">
     <script>
+        function del1(id) {
+            $('#delvalue').val(id);
+        }
+        function del2() {
+            var id = $('#delvalue').val();
+            location.href = '${pageContext.request.contextPath}/yglb/delyglb.do?empid='+id+'&page=${page}&pageSize=15';
+        }
         $(function () {
             //表单验证
             $('#formdiv').bootstrapValidator({
@@ -86,11 +94,11 @@
                 totalPages: ${pageCount},
                 visiblePages: 7,
                 currentPage: ${page},
-                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">首页</a></li>',
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">上一页</a></li>',
-                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">下一页</a></li>',
-                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">末页</a></li>',
-                page: '<li class="page"><a href="${pageContext.request.contextPath}/yglb/qryyglb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
+                first: '<li class="first"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">&laquo;</a></li>',
+                prev: '<li class="prev"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">&lsaquo;</a></li>',
+                next: '<li class="next"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">&rsaquo;</a></li>',
+                last: '<li class="last"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">&raquo;</a></li>',
+                page: '<li class="page"><a style="font-size: 16px" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
                 onPageChange: function (num) {
                     $('#text').html('当前第' + num + '页');
                 }
@@ -106,13 +114,13 @@
                 success: function (data) {
                     $("#myModalLabel").text(data.ename);
                     $("#ename").val(data.ename);
-                    if (data.esex == "1"){
-                        $('#esex1').attr('checked','checked');
+                    if (data.esex == "1") {
+                        $('#esex1').attr('checked', 'checked');
                     }
-                    else{
-                        $('#esex2').attr('checked','checked');
+                    else {
+                        $('#esex2').attr('checked', 'checked');
                     }
-                    $("#epro").find("option[value = '"+data.epro+"']").attr("selected","selected");
+                    $("#epro").find("option[value = '" + data.epro + "']").attr("selected", "selected");
                     $("#eage").val(data.eage);
                     $("#etel").val(data.etel);
                     $("#email").val(data.email);
@@ -122,10 +130,11 @@
         }
     </script>
     <style type="text/css">
-        .col-sm-4{
+        .col-sm-4 {
             margin-bottom: 10px;
         }
-        .col-sm-6{
+
+        .col-sm-6 {
             margin-bottom: 10px;
         }
     </style>
@@ -134,6 +143,32 @@
 <div id="main" style="background-color:#eee;">
     <br>
     <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel1">
+                            注意
+                        </h4>
+                    </div>
+                    <input id="delvalue" type="hidden" value="">
+                    <div class="modal-body">
+                        此操作会删除员工且无法恢复，是否继续？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="del2()">
+                            确定
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -150,47 +185,60 @@
                                   action="${pageContext.request.contextPath}/yglb/updyglb.do?page=1&pageSize=15">
                                 <input type="hidden" id="empid" name="empid">
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="ename" class="col-sm-4 control-label">姓名：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="ename"
+                                          class="col-sm-4 control-label">姓名：</span>
                                     <div class="col-sm-6">
                                         <input autofocus type="text" class="form-control" id="ename" name="ename"
                                                placeholder="请输入10个字以内的姓名">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="claid" class="col-sm-4 control-label">性别：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="claid"
+                                          class="col-sm-4 control-label">性别：</span>
                                     <div class="col-sm-6" style="height: 34px;line-height: 34px;">
                                         <label class="radio-inline">
-                                            <input style="height: 30px;line-height: 30px;" type="radio" name="optionsRadiosinline" id="esex1" value="1"> 男
+                                            <input style="height: 30px;line-height: 30px;" type="radio"
+                                                   name="optionsRadiosinline" id="esex1" value="1"> 男
                                         </label>
                                         <label class="radio-inline">
-                                            <input style="height: 30px;line-height: 30px;" type="radio" name="optionsRadiosinline" id="esex2"  value="2"> 女
+                                            <input style="height: 30px;line-height: 30px;" type="radio"
+                                                   name="optionsRadiosinline" id="esex2" value="2"> 女
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="eage" class="col-sm-4 control-label">年龄：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="eage"
+                                          class="col-sm-4 control-label">年龄：</span>
                                     <div class="col-sm-6">
-                                        <div class="input-group"><input type="text" class="form-control" id="eage" name="eage"
-                                                                        placeholder="请输入年龄，只能为数字"><span class="input-group-addon">岁</span>
+                                        <div class="input-group"><input type="text" class="form-control" id="eage"
+                                                                        name="eage"
+                                                                        placeholder="请输入年龄，只能为数字"><span
+                                                class="input-group-addon">岁</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="esal" class="col-sm-4 control-label">薪水：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="esal"
+                                          class="col-sm-4 control-label">薪水：</span>
                                     <div class="col-sm-6">
-                                        <div class="input-group"><input type="text" class="form-control" id="esal" name="esal"
-                                                                        placeholder="请输入薪水，只能为数字"><span class="input-group-addon">元</span>
+                                        <div class="input-group"><input type="text" class="form-control" id="esal"
+                                                                        name="esal"
+                                                                        placeholder="请输入薪水，只能为数字"><span
+                                                class="input-group-addon">元</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="etel" class="col-sm-4 control-label">电话：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="etel"
+                                          class="col-sm-4 control-label">电话：</span>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="etel" name="etel" placeholder="请输入11位的电话号码">
+                                        <input type="text" class="form-control" id="etel" name="etel"
+                                               placeholder="请输入11位的电话号码">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="claid" class="col-sm-4 control-label">工种：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="claid"
+                                          class="col-sm-4 control-label">工种：</span>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="epro" id="epro">
                                             <option value="1" disabled="disabled">店长</option>
@@ -210,9 +258,11 @@
                                     </div>
                                 </div>--%>
                                 <div class="form-group">
-                                    <span style="height: 34px;line-height: 34px;text-align: right" for="email" class="col-sm-4 control-label">邮箱：</span>
+                                    <span style="height: 34px;line-height: 34px;text-align: right" for="email"
+                                          class="col-sm-4 control-label">邮箱：</span>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="请输入正确格式的邮箱">
+                                        <input type="text" class="form-control" id="email" name="email"
+                                               placeholder="请输入正确格式的邮箱">
                                     </div>
                                 </div>
                             </form>
@@ -268,7 +318,10 @@
                             <td style="width:15%;">${emp.email}</td>
                             <td style="width:6%;">${emp.esal}</td>
                             <td style=""><a style="width:25px;height:20px;"
-                                            href="${pageContext.request.contextPath}/yglb/delyglb.do?empid=${emp.empid}&page=${page}&pageSize=15">x</a>
+                                            onclick="del1(${emp.empid})"
+                                            data-toggle="modal"
+                                            data-target="#myModal1"
+                                            href="javascript:void(0)">x</a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -278,6 +331,11 @@
         </div>
         <div class="pagediv" style="width:95%;height:15%;">
             <ul class="pagination" id="pagination1"></ul>
+            <div style="float: right; margin-top: 20px">
+                <button class="button button-rounded button-small" data-dismiss="modal"
+                        onclick="javascript:location.reload()">导出
+                </button>
+            </div>
         </div>
     </div>
 </div>

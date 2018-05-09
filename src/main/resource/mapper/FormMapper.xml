@@ -15,7 +15,7 @@
             limit #{firstRow},#{pageSize}
         </if>
     </select>
-    <update id="updForm">
+    <update id="updFrom">
         update form set fstatus = #{fstatus}
         where forid = #{forid}
     </update>

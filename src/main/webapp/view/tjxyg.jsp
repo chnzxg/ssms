@@ -10,6 +10,26 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap/bootstrapValidator.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap/zh_CN.js"></script>
     <script>
+        function addEmployee() {
+            $('#formdiv').bootstrapValidator('validate');
+            if ($('#formdiv').data("bootstrapValidator").isValid()) {
+                $.post({
+                    url: '${pageContext.request.contextPath}/yglb/addayglb.do',
+                    data: $('#form').serialize(),
+                    success: function (data) {
+                        if (data == '1') {
+                            $('#info').text('添加员工成功');
+                            setTimeout(function () {
+                                location.reload();
+                            },1000);
+                        }else
+                            $('#info').text('添加员工失败，请稍后重试');
+                        $('#addinfo').modal('show');
+                    }
+                })
+            }
+        }
+
         $(function () {
             $('#claid').on('change',function () {
                 var options = $('#claid option:selected');
@@ -110,17 +130,6 @@
             });
 
         });
-        function getFineList(claid){
-            $.ajax({
-                url: '${pageContext.request.contextPath}/spfl/qryfine.do?claid='+claid,
-                success: function (json) {
-                    for(var i=0;i<json.length;i++){
-                        $("#finid").append('<option value="'+json[i].finid+'">'+json[i].fname+'</option>');
-                    }
-                    $('#finid').removeAttr('disabled');
-                }
-            })
-        }
     </script>
 </head>
 <body><br>
@@ -229,7 +238,7 @@
                 <button type="button" class="button button-rounded button-small" data-dismiss="modal"
                         onclick="javascript:location.reload()">刷新
                 </button>
-                <button type="submit" onclick="addEmployee()"
+                <button onclick="addEmployee()"
                         class="button button-rounded button-small button-primary button-glow">提交
                 </button>
             </form>

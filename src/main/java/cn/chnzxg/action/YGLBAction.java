@@ -23,6 +23,7 @@ public class YGLBAction {
 			request.setAttribute("list", getEmployeeList(employee));
 			request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),pageSize));
 			request.setAttribute("page", page);
+			request.setAttribute("pageSize", pageSize);
 		}
 		return "yglb";
 	}
@@ -53,6 +54,18 @@ public class YGLBAction {
 		}
 		return "yglb";
 	}
+
+	@RequestMapping(value = "/addyglb.do", method = RequestMethod.POST)
+    @ResponseBody
+	public Integer addEmployee(Employee employee){
+        try{
+            employeeService.addEmp(employee);
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+	    return 1;
+    }
 
 	@RequestMapping("/qryDetail.do")
 	@ResponseBody

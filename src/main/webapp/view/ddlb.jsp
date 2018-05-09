@@ -77,8 +77,13 @@
                                 <c:if test="${form.fstatus==1}">已发货</c:if>
                                 <c:if test="${form.fstatus==2}">已收获</c:if>
                                 <c:if test="${form.fstatus==3}">已关闭</c:if></td>
-                            <td><c:if test="${form.fstatus==0}"><a style="width:25px;">发货</a></c:if>
-                                <a style="width:25px;">关闭</a>
+
+                            <td><c:if test="${form.fstatus==0}"><a
+                                    href="${pageContext.request.contextPath}/form/updform.do?forid=${form.forid}&fstatus=1&page=${page}&pageSize=15"
+                                    style="width:25px;">发货</a></c:if>
+                                <c:if test="${form.fstatus!=3}"><a
+                                        href="${pageContext.request.contextPath}/form/updform.do?forid=${form.forid}&fstatus=3&page=${page}&pageSize=15"
+                                        style="width:25px;">关闭</a></c:if>
                             </td>
                         </tr>
                     </c:forEach>

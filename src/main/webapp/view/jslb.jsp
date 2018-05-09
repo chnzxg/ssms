@@ -7,6 +7,13 @@
 <head>
     <%@include file="../include/general.jsp" %>
     <script>
+        function del1(id) {
+            $('#delvalue').val(id);
+        }
+        function del2() {
+            var id = $('#delvalue').val();
+            location.href = '${pageContext.request.contextPath}/role/delrole.do?rid='+id+'&page=${page}&pageSize=15';
+        }
         $(function(){
             //分页插件初始化
             $('#pagination1').jqPaginator({
@@ -33,6 +40,32 @@
 <div id="main" style="background-color:#eee;">
     <br>
     <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel1">
+                            注意
+                        </h4>
+                    </div>
+                    <input id="delvalue" type="hidden" value="">
+                    <div class="modal-body">
+                        此操作会删除管理员且无法恢复，是否继续？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="del2()">
+                            确定
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
@@ -55,7 +88,11 @@
                             <td >${role.rname}</td>
                             <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${role.creattime}" /></td>
                             <td><div style=" margin:0 auto;width: 450px; height: 32px; overflow-y:auto; overflow-x:auto;">${role.powers}</div></td>
-                            <td ><a style="width:25px;height:20px;" href="${pageContext.request.contextPath}/role/delrole.do?aid=${role.rid}&page=${page}&pageSize=15">x</a></td>
+                            <td ><a style="width:25px;height:20px;"
+                                    onclick="del1(${role.rid})"
+                                    data-toggle="modal"
+                                    data-target="#myModal1"
+                                    href="javascript:void(0)">x</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

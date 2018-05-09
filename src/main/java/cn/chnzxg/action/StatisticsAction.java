@@ -73,10 +73,10 @@ public class StatisticsAction {
         for(Statistics s : formInfo){
             int name = Integer.parseInt(s.getName());
             switch (name){
-                case 1: s.setName("已下单"); break;
-                case 2: s.setName("已发货"); break;
-                case 3: s.setName("已收货"); break;
-                case 4: s.setName("已关闭"); break;
+                case 0: s.setName("已下单"); break;
+                case 1: s.setName("已发货"); break;
+                case 2: s.setName("已收货"); break;
+                case 3: s.setName("已关闭"); break;
             }
         }
         setAttibute(request, formInfo, Form.class);
