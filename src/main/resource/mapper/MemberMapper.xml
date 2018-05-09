@@ -29,4 +29,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qryAllMember" resultType="Member">
 		select * from member
 	</select>
+	<insert id="addMember">
+		insert into member (mname, mtel, mlevel, mrem, mdate)
+		VALUE (#{mname}, #{mtel}, #{mlevel}, #{mrem}, now())
+	</insert>
 </mapper>

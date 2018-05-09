@@ -1,7 +1,9 @@
 package cn.chnzxg.action;
 
 import cn.chnzxg.entity.Admin;
+import cn.chnzxg.entity.Role;
 import cn.chnzxg.service.AdminService;
+import cn.chnzxg.service.RoleService;
 import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +27,8 @@ public class AdminAction {
 
     @Resource
     private AdminService adminService;
+    @Resource
+    private RoleService roleService;
 
     @RequestMapping(value = "/qryadmin.do", method = RequestMethod.GET)
     public String qryAdmin(HttpServletRequest request, String page, String pageSize, Admin admin) {
@@ -53,14 +58,29 @@ public class AdminAction {
     }
 
     @RequestMapping(value = "/updadmin.do", method = RequestMethod.POST)
-    public String updAdmin(HttpServletRequest request, String page, String pageSize, Admin admin, int[] rid) {
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("admin", admin);
-        paramMap.put("rids", rid);
-        adminService.updAdmin(paramMap);
-        getAdmins(admin, page, pageSize, request);
-        return "JSLB";
+    @ResponseBody
+    public Integer updAdmin(Admin admin, int[] rid) {
+        try {
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put("admin", admin);
+            paramMap.put("rids", rid);
+            adminService.updAdmin(paramMap);
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
     }
+
+    @RequestMapping(value = "/qrydetail.do", method = RequestMethod.GET)
+    public String qryDetail(HttpServletRequest request, Admin admin, HttpSession session){
+        admin = adminService.qryDetail(admin);
+        List<Role> roles = roleService.qryAllRole();
+        session.setAttribute("admin", admin);
+        session.setAttribute("roles", roles);
+        return "modi/modiadmin";
+    }
+
 
     private void getAdmins(Admin admin, String page, String pageSize, HttpServletRequest request) {
         Map<String, Object> paramMap = PageUtil.getParamMap(admin, page, pageSize);

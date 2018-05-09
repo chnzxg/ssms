@@ -104,6 +104,13 @@ public class Admin {
         return stringBuffer.toString();
     }
 
+    public List<Power> getPower(){
+        return powers;
+    }
+    public List<Role> getRole(){
+        return roles;
+    }
+
     public void setPowers(List<Power> powers) {
         this.powers = powers;
     }

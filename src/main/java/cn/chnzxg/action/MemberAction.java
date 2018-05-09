@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -40,13 +41,27 @@ public class MemberAction {
         return "hylb";
     }
 
-    @RequestMapping(value = "/updMember.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/updmember.do", method = RequestMethod.GET)
     public String updMembers(HttpServletRequest request, String page, String pageSize, Member member){
         if(!MyUtil.isEmpty(member)){
             memberService.updMember(MyUtil.beanToMap(member));
         }
         getMembers(member, page, pageSize, request);
         return "hylb";
+    }
+
+    @RequestMapping(value = "/addmember.do", method = RequestMethod.POST)
+    @ResponseBody
+    public Integer addMembers(Member member){
+        try {
+            if (!MyUtil.isEmpty(member)) {
+                memberService.addMember(MyUtil.beanToMap(member));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
     }
 
     private void getMembers(Member member, String page, String pageSize,HttpServletRequest request){

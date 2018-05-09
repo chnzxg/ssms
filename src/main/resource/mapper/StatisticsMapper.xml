@@ -27,6 +27,13 @@
         FROM member
         GROUP BY mlevel
     </select>
+    <select id="getFormStatistics" resultType="Statistics">
+        SELECT
+          count(1) value,
+          fstatus  name
+        FROM form
+        GROUP BY fstatus
+    </select>
     <select id="getFineStatistics" resultType="Statistics">
         SELECT
         count(1) value,

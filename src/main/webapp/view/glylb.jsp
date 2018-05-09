@@ -29,6 +29,15 @@
             }
         );
     </script>
+    <style type="text/css">
+        .col-sm-4 {
+            margin-bottom: 10px;
+        }
+
+        .col-sm-6 {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 <div id="main" style="background-color:#eee;">
@@ -55,13 +64,18 @@
                         <tr <c:if test="${admin.aid==sessionScope.user.aid}">style="background-color: #2c9fc9"</c:if>>
                             <td>${i.count}</td>
                             <td id="comid" style="display:none">${admin.aid}</td>
-                            <td>${admin.aname}</td>
+                            <td><a href="${pageContext.request.contextPath}/admin/qrydetail.do?aid=${admin.aid}">${admin.aname}</a></td>
                             <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${admin.creattime}"/></td>
                             <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${admin.lastlogintime}"/></td>
-                            <td><div style="margin:0 auto;width: 300px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.roles}</div></td>
-                            <td><div style="margin:0 auto;width: 300px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.powers}</div></td>
+                            <td>
+                                <div style="margin:0 auto;width: 200px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.roles}</div>
+                            </td>
+                            <td>
+                                <div style="margin:0 auto;width: 400px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.powers}</div>
+                            </td>
                             <td><a style="width:25px;"
-                                   <c:if test="${admin.aid==sessionScope.user.aid}">href ="javascript:return false;" style="opacity: 0.2"</c:if>
+                                   <c:if test="${admin.aid==sessionScope.user.aid}">href="javascript:return false;"
+                                   style="opacity: 0.2"</c:if>
                                    <c:if test="${admin.aid==sessionScope.user.aid}">href="${pageContext.request.contextPath}/admin/deladmin.do?aid=${admin.aid}&page=${page}&pageSize=${pageSize}"</c:if>
                             >x</a></td>
                         </tr>

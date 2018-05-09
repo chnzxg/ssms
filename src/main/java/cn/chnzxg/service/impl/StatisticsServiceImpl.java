@@ -34,6 +34,11 @@ public class StatisticsServiceImpl implements StatisticsService {
     }
 
     @Override
+    public List<Statistics> getFormStatistics() {
+        return statisticsDao.getFormStatistics();
+    }
+
+    @Override
     public List<Statistics> getFineInfo(Map<String, String> paramMap) {
         return statisticsDao.getFineStatistics(paramMap);
     }

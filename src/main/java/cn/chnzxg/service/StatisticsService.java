@@ -12,5 +12,6 @@ public interface StatisticsService {
     List<Statistics> getCommodityInfo();
     List<Statistics> getEmployeeInfo();
     List<Statistics> getMemberInfo();
+    List<Statistics> getFormStatistics();
     List<Statistics> getFineInfo(Map<String, String> paramMap);
 }

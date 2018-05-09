@@ -315,7 +315,7 @@
     </column>
     <column id="85" parent="14" name="mtel">
       <Position>3</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>mediumtext|0</DataType>
     </column>
     <column id="86" parent="14" name="mcode">
       <Position>4</Position>

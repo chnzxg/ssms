@@ -1,3 +1,9 @@
+.col-sm-4{
+	margin-bottom: 10px;
+}
+.col-sm-6{
+	margin-bottom: 10px;
+}
 input{
 	autocomplete: off;
 }

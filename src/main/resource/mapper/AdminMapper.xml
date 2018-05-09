@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="lastlogintime!=null">
             , lastlogintime = #{lastlogintime}
         </if>
+        where aid = #{aid}
     </update>
     <insert id="addAdmin">
         insert into admin (aname, apassword, creattime) values
@@ -43,4 +44,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update admin set apassword = #{apassword}
         where aid = a{id}
     </update>
+    <select id="qryDetail" resultType="Admin">
+        select * from ssms.admin
+        where aid = #{aid}
+    </select>
 </mapper>

@@ -12,5 +12,6 @@ public interface StatisticsDao {
     List<Statistics> getCommodityStatistics();
     List<Statistics> getEmployeeStatistics();
     List<Statistics> getMemberStatistics();
+    List<Statistics> getFormStatistics();
     List<Statistics> getFineStatistics(Map<String, String> paramMap);
 }

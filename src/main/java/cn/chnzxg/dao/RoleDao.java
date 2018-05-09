@@ -21,4 +21,5 @@ public interface RoleDao {
     List<Role> qryRoleByAdmin(Admin admin);
     List<Power> qryPowerByAdmin(Admin admin);
     List<Role> qryAllRole();
+    Role qryDetail(Role role);
 }

@@ -225,31 +225,31 @@
                     <ul>
                         <li class="active">
                             <a name="splb" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/splb/qrysplb.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/splb/qrysplb.do?page=1&pageSize=15&purl=1')">
                                 <span class="title">商品列表</span>
                             </a>
                         </li>
                         <li>
                             <a name="tjxsp" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?flag=1')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?flag=1&purl=2')">
                                 <span class="title">添加商品</span>
                             </a>
                         </li>
                         <li>
                             <a name="spfl" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/spfl/qryspfl.do?page=1&pageSize=15&purl=3')">
                                 <span class="title">商品分类</span>
                             </a>
                         </li>
                         <li>
                             <a name="sphsz" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/sphsz/qrysphsz.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/sphsz/qrysphsz.do?page=1&pageSize=15&purl=4')">
                                 <span class="title">商品回收站</span>
                             </a>
                         </li>
                         <li>
                             <a name="kcgl" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/form/qryform.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/form/qryform.do?page=1&pageSize=15&purl=5')">
                                 <span class="title">订单列表</span>
                             </a>
                         </li>
@@ -263,13 +263,13 @@
                     <ul>
                         <li>
                             <a name="yglb" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15&purl=6')">
                                 <span class="title">员工列表</span>
                             </a>
                         </li>
                         <li>
                             <a name="xzyg" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/view/tjxyg.jsp')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/view/tjxyg.jsp?purl=7')">
                                 <span class="title">添加员工</span>
                             </a>
                         </li>
@@ -283,12 +283,13 @@
                     <ul>
                         <li>
                             <a name="yglb" href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/member/qrymember.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/member/qrymember.do?page=1&pageSize=15&purl=8')">
                                 <span class="title">会员列表</span>
                             </a>
                         </li>
                         <li>
-                            <a name="xzyg" href="javascript:void(0)">
+                            <a name="xzyg" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/view/tjhy.jsp?purl=9')">
                                 <span class="title">添加会员</span>
                             </a>
                         </li>
@@ -307,25 +308,25 @@
                     <ul>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15&purl=11')">
                                 <span class="title">管理员管理</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryallrole.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryallrole.do?page=1&pageSize=15&purl=12')">
                                 <span class="title">添加管理员</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15&purl=13')">
                                 <span class="title">角色管理</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryallpower.do')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryallpower.do?purl=14')">
                                 <span class="title">添加角色</span>
                             </a>
                         </li>
@@ -339,24 +340,25 @@
                     <ul>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/stat/comm.do')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/stat/comm.do?purl=15')">
                                 <span class="title">商品统计</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/stat/mem.do')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/stat/mem.do?purl=16')">
                                 <span class="title">会员统计</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/stat/emp.do')">
+                               onclick="jumpTo('${pageContext.request.contextPath}/stat/emp.do?purl=17')">
                                 <span class="title">员工统计</span>
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/stat/form.do?purl=18')">
                                 <span class="title">订单统计</span>
                             </a>
                         </li>

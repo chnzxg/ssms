@@ -67,6 +67,22 @@ public class StatisticsAction {
         return "statistics/memstat";
     }
 
+    @RequestMapping(value = "/form.do", method = RequestMethod.GET)
+    public String getFormStat(HttpServletRequest request){
+        List<Statistics> formInfo = statisticsService.getFormStatistics();
+        for(Statistics s : formInfo){
+            int name = Integer.parseInt(s.getName());
+            switch (name){
+                case 1: s.setName("已下单"); break;
+                case 2: s.setName("已发货"); break;
+                case 3: s.setName("已收货"); break;
+                case 4: s.setName("已关闭"); break;
+            }
+        }
+        setAttibute(request, formInfo, Form.class);
+        return "statistics/formstat";
+    }
+
     //处理数据，生成json格式的name和value字符串
     private void setAttibute(HttpServletRequest request, List<Statistics> list, Class clazz){
         String[] names = new String[list.size()];

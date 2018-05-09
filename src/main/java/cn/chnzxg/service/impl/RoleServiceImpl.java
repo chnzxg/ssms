@@ -86,6 +86,11 @@ public class RoleServiceImpl implements RoleService{
         return roleDao.qryAllRole();
     }
 
+    @Override
+    public Role qryDetail(Role role) {
+        return roleDao.qryDetail(role);
+    }
+
     private void setRolePower(int[] pids, Integer rid){
         for(Integer pid : pids){
             Map<String ,Object> map = new HashMap<>();

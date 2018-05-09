@@ -16,4 +16,5 @@ public interface AdminService {
     List<Admin> login(Map<String, Object> paramMap);
     Admin updLoginTime(Admin admin);
     Integer updAPassword(Admin admin);
+    Admin qryDetail(Admin admin);
 }

@@ -28,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Admin> qryAdmin(Map<String, Object> paramMap) {
         List<Admin> admins = adminDao.qryAdmin(paramMap);
-        for(Admin admin : admins){
+        for (Admin admin : admins) {
             admin.setRoles(roleDao.qryRoleByAdmin(admin));
             admin.setPowers(roleDao.qryPowerByAdmin(admin));
         }
@@ -48,14 +48,15 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Integer updAdmin(Map<String, Object> paramMap) {
-        try{
+        try {
             Admin admin = (Admin) paramMap.get("admin");
-            Map<String, Object> map = MyUtil.beanToMap(admin);
+            Map<String, Object> map = new HashMap<>();
+            map.put("admin", admin);
             adminDao.updAdmin(map);
             roleDao.delAdminRole(map);
             int[] rids = (int[]) paramMap.get("rids");
             setAdminRole(rids, admin.getAid());
-        }catch (Exception e){
+        } catch (Exception e) {
             return 0;
         }
         return 1;
@@ -78,7 +79,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Admin> login(Map<String, Object> paramMap) {
         List<Admin> admins = adminDao.login(paramMap);
-        for(Admin admin : admins){
+        for (Admin admin : admins) {
             admin.setRoles(roleDao.qryRoleByAdmin(admin));
             admin.setPowers(roleDao.qryPowerByAdmin(admin));
         }
@@ -95,6 +96,14 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Integer updAPassword(Admin admin) {
         return adminDao.updAPassword(admin);
+    }
+
+    @Override
+    public Admin qryDetail(Admin admin) {
+        Admin admin1 = adminDao.qryDetail(admin);
+        admin1.setRoles(roleDao.qryRoleByAdmin(admin));
+        admin1.setPowers(roleDao.qryPowerByAdmin(admin));
+        return admin1;
     }
 
     private void setAdminRole(int[] rids, Integer aid) {
