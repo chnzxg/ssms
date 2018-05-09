@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 <head>
     <%@include file="../include/general.jsp" %>
     <script>
-        $(function(){
+        $(function () {
                 //分页插件初始化
                 $('#pagination1').jqPaginator({
                     totalPages: ${pageCount},
@@ -22,10 +22,10 @@
                         $('#text').html('当前第' + num + '页');
                     }
                 });
-                if(${page==1})
-                    $(".up").attr("href","javascript:void(0)");
-                if(${pageCount==page})
-                    $(".down").attr("href","javascript:void(0)");
+                if (${page==1})
+                    $(".up").attr("href", "javascript:void(0)");
+                if (${pageCount==page})
+                    $(".down").attr("href", "javascript:void(0)");
             }
         );
     </script>
@@ -37,7 +37,7 @@
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
-                <table class="table table-hover table-condensed table-striped"  id="commtable">
+                <table class="table table-hover table-condensed table-striped" id="commtable">
                     <thead>
                     <tr>
                         <th style="display:none">memid</th>
@@ -55,14 +55,16 @@
                     <c:forEach items="${members}" var="member" varStatus="i">
                         <tr>
                             <th style="display:none">${member.memid}</th>
-                            <td >${i.count}</td>
-                            <td >${member.mname}</td>
-                            <td >${member.mtel}</td>
-                            <td >${member.mlevel}</td>
-                            <td >${member.mrem}</td>
-                            <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${member.mdate}" /></td>
-                            <td >${member.mcount}</td>
-                            <td ><a style="width:25px;" href="${pageContext.request.contextPath}/member/delmember.do?memid=${member.memid}&page=${page}&pageSize=15">x</a></td>
+                            <td>${i.count}</td>
+                            <td>${member.mname}</td>
+                            <td>${member.mtel}</td>
+                            <td>${member.mlevel}</td>
+                            <td>${member.mrem}</td>
+                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.mdate}"/></td>
+                            <td>${member.mcount}</td>
+                            <td><a style="width:25px;"
+                                   href="${pageContext.request.contextPath}/member/delmember.do?memid=${member.memid}&page=${page}&pageSize=15"><b
+                                    style="font-size: 16px; color: red;">&times;</b></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -74,7 +76,6 @@
         </div>
     </div>
 </div>
-
 
 
 </body>

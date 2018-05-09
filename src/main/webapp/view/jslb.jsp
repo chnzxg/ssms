@@ -92,7 +92,7 @@
                                     onclick="del1(${role.rid})"
                                     data-toggle="modal"
                                     data-target="#myModal1"
-                                    href="javascript:void(0)">x</a></td>
+                                    href="javascript:void(0)"><b style="font-size: 16px; color: red;">&times;</b></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

@@ -321,7 +321,7 @@
                                             onclick="del1(${emp.empid})"
                                             data-toggle="modal"
                                             data-target="#myModal1"
-                                            href="javascript:void(0)">x</a>
+                                            href="javascript:void(0)"><b style="font-size: 16px; color: red;">&times;</b></a>
                             </td>
                         </tr>
                     </c:forEach>

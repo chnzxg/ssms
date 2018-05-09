@@ -84,7 +84,6 @@
         }
 
 
-
     </script>
 </head>
 <body>
@@ -202,7 +201,8 @@
                                         <td style="width:50px;"></td>
                                         <td align="right" style="width:100px;font-size:14px;">生产日期：</td>
                                         <td style="width:240px;"><input style="height:33px;" type="date"
-                                                                        class="form-control" name="cprodate" id="cprodate"
+                                                                        class="form-control" name="cprodate"
+                                                                        id="cprodate"
                                                                         placeholder="请输入生产日期"></td>
                                         <td style="width:50px;"></td>
                                     </tr>

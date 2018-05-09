@@ -12,7 +12,7 @@
         }
         function del2() {
             var id = $('#delvalue').val();
-            location.href = '${pageContext.request.contextPath}/admin/deladmin.do?aid='+id+'&page=${page}&pageSize=15';
+            location.href = '${pageContext.request.contextPath}/admin/deladmin.do?aid=' + id + '&page=${page}&pageSize=15';
         }
         $(function () {
                 //分页插件初始化
@@ -116,7 +116,7 @@
                                    onclick="del1(${admin.aid})"
                                    data-toggle="modal"
                                    data-target="#myModal1"</c:if>
-                            >x</a></td>
+                            ><b style="font-size: 16px; color: red;">&times;</b></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

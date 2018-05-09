@@ -122,7 +122,7 @@
              background: -moz-linear-gradient(right, #76b852, #8DC26F);
              background: -o-linear-gradient(right, #76b852, #8DC26F);
              background: linear-gradient(to left, #76b852, #8DC26F);*/
-            background: #fff url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525704776137&di=6298e795af6f6ff71a02b8b1977d5c1c&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2013%2F063%2FWO2K22EU0K4N.jpg') no-repeat left top;
+            background: #fff url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526458969&di=9e7507784a98d2ceaf3127d7634ee540&imgtype=jpg&er=1&src=http%3A%2F%2Fbbs.crsky.com%2F1236983883%2FMon_1401%2F25_184488_57479f9fd014fba.jpg') no-repeat left top;
             background-size: 100%;
             /*font-family: "Roboto", sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -176,10 +176,10 @@
         }
     </style>
 </head>
-<body><br><br><br><br><br><br>
-<div class="htmleaf-container1">
+<body><br><br><br><br><br><br><br><br><br>
+<div class="htmleaf-container1" style="text-align: center;">
     <header class="htmleaf-header">
-        <h1>超市管理系统  SSMS <span>用户登录</span></h1>
+        <h1 style="color: white;">超市管理系统  SSMS</h1>
     </header>
 </div>
 <div class="htmleaf-container">

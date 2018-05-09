@@ -146,11 +146,11 @@
                             <td style="width:6%;">${comm.ccode}</td>
                             <td style="width:7%;">${comm.cstock}</td>
                             <td style="width:7%;">${comm.cproder}</td>
-                            <td style="width:18%;">${comm.cprodate}</td>
+                            <td style="width:18%;"><fmt:formatDate pattern="yyyy-MM-dd" value="${comm.cprodate}"/></td>
                             <td style="width:20%;"><a style="width:25px;height:20px;"
                                                       href="javascript:void(0)" onclick="delComm1(${comm.comid})"
                                                       data-toggle="modal"
-                                                      data-target="#myModal1"><b>x</b></a></td>
+                                                      data-target="#myModal1"><b style="font-size: 16px; color: red;">&times;</b></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
