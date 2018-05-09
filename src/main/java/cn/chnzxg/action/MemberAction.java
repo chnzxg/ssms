@@ -32,11 +32,11 @@ public class MemberAction {
         return "hylb";
     }
 
-    @RequestMapping(value = "/delmember.do", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delmember.do", method = RequestMethod.GET)
     public String delMembers(HttpServletRequest request, String page, String pageSize, Member member){
         Map<String, Object> delParamMap = new HashMap<>();
         delParamMap.put("member", member);
-        memberService.delMember(delParamMap);
+        Integer i = memberService.delMember(delParamMap);
         getMembers(member, page, pageSize, request);
         return "hylb";
     }

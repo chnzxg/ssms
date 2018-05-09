@@ -291,8 +291,8 @@
                     <ul>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15&purl=11')">
-                                <span class="title">管理员管理</span>
+                               onclick="jumpTo('${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=12&purl=11')">
+                                <span class="title">管理员列表</span>
                             </a>
                         </li>
                         <li>
@@ -303,8 +303,8 @@
                         </li>
                         <li>
                             <a href="javascript:void(0)"
-                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15&purl=13')">
-                                <span class="title">角色管理</span>
+                               onclick="jumpTo('${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=12&purl=13')">
+                                <span class="title">角色列表</span>
                             </a>
                         </li>
                         <li>

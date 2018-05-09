@@ -170,10 +170,6 @@
             }
         }
 
-        p.center {
-            color: #fff;
-            font-family: "Microsoft YaHei";
-        }
     </style>
 </head>
 <body><br><br><br><br><br><br><br><br><br>
@@ -189,6 +185,7 @@
                 <input type="text" placeholder="用户名" id="user_name"/>
                 <input type="password" placeholder="密码" id="password"/>
                 <button id="login">登　录</button>
+                <i id="logininfo" style="color: dimgrey;visibility: hidden"></i>
             </form>
         </div>
     </div>
@@ -196,6 +193,8 @@
 
 <script type="text/javascript">
     function check_login() {
+        $('#logininfo').text('正在登陆，请稍候。。。');
+        $('#logininfo').css("visibility","visible");
         var name = $("#user_name").val();
         var pass = $("#password").val();
         $.post({
@@ -206,6 +205,8 @@
                     location.href = '${pageContext.request.contextPath}/view/index.jsp';
                 }
                 else {
+                    $('#logininfo').text('用户名或密码错误，请重试');
+                    $('#logininfo').css("visibility","visible");
                     $("#login_form").removeClass('shake_effect');
                     setTimeout(function () {
                         $("#login_form").addClass('shake_effect')

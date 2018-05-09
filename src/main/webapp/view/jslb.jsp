@@ -12,7 +12,7 @@
         }
         function del2() {
             var id = $('#delvalue').val();
-            location.href = '${pageContext.request.contextPath}/role/delrole.do?rid='+id+'&page=${page}&pageSize=15';
+            location.href = '${pageContext.request.contextPath}/role/delrole.do?rid='+id+'&page=${page}&pageSize=12';
         }
         $(function(){
             //分页插件初始化
@@ -20,11 +20,11 @@
                 totalPages: ${pageCount},
                 visiblePages: 7,
                 currentPage: ${page},
-                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=15">首页</a></li>',
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/role/qryrole.do?page=${page-1}&pageSize=15">上一页</a></li>',
-                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/role/qryrole.do?page=${page+1}&pageSize=15">下一页</a></li>',
-                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/role/qryrole.do?page=${pageCount}&pageSize=15">末页</a></li>',
-                page: '<li class="page"><a href="${pageContext.request.contextPath}/role/qryrole.do?page={{page}}&pageSize=15">{{page}}</a></li>',
+                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/role/qryrole.do?page=1&pageSize=12">首页</a></li>',
+                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/role/qryrole.do?page=${page-1}&pageSize=12">上一页</a></li>',
+                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/role/qryrole.do?page=${page+1}&pageSize=12">下一页</a></li>',
+                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/role/qryrole.do?page=${pageCount}&pageSize=12">末页</a></li>',
+                page: '<li class="page"><a href="${pageContext.request.contextPath}/role/qryrole.do?page={{page}}&pageSize=12">{{page}}</a></li>',
                 onPageChange: function (num) {
                     $('#text').html('当前第' + num + '页');
                 }
@@ -88,7 +88,7 @@
                             <td >${role.rname}</td>
                             <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${role.creattime}" /></td>
                             <td><div style=" margin:0 auto;width: 450px; height: 32px; overflow-y:auto; overflow-x:auto;">${role.powers}</div></td>
-                            <td ><a style="width:25px;height:20px;"
+                            <td style="width: 10%"><a
                                     onclick="del1(${role.rid})"
                                     data-toggle="modal"
                                     data-target="#myModal1"

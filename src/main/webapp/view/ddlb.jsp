@@ -13,11 +13,11 @@
                     totalPages: ${pageCount},
                     visiblePages: 7,
                     currentPage: ${page},
-                    first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=${pageSize}">首页</a></li>',
-                    prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page-1}&pageSize=${pageSize}">上一页</a></li>',
-                    next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page+1}&pageSize=${pageSize}">下一页</a></li>',
-                    last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${pageCount}&pageSize=${pageSize}">末页</a></li>',
-                    page: '<li class="page"><a href="${pageContext.request.contextPath}/admin/qryadmin.do?page={{page}}&pageSize=${pageSize}">{{page}}</a></li>',
+                    first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/form/qryform.do?page=1&pageSize=${pageSize}">首页</a></li>',
+                    prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/form/qryform.do?page=${page-1}&pageSize=${pageSize}">上一页</a></li>',
+                    next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/form/qryform.do?page=${page+1}&pageSize=${pageSize}">下一页</a></li>',
+                    last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/form/qryform.do?page=${pageCount}&pageSize=${pageSize}">末页</a></li>',
+                    page: '<li class="page"><a href="${pageContext.request.contextPath}/form/qryform.do?page={{page}}&pageSize=${pageSize}">{{page}}</a></li>',
                     onPageChange: function (num) {
                         $('#text').html('当前第' + num + '页');
                     }

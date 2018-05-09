@@ -7,17 +7,24 @@
 <head>
     <%@include file="../include/general.jsp" %>
     <script>
+        function del1(id) {
+            $('#delvalue').val(id);
+        }
+        function del2() {
+            var id = $('#delvalue').val();
+            location.href = '${pageContext.request.contextPath}/member/delmember.do?memid='+id+'&page=${page}&pageSize=15';
+        }
         $(function () {
                 //分页插件初始化
                 $('#pagination1').jqPaginator({
                     totalPages: ${pageCount},
                     visiblePages: 7,
                     currentPage: ${page},
-                    first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15">首页</a></li>',
-                    prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page-1}&pageSize=15">上一页</a></li>',
-                    next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${page+1}&pageSize=15">下一页</a></li>',
-                    last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/admin/qryadmin.do?page=${pageCount}&pageSize=15">末页</a></li>',
-                    page: '<li class="page"><a href="${pageContext.request.contextPath}/admin/qryadmin.do?page={{page}}&pageSize=15">{{page}}</a></li>',
+                    first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/member/qrymember.do?page=1&pageSize=15">首页</a></li>',
+                    prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/member/qrymember.do?page=${page-1}&pageSize=15">上一页</a></li>',
+                    next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/member/qrymember.do?page=${page+1}&pageSize=15">下一页</a></li>',
+                    last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/member/qrymember.do?page=${pageCount}&pageSize=15">末页</a></li>',
+                    page: '<li class="page"><a href="${pageContext.request.contextPath}/member/qrymember.do?page={{page}}&pageSize=15">{{page}}</a></li>',
                     onPageChange: function (num) {
                         $('#text').html('当前第' + num + '页');
                     }
@@ -34,6 +41,32 @@
 <div id="main" style="background-color:#eee;">
     <br>
     <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel1">
+                            注意
+                        </h4>
+                    </div>
+                    <input id="delvalue" type="hidden" value="">
+                    <div class="modal-body">
+                        此操作会删除会员且无法恢复，是否继续？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="del2()">
+                            确定
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
@@ -62,8 +95,11 @@
                             <td>${member.mrem}</td>
                             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.mdate}"/></td>
                             <td>${member.mcount}</td>
-                            <td><a style="width:25px;"
-                                   href="${pageContext.request.contextPath}/member/delmember.do?memid=${member.memid}&page=${page}&pageSize=15"><b
+                            <td style="width: 10%;"><a
+                                   onclick="del1(${member.memid})"
+                                   data-toggle="modal"
+                                   data-target="#myModal1"
+                                   href="javascript:void(0)"><b
                                     style="font-size: 16px; color: red;">&times;</b></a></td>
                         </tr>
                     </c:forEach>

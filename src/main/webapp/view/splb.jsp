@@ -291,7 +291,7 @@
                                     style="width:7%;">${comm.cproder}</td>
                             <td style="width:18%;">
                                 <fmt:formatDate pattern="yyyy-MM-dd" value="${comm.cprodate}"/></td>
-                            <td style="width:20%;"><a style="width:25px;height:20px;"
+                            <td style="width:10%;"><a style="width:25px;height:20px;"
                                                       href="javascript:void(0)" onclick="delComm1(${comm.comid})"
                                                       data-toggle="modal"
                                                       data-target="#myModal1"><b style="font-size: 16px; color: red;">&times;</b></a>
@@ -306,8 +306,8 @@
         <div class="pagediv" style="width:95%;height:15%;">
             <ul class="pagination" id="pagination1"></ul>
             <div style="float: right; margin-top: 20px">
-                <button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示
-                </button>
+                <%--<button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示
+                </button>--%>
                 <button class="button button-rounded button-small" data-dismiss="modal"
                         onclick="javascript:location.reload()">导出
                 </button>

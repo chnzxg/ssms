@@ -317,7 +317,7 @@
                             </td>
                             <td style="width:15%;">${emp.email}</td>
                             <td style="width:6%;">${emp.esal}</td>
-                            <td style=""><a style="width:25px;height:20px;"
+                            <td style="width:10%;"><a
                                             onclick="del1(${emp.empid})"
                                             data-toggle="modal"
                                             data-target="#myModal1"

@@ -12,7 +12,7 @@
         }
         function del2() {
             var id = $('#delvalue').val();
-            location.href = '${pageContext.request.contextPath}/admin/deladmin.do?aid=' + id + '&page=${page}&pageSize=15';
+            location.href = '${pageContext.request.contextPath}/admin/deladmin.do?aid=' + id + '&page=${page}&pageSize=12';
         }
         $(function () {
                 //分页插件初始化
@@ -109,7 +109,7 @@
                             <td>
                                 <div style="margin:0 auto;width: 400px; height: 32px; overflow-y:auto; overflow-x:auto;">${admin.powers}</div>
                             </td>
-                            <td><a style="width:25px;"
+                            <td style="width: 10%"><a
                                    <c:if test="${admin.aid==sessionScope.user.aid}">href="javascript:return false;"
                                    style="opacity: 0.2"</c:if>
                                    <c:if test="${admin.aid!=sessionScope.user.aid}">href="javascript:void(0)"

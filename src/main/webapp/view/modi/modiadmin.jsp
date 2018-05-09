@@ -21,7 +21,7 @@
                         if (data == '1') {
                             $('#info').text('修改管理员成功');
                             setTimeout(function () {
-                                location.href='${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=15&purl=11';
+                                location.href='${pageContext.request.contextPath}/admin/qryadmin.do?page=1&pageSize=12&purl=11';
                             }, 1000);
                         }
                         else
