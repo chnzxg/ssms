@@ -17,4 +17,5 @@ public interface AdminDao {
     Integer updLoginTime(Admin admin);
     Integer updAPassword(Admin admin);
     Admin qryDetail(Admin admin);
+    List<Admin> checkAName(String aname);
 }

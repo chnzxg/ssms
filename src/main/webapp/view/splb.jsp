@@ -44,6 +44,7 @@
             }
 
         });
+
         function qryDetail(comid) {
             $.ajax({
                 url: "${pageContext.request.contextPath}/splb/qryDetail.do?comid=" + comid,
@@ -56,12 +57,16 @@
                     $("#month").val(data.month);
                     $("#cstock").val(data.cstock);
                     $("#cproder").val(data.cproder);
+                    var t = new Date(data.cprodate);
+                    var str = t.getFullYear() + "-" + ("0" + (t.getMonth() + 1)).slice(-2) + "-" + ("0" + t.getDate()).slice(-2);
+                    $("#cprodate").val(str);
                     $("#cdesc").val(data.cdesc);
                     $("#ucomid").val(data.comid);
                     $("#cimg").attr("src", "../img/commodity/" + data.comid + ".jpg");
                 }
             });
         }
+
         function changeView() {
             if ($("#divimg").css("display") == "none") {
                 $("#divtable").fadeOut();
@@ -72,12 +77,15 @@
                 $("#divtable").fadeIn();
             }
         }
+
         function updateComm() {
             $("#form").submit();
         }
+
         function delComm1(comid) {
             $('#delcomid').val(comid);
         }
+
         function delComm2() {
             var comid = $('#delcomid').val();
             location.href = '${pageContext.request.contextPath}/splb/removecomm.do?comid=' + comid + '&page=${page}&pageSize=15';
@@ -88,8 +96,36 @@
 </head>
 <body>
 <div id="main" style="background-color:#eee;">
-    <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="search-div card2">
+        <div style="float: right;">
+            <form class="form-inline" role="form" autocomplete="off"
+                  method="get"
+                  action="${pageContext.request.contextPath}/splb/sersplb.do"
+            >
+                <input type="hidden" name="page" value="${page}">
+                <div class="form-group ">
+                    <label for="f1">名称</label>
+                    <input name="cname" value="${comm.cname}" type="text" id="f1" class="form-control" placeholder="请输入商品名称"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f2">分类</label>
+                    <input name="finid" value="${comm.finid}" type="text" id="f2" class="form-control" placeholder="请输入密码"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f3">重量</label>
+                    <input name="cweight" value="${comm.cweight}" type="text" id="f3" class="form-control" placeholder="请输入密码"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f4">保质期</label>
+                    <input name="month" value="${comm.month}" type="text" id="f4" class="form-control" placeholder="请输入密码"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">搜索</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">

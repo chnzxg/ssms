@@ -58,6 +58,12 @@
                             },
                             notEmpty: {
                                 message: '姓名不能为空'
+                            },
+                            remote : {
+                                url : '${pageContext.request.contextPath}/yglb/checkename.do',
+                                message : "该姓名已存在",
+                                delay : 500,
+                                type : 'post',
                             }
                         }
                     }/*,
@@ -156,7 +162,7 @@
 
 <div id="main" style="width:98%;height:100%;">
     <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div id="formdiv" style="width:100%;height:100%;">
             <form id="form" action="" class="form-horizontal"

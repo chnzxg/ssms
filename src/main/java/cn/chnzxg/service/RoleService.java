@@ -18,4 +18,5 @@ public interface RoleService {
     Integer addRole(Map<String, Object> paramMap);
     List<Role> qryAllRole();
     Role qryDetail(Role role);
+    Boolean checkRName(String rname);
 }

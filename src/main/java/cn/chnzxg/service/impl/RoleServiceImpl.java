@@ -91,6 +91,14 @@ public class RoleServiceImpl implements RoleService{
         return roleDao.qryDetail(role);
     }
 
+    @Override
+    public Boolean checkRName(String rname) {
+        List<Role> commoditys = roleDao.checkRName(rname);
+        if(commoditys.size() == 0)
+            return true;
+        return false;
+    }
+
     private void setRolePower(int[] pids, Integer rid){
         for(Integer pid : pids){
             Map<String ,Object> map = new HashMap<>();

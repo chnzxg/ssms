@@ -4,6 +4,7 @@ import cn.chnzxg.entity.Member;
 import cn.chnzxg.service.MemberService;
 import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
+import com.google.gson.Gson;
 import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,16 @@ public class MemberAction {
 
     @Resource
     MemberService memberService;
+
+    @RequestMapping(value = "/checkmname.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String  checkMName(String mname){
+        Gson gson = new Gson();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("valid", memberService.checkMName(mname));
+        String str = gson.toJson(map).toString();
+        return str;
+    }
 
     @RequestMapping(value = "/qrymember.do", method = RequestMethod.GET)
     public String getMembers(HttpServletRequest request, String page, String pageSize, Member member){
@@ -66,6 +77,9 @@ public class MemberAction {
 
     private void getMembers(Member member, String page, String pageSize,HttpServletRequest request){
         Map<String, Object> paramMap = PageUtil.getParamMap(member, page, pageSize);
+        paramMap.put("mname", member.getMname());
+        paramMap.put("mtel", member.getMtel());
+        paramMap.put("mlevel", member.getMlevel());
         List<Member> members = memberService.qryMember(paramMap);
         request.setAttribute("members", members);
         request.setAttribute("page", page);

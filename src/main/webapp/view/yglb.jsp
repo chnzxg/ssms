@@ -8,6 +8,9 @@
     <%@include file="../include/general.jsp" %>
     <link rel="stylesheet" href="../css/page/splb.css">
     <script>
+        function update() {
+            $('#form').submit();
+        }
         function del1(id) {
             $('#delvalue').val(id);
         }
@@ -111,6 +114,7 @@
             });
         });*/
         function qryDetail(empid) {
+            $("#empid").val(empid);
             $.ajax({
                 url: "${pageContext.request.contextPath}/yglb/qryDetail.do?empid=" + empid,
                 success: function (data) {
@@ -143,8 +147,49 @@
 </head>
 <body>
 <div id="main" style="background-color:#eee;">
-    <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="search-div card2">
+        <div style="float: right;">
+            <form class="form-inline" role="form" autocomplete="off"
+                  method="get"
+                  action="${pageContext.request.contextPath}/yglb/seryglb.do"
+            >
+                <input type="hidden" name="page" value="${page}">
+                <div class="form-group ">
+                    <label for="f1">姓名</label>
+                    <input name="ename" value="${employee.ename}" type="text" id="f1" class="form-control" placeholder="请输入姓名"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f4">年龄</label>
+                    <input name="eage" value="${employee.eage}" type="text" id="f4" class="form-control" placeholder="请输入年龄"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f2">性别</label>
+                    <select id="f2" class="form-control">
+                        <option>全部</option>
+                        <option name="esex" <c:if test="${employee.esex==1}">selected="selected"</c:if> value="1">男</option>
+                        <option name="esex" <c:if test="${employee.esex==2}">selected="selected"</c:if> value="2">女</option>
+                    </select>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f3">工种</label>
+                    <select id="f3" class="form-control">
+                        <option>全部</option>
+                        <option name="epro" <c:if test="${employee.epro==1}">selected="selected"</c:if> value="1">店长</option>
+                        <option name="epro" <c:if test="${employee.epro==2}">selected="selected"</c:if> value="2">经理</option>
+                        <option name="epro" <c:if test="${employee.epro==3}">selected="selected"</c:if> value="3">促销员</option>
+                        <option name="epro" <c:if test="${employee.epro==4}">selected="selected"</c:if> value="4">收银员</option>
+                        <option name="epro" <c:if test="${employee.epro==5}">selected="selected"</c:if> value="5">收获员</option>
+                        <option name="epro" <c:if test="${employee.epro==6}">selected="selected"</c:if> value="6">理货员</option>
+                        <option name="epro" <c:if test="${employee.epro==7}">selected="selected"</c:if> value="7">保洁</option>
+                    </select>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">搜索</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
@@ -184,8 +229,9 @@
                         <div class="modal-body" style="height:420px;width:600px;">
                             <!-- 表单 -->
                             <form id="form" method="post" class="bs-example bs-example-form"
-                                  action="${pageContext.request.contextPath}/yglb/updyglb.do?page=1&pageSize=15">
+                                  action="${pageContext.request.contextPath}/yglb/updyglb.do">
                                 <input type="hidden" id="empid" name="empid">
+                                <input type="hidden" value="${page}" name="page">
                                 <div class="form-group">
                                     <span style="height: 34px;line-height: 34px;text-align: right" for="ename"
                                           class="col-sm-4 control-label">姓名：</span>
@@ -200,11 +246,11 @@
                                     <div class="col-sm-6" style="height: 34px;line-height: 34px;">
                                         <label class="radio-inline">
                                             <input style="height: 30px;line-height: 30px;" type="radio"
-                                                   name="optionsRadiosinline" id="esex1" value="1"> 男
+                                                   name="esex" id="esex1" value="1"> 男
                                         </label>
                                         <label class="radio-inline">
                                             <input style="height: 30px;line-height: 30px;" type="radio"
-                                                   name="optionsRadiosinline" id="esex2" value="2"> 女
+                                                   name="esex" id="esex2" value="2"> 女
                                         </label>
                                     </div>
                                 </div>
@@ -272,7 +318,7 @@
                         <div class="modal-footer">
                             <button type="button" class="button button-rounded button-small" data-dismiss="modal">关闭
                             </button>
-                            <button type="button" onclick="updateComm()"
+                            <button type="button" onclick="update()"
                                     class="button button-rounded button-small button-primary button-glow">提交
                             </button>
                         </div>

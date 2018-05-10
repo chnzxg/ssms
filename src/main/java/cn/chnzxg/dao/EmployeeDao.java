@@ -1,10 +1,11 @@
 package cn.chnzxg.dao;
 
-import java.util.List;
-
 import cn.chnzxg.entity.Employee;
 
+import java.util.List;
+
 public interface EmployeeDao {
+	List<Employee> checkEName(String ename);
 	List<Employee> qryEmp(Employee employee);
 	List<Employee> login(Employee employee);
 	Integer delEmp(Employee employee);

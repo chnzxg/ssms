@@ -65,4 +65,8 @@
         select * from ssms.role
         where rid = #{rid}
     </select>
+    <select id="checkRName" resultType="Role">
+        select * from ssms.role
+        where rname = #{rname}
+    </select>
 </mapper>

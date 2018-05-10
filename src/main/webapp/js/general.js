@@ -1,12 +1,12 @@
 $(function(){
 	$(':input').attr('autocomplete','off');
 	//卡片式div
-	$(".card").mouseover(function(){
+	/*$(".card").mouseover(function(){
 		$(this).css("box-shadow","0 6px 10px 0 rgba(255, 204, 102, 1.0), 0 8px 25px 0 rgba(255, 204, 102, 1.0)");
 	});
 	$(".card").mouseout(function(){
 		$(this).css("box-shadow","0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19)");
-	});
+	});*/
 });
 
 

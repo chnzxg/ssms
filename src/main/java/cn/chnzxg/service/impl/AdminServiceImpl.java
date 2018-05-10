@@ -104,6 +104,14 @@ public class AdminServiceImpl implements AdminService {
         return admin1;
     }
 
+    @Override
+    public Boolean checkAName(String aname) {
+        List<Admin> commoditys = adminDao.checkAName(aname);
+        if(commoditys.size() == 0)
+            return true;
+        return false;
+    }
+
     private void setAdminRole(int[] rids, Integer aid) {
         for (Integer rid : rids) {
             Map<String, Object> map = new HashMap<>();

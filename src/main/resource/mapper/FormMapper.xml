@@ -6,8 +6,14 @@
     <select id="qryForm" resultType="Form">
         select * from form
         <where>
-            <if test="fstatus!=null">
+            <if test="fstatus!=null and fstatus!=''">
                 and fstatus = #{fstatus}
+            </if>
+            <if test="cname!=null and cname!=''">
+                and cname like "%"#{cname}"%"
+            </if>
+            <if test="mname!=null and mname!=''">
+                and mname like "%"#{mname}"%"
             </if>
         </where>
         order by forid DESC

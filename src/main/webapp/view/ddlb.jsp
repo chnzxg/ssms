@@ -32,8 +32,39 @@
 </head>
 <body>
 <div id="main" style="background-color:#eee;">
-    <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="search-div card2">
+        <div style="float: right;">
+            <form class="form-inline" role="form" autocomplete="off"
+                  method="get"
+                  action="${pageContext.request.contextPath}/form/qryform.do"
+            >
+                <input type="hidden" name="page" value="${page}">
+                <input type="hidden" name="pageSize" value="15">
+                <div class="form-group ">
+                    <label for="f1">名称</label>
+                    <input name="cname" value="${form.cname}" type="text" id="f1" class="form-control" placeholder="请输入名称"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f2">下单人</label>
+                    <input name="mname" value="${form.mname}" type="text" id="f2" class="form-control" placeholder="请输入下单人"/>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="f3">状态</label>
+                    <select id="f3" class="form-control" name="fstatus">
+                        <option></option>
+                        <option <c:if test="${form.fstatus==0}">selected</c:if> value="0">已下单</option>
+                        <option <c:if test="${form.fstatus==1}">selected</c:if> value="1">已发货</option>
+                        <option <c:if test="${form.fstatus==2}">selected</c:if> value="2">已收货</option>
+                        <option <c:if test="${form.fstatus==3}">selected</c:if> value="3">已关闭</option>
+                    </select>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">搜索</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">

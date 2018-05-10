@@ -6,6 +6,7 @@ import cn.chnzxg.service.PowerService;
 import cn.chnzxg.service.RoleService;
 import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,16 @@ public class RoleAction {
     private RoleService roleService;
     @Resource
     private PowerService powerService;
+
+    @RequestMapping(value = "/checkrname.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String  checkRName(String rname){
+        Gson gson = new Gson();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("valid", roleService.checkRName(rname));
+        String str = gson.toJson(map).toString();
+        return str;
+    }
 
     @RequestMapping(value = "/qryallrole.do", method = RequestMethod.GET)
     public String qryAllRole(HttpServletRequest request){

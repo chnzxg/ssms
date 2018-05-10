@@ -1,69 +1,112 @@
-.col-sm-4{
-	margin-bottom: 10px;
+.search-div {
+    align-items: right;
+    width: 95%;
+    background-color: #fff;
+    margin: 0 auto;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 15px;
 }
-.col-sm-6{
-	margin-bottom: 10px;
+
+.search-div form-group{
+    width: 100px;
 }
-input{
-	autocomplete: off;
+
+.search-div input{
+    height: 30px;
 }
-.tool-right{
-	float: right;
-	background-color: black;
-	height: 100%;
-	border: 10px solid white;
-	width: 70px;
+
+.search-div select{
 }
-iframe{
-	width:100%;
-	height:100%;
+
+.search-div button{
+    height: 30px;
 }
-.tagbtn{
-	height:80%;
+
+.col-sm-4 {
+    margin-bottom: 10px;
 }
-body{
-	background-color:#eee;
-	/* overflow:-Scroll;
-	overflow-y:hidden; */
+
+.col-sm-6 {
+    margin-bottom: 10px;
 }
+
+input {
+    autocomplete: off;
+}
+
+.tool-right {
+    float: right;
+    background-color: black;
+    height: 100%;
+    border: 10px solid white;
+    width: 70px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.tagbtn {
+    height: 80%;
+}
+
+body {
+    background-color: #eee;
+    /* overflow:-Scroll;
+    overflow-y:hidden; */
+}
+
 /* ��� */
-th{
-	font-size:16px;
-	text-align:center;
-	vertical-align:middle;
+th {
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
 }
-td{
-	font-size:15px;
-	text-align:center;
-	vertical-align:middle;
+
+td {
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
 }
-tr{
+
+tr {
 }
-checkbox{
-	width:12px;
-	height:12px;
+
+checkbox {
+    width: 12px;
+    height: 12px;
 }
+
 /*��Ƭ*/
-.card{
-	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+.card {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
 }
+
+.card2 {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
 /* ��ҳ��ť���� */
-#pagination1 a{
-	font-size:12px;
-}
-select{
-text-align:center;
-width: auto;
-padding: 0 2%;
-margin: 0;
-
+#pagination1 a {
+    font-size: 12px;
 }
 
-option{
-
-text-align:center;
+select {
+    text-align: center;
+    width: auto;
+    padding: 0 2%;
+    margin: 0;
 
 }
-span.title{
-	font-size: 14px;
+
+option {
+
+    text-align: center;
+
+}
+
+span.title {
+    font-size: 14px;
 }

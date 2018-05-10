@@ -4,8 +4,8 @@ import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Role;
 import cn.chnzxg.service.AdminService;
 import cn.chnzxg.service.RoleService;
-import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +29,16 @@ public class AdminAction {
     private AdminService adminService;
     @Resource
     private RoleService roleService;
+
+    @RequestMapping(value = "/checkaname.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String  checkAName(String aname){
+        Gson gson = new Gson();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("valid", adminService.checkAName(aname));
+        String str = gson.toJson(map).toString();
+        return str;
+    }
 
     @RequestMapping(value = "/qryadmin.do", method = RequestMethod.GET)
     public String qryAdmin(HttpServletRequest request, String page, String pageSize, Admin admin) {

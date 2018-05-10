@@ -87,7 +87,7 @@
 
 <div id="main" style="width:98%;height:100%;">
     <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div id="formdiv" style="width:100%;height:100%;">
             <form id="form" action="" class="form-horizontal"

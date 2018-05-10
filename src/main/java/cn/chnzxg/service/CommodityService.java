@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 public interface CommodityService {
+	boolean checkCName(String cname);
 	List<Commodity> qryAllComm(Commodity comm);
 	Integer delComm(Commodity comm);
 	Integer updComm(Commodity comm);

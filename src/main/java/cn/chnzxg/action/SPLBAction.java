@@ -5,6 +5,7 @@ import cn.chnzxg.service.CommodityService;
 import cn.chnzxg.util.MyUtil;
 import cn.chnzxg.util.PageUtil;
 import cn.chnzxg.util.SSMSKey;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,13 +14,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/splb")
 public class SPLBAction {
 	@Resource
 	private CommodityService commodityService;
+
+	@RequestMapping(value = "/sersplb.do", method = RequestMethod.GET)
+	public String searchCommodity(Commodity commodity, String page, HttpServletRequest request){
+        Commodity comm = pageMethod(page, "15", commodity);
+        comm.setCstatus(SSMSKey.COMM_STATUS_NORMAL);
+        request.setAttribute("list", getCommList(comm));
+        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(comm), "15"));
+        request.setAttribute("page", page);
+        request.setAttribute("comm",comm);
+        return "splb";
+    }
+
+	@RequestMapping(value = "/checkcname.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String  checkCName(String cname){
+	    Gson gson = new Gson();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("valid", commodityService.checkCName(cname));
+        String str = gson.toJson(map).toString();
+		return str;
+	}
 
 	@RequestMapping(value = "/qrysplb.do", method = RequestMethod.GET)
 	public String qrySPBL(HttpServletRequest request, String page, String pageSize) {

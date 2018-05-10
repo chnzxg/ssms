@@ -25,12 +25,18 @@
                     live: 'enabled',
                     submitButtons: 'button[type="submit"]',
                     fields: {
-                        month: {
+                        cname: {
                             enabled: true,
                             message: '输入值不合法',
                             validators: {
                                 notEmpty: {
                                     message: '名称不能为空'
+                                },
+                                remote : {
+                                    url : '${pageContext.request.contextPath}/splb/checkcname.do',
+                                    message : "该商品名已存在",
+                                    delay : 500,
+                                    type : 'post',
                                 }
                             }
                         },
@@ -151,7 +157,7 @@
 
 <div id="main" style="width:98%;height:100%;">
     <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div id="formdiv" style="width:100%;height:100%;">
             <form id="form" action="${pageContext.request.contextPath}/splb/addsplb.do" class="form-horizontal"
@@ -159,7 +165,7 @@
                 <div class="form-group">
                     <span for="cname" class="col-sm-2 control-label">商品名称：</span>
                     <div class="col-sm-3">
-                        <input autofocus type="text" pattern="[A-Za-z]{5}" class="form-control" id="cname" name="cname"
+                        <input autofocus type="text" class="form-control" id="cname" name="cname"
                                placeholder="请输入40字以内的商品名称">
                     </div>
                 </div>

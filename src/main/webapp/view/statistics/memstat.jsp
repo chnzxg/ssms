@@ -15,7 +15,7 @@
 </head>
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom --><br>
-<div id="div1" style="float: left;width: 42%;height: 80%;background-color: white;margin-left: 70px; margin-top: 40px;padding: 0px;"></div>
+<div id="div1" class="card2" style="float: left;width: 42%;height: 80%;background-color: white;margin-left: 70px; margin-top: 40px;padding: 0px;"></div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('div1'));
@@ -49,7 +49,7 @@
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 </script>
-<div id="div2" style="float: left;width: 42%;height: 80%;background-color: white;margin-left: 70px; margin-top: 40px;padding: 0px;"></div>
+<div id="div2" class="card2" style="float: left;width: 42%;height: 80%;background-color: white;margin-left: 70px; margin-top: 40px;padding: 0px;"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('div2'));
     var option = {

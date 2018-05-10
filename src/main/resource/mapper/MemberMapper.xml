@@ -7,13 +7,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT *
 		FROM member
 		<where>
-			<if test="mname!=null">
-				and mname = #{mname}
+			<if test="mname!=null and mname!=''">
+				and mname like "%"#{mname}"%"
 			</if>
-			<if test="mtel!=null">
-				and mtel = #{mtel}
+			<if test="mtel!=null and mtel!=''">
+				and mtel like "%"#{mtel}"%"
 			</if>
-			<if test="mlevel!=null">
+			<if test="mlevel!=null and mlevel!=''">
 				and mlevel = #{mlevel}
 			</if>
 		</where>
@@ -33,4 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into member (mname, mtel, mlevel, mrem, mdate)
 		VALUE (#{mname}, #{mtel}, #{mlevel}, #{mrem}, now())
 	</insert>
+	<select id="checkMName" resultType="Member">
+		select * from ssms.member
+		where mname = #{mname}
+	</select>
 </mapper>

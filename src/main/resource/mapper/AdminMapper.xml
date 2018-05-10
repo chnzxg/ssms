@@ -47,4 +47,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select * from ssms.admin
         where aid = #{aid}
     </select>
+    <select id="checkAName" resultType="Admin">
+        select * from ssms.admin
+        where aname = #{aname}
+    </select>
 </mapper>

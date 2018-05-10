@@ -51,7 +51,7 @@
 </head>
 <body>
 <div id="main" style="wdith:100%;height:100%;background-color:#eee;">
-    <div id="tdiv1" class="tdiv" style="margin-left: 40px">
+    <div id="tdiv1" class="tdiv card2" style="margin-left: 40px">
         <table class="table table-hover table-condensed table-striped" id="commtable">
             <thead>
             <tr>
@@ -73,7 +73,7 @@
             </tbody>
         </table>
     </div>
-    <div id="tdiv2" class="tdiv">
+    <div id="tdiv2" class="tdiv card2">
         <table class="table table-hover table-condensed table-striped" id="commtable">
             <thead>
             <tr>
@@ -95,7 +95,7 @@
             </tbody>
         </table>
     </div>
-    <div id="tdiv3" class="tdiv">
+    <div id="tdiv3" class="tdiv card2">
         <table class="table table-hover table-condensed table-striped" id="commtable">
             <thead>
             <tr>

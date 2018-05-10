@@ -45,4 +45,12 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> qryAllMember() {
         return memberDao.qryAllMember();
     }
+
+    @Override
+    public boolean checkMName(String mname) {
+        List<Member> commoditys = memberDao.checkMName(mname);
+        if(commoditys.size() == 0)
+            return true;
+        return false;
+    }
 }

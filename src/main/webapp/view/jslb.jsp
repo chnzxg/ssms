@@ -37,9 +37,8 @@
     </script>
 </head>
 <body>
-<div id="main" style="background-color:#eee;">
-    <br>
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+<div id="main"style="background-color:#eee;">
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">

@@ -22,4 +22,5 @@ public interface RoleDao {
     List<Power> qryPowerByAdmin(Admin admin);
     List<Role> qryAllRole();
     Role qryDetail(Role role);
+    List<Role> checkRName(String rname);
 }

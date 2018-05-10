@@ -17,4 +17,5 @@ public interface AdminService {
     Admin updLoginTime(Admin admin);
     Integer updAPassword(Admin admin);
     Admin qryDetail(Admin admin);
+    Boolean checkAName(String aname);
 }

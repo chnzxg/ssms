@@ -14,4 +14,5 @@ public interface MemberService {
     Integer updMember(Map<String, Object> paramMap);
     Integer addMember(Map<String, Object> paramMap);
     List<Member> qryAllMember();
+    boolean checkMName(String mname);
 }

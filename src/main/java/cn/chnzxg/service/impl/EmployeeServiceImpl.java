@@ -10,6 +10,15 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService{
 	@Resource
 	private EmployeeDao employeeDao;
+
+	@Override
+	public boolean checkEName(String ename) {
+		List<Employee> commoditys = employeeDao.checkEName(ename);
+		if(commoditys.size() == 0)
+			return true;
+		return false;
+	}
+
 	public List<Employee> qryEmp(Employee employee) {
 		return employeeDao.qryEmp(employee);
 	}

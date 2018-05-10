@@ -3,6 +3,7 @@ package cn.chnzxg.action;
 import cn.chnzxg.entity.Employee;
 import cn.chnzxg.service.EmployeeService;
 import cn.chnzxg.util.PageUtil;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,12 +11,37 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/yglb")
 public class YGLBAction {
 	@Resource
 	private EmployeeService employeeService;
+
+	@RequestMapping(value = "/seryglb", method = RequestMethod.GET)
+	public String searchEmployee(String page, HttpServletRequest request, Employee employee){
+        employee = pageMethod(page, "15", employee);
+        request.setAttribute("list", getEmployeeList(employee));
+        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),"15"));
+        request.setAttribute("page", page);
+        request.setAttribute("pageSize", "15");
+        request.setAttribute("employee", employee);
+        return "yglb";
+    }
+
+    @RequestMapping(value = "/checkename.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String checkEName(String ename){
+        Gson gson = new Gson();
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("valid", employeeService.checkEName(ename));
+        String str = gson.toJson(map).toString();
+        return str;
+    }
+
 	@RequestMapping("/qryyglb.do")
 	public String qryYGLB(HttpServletRequest request,String page,String pageSize){
 		if(!"".equals(page)&&!"".equals(pageSize)){
@@ -29,13 +55,13 @@ public class YGLBAction {
 	}
 
 	@RequestMapping(value = "/updyglb.do", method = RequestMethod.POST)
-    public String updYGLB(HttpServletRequest request, String page, String pageSize, Employee employee){
-        Employee employee1 = pageMethod(page, pageSize, new Employee());
+    public String updYGLB(HttpServletRequest request, String page, Employee employee){
+        Employee employee1 = pageMethod(page, "15", employee);
         employeeService.updEmp(employee1);
         request.setAttribute("list", getEmployeeList(employee1));
-        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),pageSize));
+        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),"15"));
         request.setAttribute("page", page);
-        request.setAttribute("pageSize", pageSize);
+        request.setAttribute("pageSize", "15");
 	    return "yglb";
     }
 

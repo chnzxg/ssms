@@ -3,8 +3,27 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.chnzxg.dao.EmployeeDao">
+	<select id="checkEName" resultType="Employee">
+		select * from ssms.employee
+		where ename = #{ename}
+	</select>
 	<select id="qryEmp" resultType="Employee">
-		SELECT * from employee order BY empid DESC
+		SELECT * from employee
+        <where>
+            <if test="ename">
+                ename like "%"#{ename}"%"
+            </if>
+            <if test="eage">
+                eage = #{eage}
+            </if>
+            <if test="esex">
+                esex = #{esex}
+            </if>
+            <if test="epro">
+                epro = #{epro}
+            </if>
+        </where>
+        order BY empid DESC
 		<if test='firstRow!=null &amp; pageSize!=null'>
 			limit #{firstRow},#{pageSize}
 		</if>
@@ -26,6 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		etel = #{etel},
 		email = #{email},
 		esal = #{esal}
+		where empid = #{empid}
 	</update>
 	<select id="qryDetail" resultType="Employee">
 		select * from employee

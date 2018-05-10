@@ -6,6 +6,7 @@ import cn.chnzxg.entity.Commodity;
 
 
 public interface CommodityDao {
+	List<Commodity> checkCName(String cname);
 	List<Commodity> qryAllComm(Commodity comm);
 	Integer delComm(Commodity comm);
 	Integer updComm(Commodity comm);

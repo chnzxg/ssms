@@ -12,6 +12,15 @@ import org.springframework.stereotype.Service;
 public class CommodityServiceImpl implements CommodityService {
 	@Resource
 	private CommodityDao commodityDao;
+
+	@Override
+	public boolean checkCName(String cname) {
+	    List<Commodity> commoditys = commodityDao.checkCName(cname);
+		if(commoditys.size() == 0)
+			return true;
+		return false;
+	}
+
 	public List<Commodity> qryAllComm(Commodity comm) {
 		return commodityDao.qryAllComm(comm);
 	}

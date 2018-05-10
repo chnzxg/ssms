@@ -3,30 +3,25 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.chnzxg.dao.CommodityDao">
+	<select id="checkCName" resultType="Commodity">
+		select * from ssms.commodity
+		where cname = #{cname}
+	</select>
 	<select id="qryAllComm" resultType="Commodity" >
 		SELECT c.*,f.fname 
 		FROM commodity c,fine f 
 		WHERE c.finid = f.finid
-		<if test="cstatus!=null">
-			and cstatus = #{cstatus}
-		</if>
 		<if test="cname!=null">
-			and cname = #{cname}
+			and cname like "%"#{cname}"%"
 		</if>
 		<if test="finid!=null">
-			and finid = #{finid}
+			and c.finid = #{finid}
 		</if>
-		<if test="ccode!=null">
-			and ccode = #{ccode}
+		<if test="cweight!=null">
+			and cweight = #{cweight}
 		</if>
-		<if test="cproder!=null">
-			and cproder = #{cproder}
-		</if>
-		<if test="cpricelow!=null">
-			and cprice &gt; #{cpricelow}
-		</if>
-		<if test="cpricehigh!=null">
-			and cprice &lt; #{cpricehigh}
+		<if test="month!=null">
+			and month = #{month}
 		</if>
 		order by comid DESC
         <if test='firstRow!=null &amp; pageSize!=null'>

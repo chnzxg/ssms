@@ -26,6 +26,7 @@ public class FormAction {
     @RequestMapping(value = "/qryform.do", method = RequestMethod.GET)
     public String qryForm(HttpServletRequest request, Form form, String page, String pageSize){
         getForms(form, page, pageSize, request);
+        request.setAttribute("form", form);
         return "ddlb";
     }
 
@@ -43,6 +44,9 @@ public class FormAction {
 
     private void getForms(Form form, String page, String pageSize, HttpServletRequest request){
         Map<String, Object> paramMap = PageUtil.getParamMap(form, page, pageSize);
+        paramMap.put("cname", form.getCname());
+        paramMap.put("mname", form.getMname());
+        paramMap.put("fstatus", form.getFstatus());
         List<Form> forms = formService.qryForm(paramMap);
         request.setAttribute("forms", forms);
         request.setAttribute("page", page);

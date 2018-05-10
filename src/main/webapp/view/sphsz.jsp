@@ -84,7 +84,7 @@
 </head>
 <body>
 <div id="main" style="background-color:#eee;">
-    <div style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
+    <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
