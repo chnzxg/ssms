@@ -10,28 +10,32 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap/bootstrapValidator.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap/zh_CN.js"></script>
     <script>
-        function addEmployee() {
+        function add() {
             $('#formdiv').bootstrapValidator('validate');
             if ($('#formdiv').data("bootstrapValidator").isValid()) {
-                $.post({
-                    url: '${pageContext.request.contextPath}/yglb/addayglb.do',
+                alert(1)
+                $.get({
+                    url: '${pageContext.request.contextPath}/yglb/addyglb.do',
                     data: $('#form').serialize(),
                     success: function (data) {
+                        alert(1)
                         if (data == '1') {
-                            $('#info').text('添加员工成功');
+                            $('#info').text('添加会员成功');
                             setTimeout(function () {
                                 location.reload();
-                            },1000);
-                        }else
-                            $('#info').text('添加员工失败，请稍后重试');
+                            }, 1000);
+                        }
+                        else
+                            $('#info').text('添加会员失败，请稍后重试');
                         $('#addinfo').modal('show');
                     }
+
                 })
             }
         }
 
         $(function () {
-            $('#claid').on('change',function () {
+            $('#claid').on('change', function () {
                 var options = $('#claid option:selected');
                 $("#finid").children().remove();
                 getFineList(options.val());
@@ -56,76 +60,76 @@
                                 message: '姓名不能为空'
                             }
                         }
-                    },
-                    eno: {
-                        enabled: true,
-                        message: '输入值不合法',
-                        validators: {
-                            notEmpty: {
-                                message: '工号不能为空'
-                            },
-                            stringLength: {
-                                min: 6,
-                                max: 6,
-                                message: '必须为6位'
-                            },
-                            regexp: {
-                                regexp: /^[0-9]+$/,
-                                message: '必须为纯数字'
-                            }
-                        }
-                    },
-                    eage: {
-                        enabled: true,
-                        message: '输入值不合法',
-                        validators: {
-                            stringLength: {
-                                min: 2,
-                                max: 2,
-                                message: '长度不合法'
-                            },
-                            regexp: {
-                                regexp: /^[0-9]+$/,
-                                message: '必须为纯数字'
-                            }
-                        }
-                    },
-                    etel: {
-                        enabled: true,
-                        message: '输入值不合法',
-                        validators: {
-                            stringLength: {
-                                min: 11,
-                                max: 11,
-                                message: '必须为11位'
-                            },
-                            regexp: {
-                                regexp: /^[0-9]+$/,
-                                message: '必须为纯数字'
-                            }
-                        }
-                    },
-                    email: {
-                        validators: {
-                            notEmpty: {
-                                message: '邮箱不能为空'
-                            },
-                            emailAddress: {
-                                message: '邮箱地址格式有误'
-                            }
-                        }
-                    },
-                    esal: {
-                        validators: {
-                            notEmpty: {
-                                message: '薪水不能为空'
-                            },
-                            regexp: {
-                                regexp: /^([0-9]+[.][0-9]+)$/,
-                                message: '必须为纯数字'
-                            }
-                        }
-                    }
+                    }/*,
+                     eno: {
+                     enabled: true,
+                     message: '输入值不合法',
+                     validators: {
+                     notEmpty: {
+                     message: '工号不能为空'
+                     },
+                     stringLength: {
+                     min: 6,
+                     max: 6,
+                     message: '必须为6位'
+                     },
+                     regexp: {
+                     regexp: /^[0-9]+$/,
+                     message: '必须为纯数字'
+                     }
+                     }
+                     },
+                     eage: {
+                     enabled: true,
+                     message: '输入值不合法',
+                     validators: {
+                     stringLength: {
+                     min: 2,
+                     max: 2,
+                     message: '长度不合法'
+                     },
+                     regexp: {
+                     regexp: /^[0-9]+$/,
+                     message: '必须为纯数字'
+                     }
+                     }
+                     },
+                     etel: {
+                     enabled: true,
+                     message: '输入值不合法',
+                     validators: {
+                     stringLength: {
+                     min: 11,
+                     max: 11,
+                     message: '必须为11位'
+                     },
+                     regexp: {
+                     regexp: /^[0-9]+$/,
+                     message: '必须为纯数字'
+                     }
+                     }
+                     },
+                     email: {
+                     validators: {
+                     notEmpty: {
+                     message: '邮箱不能为空'
+                     },
+                     emailAddress: {
+                     message: '邮箱地址格式有误'
+                     }
+                     }
+                     },
+                     esal: {
+                     validators: {
+                     notEmpty: {
+                     message: '薪水不能为空'
+                     },
+                     regexp: {
+                     regexp: /^([0-9]+[.][0-9]+)$/,
+                     message: '必须为纯数字'
+                     }
+                     }
+                     }*/
                 }
             });
 
@@ -168,10 +172,12 @@
                     <span for="claid" class="col-sm-2 control-label">性别：</span>
                     <div class="col-sm-3">
                         <label class="radio-inline">
-                            <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline" id="optionsRadios3" value="1" checked> 男
+                            <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline"
+                                   id="optionsRadios3" value="1" checked> 男
                         </label>
                         <label class="radio-inline">
-                            <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="2"> 女
+                            <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline"
+                                   id="optionsRadios4" value="2"> 女
                         </label>
                     </div>
                 </div>
@@ -186,7 +192,8 @@
                     <span for="eage" class="col-sm-2 control-label">年龄：</span>
                     <div class="col-sm-3">
                         <div class="input-group"><input type="text" class="form-control" id="eage" name="eage"
-                                                        placeholder="请输入年龄，只能为数字"><span class="input-group-addon">岁</span>
+                                                        placeholder="请输入年龄，只能为数字"><span
+                                class="input-group-addon">岁</span>
                         </div>
                     </div>
                 </div>
@@ -194,7 +201,8 @@
                     <span for="esal" class="col-sm-2 control-label">薪水：</span>
                     <div class="col-sm-3">
                         <div class="input-group"><input type="text" class="form-control" id="esal" name="esal"
-                                                        placeholder="请输入薪水，只能为数字"><span class="input-group-addon">元</span>
+                                                        placeholder="请输入薪水，只能为数字"><span
+                                class="input-group-addon">元</span>
                         </div>
                     </div>
                 </div>
@@ -238,7 +246,7 @@
                 <button type="button" class="button button-rounded button-small" data-dismiss="modal"
                         onclick="javascript:location.reload()">刷新
                 </button>
-                <button onclick="addEmployee()"
+                <button onclick="add()"
                         class="button button-rounded button-small button-primary button-glow">提交
                 </button>
             </form>

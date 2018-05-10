@@ -36,10 +36,10 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Integer delAdmin(Map<String, Object> paramMap) {
+    public Integer delAdmin(Admin admin) {
         try {
-            roleDao.delAdminRole(paramMap);
-            adminDao.delAdmin(paramMap);
+            roleDao.delAdminRole(admin);
+            adminDao.delAdmin(admin);
         } catch (Exception e) {
             return 0;
         }
@@ -50,10 +50,8 @@ public class AdminServiceImpl implements AdminService {
     public Integer updAdmin(Map<String, Object> paramMap) {
         try {
             Admin admin = (Admin) paramMap.get("admin");
-            Map<String, Object> map = new HashMap<>();
-            map.put("admin", admin);
-            adminDao.updAdmin(map);
-            roleDao.delAdminRole(map);
+            adminDao.updAdmin(admin);
+            roleDao.delAdminRole(admin);
             int[] rids = (int[]) paramMap.get("rids");
             setAdminRole(rids, admin.getAid());
         } catch (Exception e) {

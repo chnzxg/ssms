@@ -6,6 +6,7 @@ import cn.chnzxg.service.MemberService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,9 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public Integer delMember(Map<String, Object> paramMap) {
-        return memberDao.delMember(paramMap);
+        Map<String, Object> map = new HashMap<>();
+        map.put("memid", ((Member)paramMap.get("member")).getMemid());
+        return memberDao.delMember(map);
     }
 
     @Override

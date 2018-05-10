@@ -55,7 +55,7 @@ public class YGLBAction {
 		return "yglb";
 	}
 
-	@RequestMapping(value = "/addyglb.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/addyglb.do", method = RequestMethod.GET)
     @ResponseBody
 	public Integer addEmployee(Employee employee){
         try{

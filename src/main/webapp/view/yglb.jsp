@@ -16,6 +16,26 @@
             location.href = '${pageContext.request.contextPath}/yglb/delyglb.do?empid='+id+'&page=${page}&pageSize=15';
         }
         $(function () {
+            //分页插件初始化
+            $('#pagination1').jqPaginator({
+                totalPages: ${pageCount},
+                visiblePages: 7,
+                currentPage: ${page},
+                first: '<li class="first"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">&laquo;</a></li>',
+                prev: '<li class="prev"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">&lsaquo;</a></li>',
+                next: '<li class="next"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">&rsaquo;</a></li>',
+                last: '<li class="last"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">&raquo;</a></li>',
+                page: '<li class="page"><a style="font-size: 16px" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
+                onPageChange: function (num) {
+                    $('#text').html('当前第' + num + '页');
+                }
+            });
+            if (${page==1})
+                $(".up").attr("href", "javascript:void(0)");
+            if (${pageCount==page})
+                $(".down").attr("href", "javascript:void(0)");
+        });
+        /*$(function () {
             //表单验证
             $('#formdiv').bootstrapValidator({
                 message: 'This value is not valid',
@@ -89,25 +109,7 @@
                     }
                 }
             });
-            //分页插件初始化
-            $('#pagination1').jqPaginator({
-                totalPages: ${pageCount},
-                visiblePages: 7,
-                currentPage: ${page},
-                first: '<li class="first"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">&laquo;</a></li>',
-                prev: '<li class="prev"><a style="font-size: 16px" class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">&lsaquo;</a></li>',
-                next: '<li class="next"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">&rsaquo;</a></li>',
-                last: '<li class="last"><a style="font-size: 16px" class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">&raquo;</a></li>',
-                page: '<li class="page"><a style="font-size: 16px" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
-                onPageChange: function (num) {
-                    $('#text').html('当前第' + num + '页');
-                }
-            });
-            if (${page==1})
-                $(".up").attr("href", "javascript:void(0)");
-            if (${pageCount==page})
-                $(".down").attr("href", "javascript:void(0)");
-        });
+        });*/
         function qryDetail(empid) {
             $.ajax({
                 url: "${pageContext.request.contextPath}/yglb/qryDetail.do?empid=" + empid,
@@ -330,7 +332,8 @@
             </div>
         </div>
         <div class="pagediv" style="width:95%;height:15%;">
-            <ul class="pagination" id="pagination1"></ul>
+            <ul class="pagination" id="pagination1">
+            </ul>
             <div style="float: right; margin-top: 20px">
                 <button class="button button-rounded button-small" data-dismiss="modal"
                         onclick="javascript:location.reload()">导出

@@ -10,8 +10,8 @@ import java.util.Map;
  */
 public interface AdminDao {
     List<Admin> qryAdmin(Map<String, Object> paramMap);
-    Integer delAdmin(Map<String, Object> paramMap);
-    Integer updAdmin(Map<String, Object> paramMap);
+    Integer delAdmin(Admin admin);
+    Integer updAdmin(Admin admin);
     Integer addAdmin(Admin admin);
     List<Admin> login(Map<String, Object> paramMap);
     Integer updLoginTime(Admin admin);

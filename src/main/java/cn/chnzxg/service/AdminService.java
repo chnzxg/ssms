@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface AdminService {
     List<Admin> qryAdmin(Map<String, Object> paramMap);
-    Integer delAdmin(Map<String, Object> paramMap);
+    Integer delAdmin(Admin admin);
     Integer updAdmin(Map<String, Object> paramMap);
     Integer addAdmin(Map<String, Object> paramMap);
     List<Admin> login(Map<String, Object> paramMap);

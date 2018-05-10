@@ -16,7 +16,7 @@ public interface RoleDao {
     Integer delRole(Map<String, Object> paramMap);
     Integer updRole(Map<String, Object> paramMap);
     Integer addRole(Role role);
-    Integer delAdminRole(Map<String, Object> paramMap);
+    Integer delAdminRole(Admin admin);
     Integer addAdminRole(Map<String, Object> paramMap);
     List<Role> qryRoleByAdmin(Admin admin);
     List<Power> qryPowerByAdmin(Admin admin);

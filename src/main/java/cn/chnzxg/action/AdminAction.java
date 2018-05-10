@@ -38,7 +38,7 @@ public class AdminAction {
 
     @RequestMapping(value = "/deladmin.do", method = RequestMethod.GET)
     public String delAdmin(HttpServletRequest request, String page, String pageSize, Admin admin) {
-        adminService.delAdmin(MyUtil.beanToMap(admin));
+        adminService.delAdmin(admin);
         getAdmins(admin, page, pageSize, request);
         return "glylb";
     }

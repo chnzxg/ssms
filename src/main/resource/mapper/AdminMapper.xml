@@ -6,11 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="qryAdmin" resultType="Admin">
         SELECT *
         FROM admin
-        <where>
-            <if test="aname!=null">
-                and aname = #{aname}
-            </if>
-        </where>
+        where aid &lt;&gt; 1
+        <if test="aname!=null">
+            and aname = #{aname}
+        </if>
         order by aid desc
         <if test='firstRow!=null &amp; pageSize!=null'>
             limit #{firstRow},#{pageSize}

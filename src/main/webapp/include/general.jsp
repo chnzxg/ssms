@@ -8,9 +8,9 @@
 	<!-- JQuery分页 -->
     <script src="../js/paginator/jqPaginator.js"></script>
     <!-- nav -->
-    <script src="../js/nav/nav.js"></script>
+    <%--<script src="../js/nav/nav.js"></script>
 	<link rel="stylesheet" href="../css/nav/iconfont.css" />
-	<link rel="stylesheet" href="../css/nav/nav.css" />
+	<link rel="stylesheet" href="../css/nav/nav.css" />--%>
 	<!-- 通用css,js -->
 	<link rel="stylesheet" href="../css/general.css">
 	<script src="../js/general.js"></script>
