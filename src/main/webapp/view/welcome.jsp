@@ -1,57 +1,30 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/4/11
-  Time: 17:50
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="../js/jquery-3.0.0.min.js"></script>
-<script src="../js/countUp.js"></script>
-<script>
-    $(function () {
-        var options = {
-            useEasing: true,
-            useGrouping: true,
-            separator: ',',
-            decimal: '.',
-        };
-        var demo = new CountUp('d1', 0, 18, 0, 3, options);
-        if (!demo.error) {
-            demo.start();
-        } else {
-            console.error(demo.error);
-        }
-        var demo = new CountUp('d2', 0, 4518, 0, 3, options);
-        if (!demo.error) {
-            demo.start();
-        } else {
-            console.error(demo.error);
-        }
-        var demo = new CountUp('d3', 0, 4518, 0, 3, options);
-        if (!demo.error) {
-            demo.start();
-        } else {
-            console.error(demo.error);
-        }
-        var demo = new CountUp('d4', 0, 4518, 0, 3, options);
-        if (!demo.error) {
-            demo.start();
-        } else {
-            console.error(demo.error);
-        }
-    })
-</script>
-<style type="text/css">
-</style>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <title>How to Make a Digital Clock with jQuery &amp; CSS3</title>
+    <!-- The main CSS file -->
+    <link href="../css/clock/style.css" rel="stylesheet"/>
 </head>
-<body>
-<br>
-<h1 style="text-align: center;font-size: 35px">欢迎使用超市管理系统</h1>
 
+<body>
+<div id="clock" class="light">
+    <h2>当前时间：</h2>
+    <div class="display">
+        <div class="weekdays"></div>
+        <div class="ampm"></div>
+        <div class="alarm"></div>
+        <div class="digits"></div>
+    </div>
+</div>
+
+
+<!-- JavaScript Includes -->
+<script src="../js/jquery-3.0.0.min.js"></script>
+<script src="../js/moment.min.js"></script>
+<script src="../js/script.js"></script>
 
 
 </body>

@@ -22,38 +22,13 @@
     <link rel="stylesheet" href="../css/general.css">
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
     <script>
-        function showTime() {
-            //创建Date对象
-            var today = new Date();
-            //分别取出年、月、日、时、分、秒
-            var year = today.getFullYear();
-            var month = today.getMonth() + 1;
-            var day = today.getDate();
-            var hours = today.getHours();
-            var minutes = today.getMinutes();
-            var seconds = today.getSeconds();
-            //如果是单个数，则前面补0
-            month = month < 10 ? "0" + month : month;
-            day = day < 10 ? "0" + day : day;
-            hours = hours < 10 ? "0" + hours : hours;
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-            //构建要输出的字符串
-            var str = "<b style='font-size: 15px; color: white;'>欢迎，</b><b style='font-size: 15px; color: #00FFFF;'>${user.aname}</b><br><b>" + year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds + "</b>";
-            //获取id=result的对象
-            var obj = document.getElementById("result");
-            //将str的内容写入到id=result的<p>中去
-            obj.innerHTML = str;
-            //延时器
-            window.setTimeout("showTime()", 1000);
-        }
 
         //主页面跳转
         function jumpTo(url) {
             $("#main-iframe").attr("src", url);
         }
         function ihome() {
-            //$('#main-iframe').attr('src','${pageContext.request.contextPath}/view/login.jsp');
+            $('#main-iframe').attr('src','${pageContext.request.contextPath}/view/welcome.jsp');
         }
         function irefresh() {
             document.getElementById('main-iframe').contentWindow.location.reload(true);
@@ -380,7 +355,6 @@
         <div id="tools" class="card" style="width: 100%;height: 40px;background-color: #505050;">
             <%--<div style="height: 100%; width: 200px;">欢迎！${user.aname}<br>在线时间：
             </div>--%>
-            <div id="result"></div>
             <button style="float: right; height: 100%;margin-left: 6px; font-size: 16px;"
                     class="button button-longshadow-right button-lowercase button-tiny button-inverse "><span
                     class="glyphicon glyphicon-log-out" onclick="ilogout()"></span>

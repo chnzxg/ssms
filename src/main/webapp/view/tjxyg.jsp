@@ -59,83 +59,83 @@
                             notEmpty: {
                                 message: '姓名不能为空'
                             },
-                            remote : {
-                                url : '${pageContext.request.contextPath}/yglb/checkename.do',
-                                message : "该姓名已存在",
-                                delay : 500,
-                                type : 'post',
+                            remote: {
+                                url: '${pageContext.request.contextPath}/yglb/checkename.do',
+                                message: "该姓名已存在",
+                                delay: 500,
+                                type: 'post',
                             }
                         }
-                    }/*,
-                     eno: {
-                     enabled: true,
-                     message: '输入值不合法',
-                     validators: {
-                     notEmpty: {
-                     message: '工号不能为空'
-                     },
-                     stringLength: {
-                     min: 6,
-                     max: 6,
-                     message: '必须为6位'
-                     },
-                     regexp: {
-                     regexp: /^[0-9]+$/,
-                     message: '必须为纯数字'
-                     }
-                     }
-                     },
-                     eage: {
-                     enabled: true,
-                     message: '输入值不合法',
-                     validators: {
-                     stringLength: {
-                     min: 2,
-                     max: 2,
-                     message: '长度不合法'
-                     },
-                     regexp: {
-                     regexp: /^[0-9]+$/,
-                     message: '必须为纯数字'
-                     }
-                     }
-                     },
-                     etel: {
-                     enabled: true,
-                     message: '输入值不合法',
-                     validators: {
-                     stringLength: {
-                     min: 11,
-                     max: 11,
-                     message: '必须为11位'
-                     },
-                     regexp: {
-                     regexp: /^[0-9]+$/,
-                     message: '必须为纯数字'
-                     }
-                     }
-                     },
-                     email: {
-                     validators: {
-                     notEmpty: {
-                     message: '邮箱不能为空'
-                     },
-                     emailAddress: {
-                     message: '邮箱地址格式有误'
-                     }
-                     }
-                     },
-                     esal: {
-                     validators: {
-                     notEmpty: {
-                     message: '薪水不能为空'
-                     },
-                     regexp: {
-                     regexp: /^([0-9]+[.][0-9]+)$/,
-                     message: '必须为纯数字'
-                     }
-                     }
-                     }*/
+                    },
+                    eno: {
+                        enabled: true,
+                        message: '输入值不合法',
+                        validators: {
+                            notEmpty: {
+                                message: '工号不能为空'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 6,
+                                message: '必须为6位'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message: '必须为纯数字'
+                            }
+                        }
+                    },
+                    eage: {
+                        enabled: true,
+                        message: '输入值不合法',
+                        validators: {
+                            stringLength: {
+                                min: 2,
+                                max: 2,
+                                message: '长度不合法'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message: '必须为纯数字'
+                            }
+                        }
+                    },
+                    etel: {
+                        enabled: true,
+                        message: '输入值不合法',
+                        validators: {
+                            stringLength: {
+                                min: 11,
+                                max: 11,
+                                message: '必须为11位'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+$/,
+                                message: '必须为纯数字'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: '邮箱不能为空'
+                            },
+                            emailAddress: {
+                                message: '邮箱地址格式有误'
+                            }
+                        }
+                    },
+                    esal: {
+                        validators: {
+                            notEmpty: {
+                                message: '价格不能为空'
+                            },
+                            regexp: {
+                                regexp: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+                                message: '必须为纯数字'
+                            }
+                        }
+                    }
                 }
             });
 

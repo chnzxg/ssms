@@ -12,6 +12,13 @@
     <link rel="stylesheet" type="text/css" href="../css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="../css/htmleaf-demo.css">
     <script src="../js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="../js/bubbly/bubbly-bg.js"></script>
+    <script>
+        $(function () {
+            bubbly({
+            });
+        })
+    </script>
     <style type="text/css">
         .login-page {
             width: 360px;
@@ -175,7 +182,7 @@
 <body><br><br><br><br><br><br><br><br><br>
 <div class="htmleaf-container1" style="text-align: center;">
     <header class="htmleaf-header">
-        <h1 style="color: white;">超市管理系统  SSMS</h1>
+        <h1 style="color: white;">超市管理系统  SMS</h1>
     </header>
 </div>
 <div class="htmleaf-container">
