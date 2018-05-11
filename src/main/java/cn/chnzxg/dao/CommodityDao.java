@@ -13,4 +13,5 @@ public interface CommodityDao {
 	Integer addComm(Commodity comm);
 	Commodity qryDetail(Commodity comm);
 	void removeComm(Commodity commodity);
+	void recComm(Integer comid);
 }

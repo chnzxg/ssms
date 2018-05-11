@@ -21,6 +21,16 @@
     var myChart = echarts.init(document.getElementById('div1'));
     // 指定图表的配置项和数据
     var option = {
+        toolbox: {
+            show: true,
+            feature: {
+                saveAsImage: {
+                    show: true,
+                    excludeComponents: ['toolbox'],
+                    pixelRatio: 2
+                }
+            }
+        },
         tooltip: {},
         legend: {
             data: ['类别']
@@ -53,6 +63,16 @@
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('div2'));
     var option = {
+        toolbox: {
+            show: true,
+            feature: {
+                saveAsImage: {
+                    show: true,
+                    excludeComponents: ['toolbox'],
+                    pixelRatio: 2
+                }
+            }
+        },
         series: [
             {
                 name: '访问来源',

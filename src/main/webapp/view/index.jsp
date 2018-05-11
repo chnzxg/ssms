@@ -252,7 +252,8 @@
                             </a>
                         </li>
                         <li>
-                            <a name="jgyg" href="javascript:void(0)">
+                            <a name="jgyg" href="javascript:void(0)"
+                               onclick="jumpTo('${pageContext.request.contextPath}/discount/qrydiscount.do?purl=10')">
                                 <span class="title">折扣设置</span>
                             </a>
                         </li>

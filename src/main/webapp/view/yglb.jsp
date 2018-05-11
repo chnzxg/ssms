@@ -11,13 +11,16 @@
         function update() {
             $('#form').submit();
         }
+
         function del1(id) {
             $('#delvalue').val(id);
         }
+
         function del2() {
             var id = $('#delvalue').val();
-            location.href = '${pageContext.request.contextPath}/yglb/delyglb.do?empid='+id+'&page=${page}&pageSize=15';
+            location.href = '${pageContext.request.contextPath}/yglb/delyglb.do?empid=' + id + '&page=${page}&pageSize=15';
         }
+
         $(function () {
             //分页插件初始化
             $('#pagination1').jqPaginator({
@@ -38,6 +41,7 @@
             if (${pageCount==page})
                 $(".down").attr("href", "javascript:void(0)");
         });
+
         /*$(function () {
             //表单验证
             $('#formdiv').bootstrapValidator({
@@ -156,31 +160,51 @@
                 <input type="hidden" name="page" value="${page}">
                 <div class="form-group ">
                     <label for="f1">姓名</label>
-                    <input name="ename" value="${employee.ename}" type="text" id="f1" class="form-control" placeholder="请输入姓名"/>
+                    <input name="ename" value="${employee.ename}" type="text" id="f1" class="form-control"
+                           placeholder="请输入姓名"/>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <label for="f4">年龄</label>
-                    <input name="eage" value="${employee.eage}" type="text" id="f4" class="form-control" placeholder="请输入年龄"/>
+                    <input name="eage" value="${employee.eage}" type="text" id="f4" class="form-control"
+                           placeholder="请输入年龄"/>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <label for="f2">性别</label>
                     <select id="f2" class="form-control">
                         <option>全部</option>
-                        <option name="esex" <c:if test="${employee.esex==1}">selected="selected"</c:if> value="1">男</option>
-                        <option name="esex" <c:if test="${employee.esex==2}">selected="selected"</c:if> value="2">女</option>
+                        <option name="esex"
+                                <c:if test="${employee.esex==1}">selected="selected"</c:if> value="1">男
+                        </option>
+                        <option name="esex"
+                                <c:if test="${employee.esex==2}">selected="selected"</c:if> value="2">女
+                        </option>
                     </select>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <label for="f3">工种</label>
                     <select id="f3" class="form-control">
                         <option>全部</option>
-                        <option name="epro" <c:if test="${employee.epro==1}">selected="selected"</c:if> value="1">店长</option>
-                        <option name="epro" <c:if test="${employee.epro==2}">selected="selected"</c:if> value="2">经理</option>
-                        <option name="epro" <c:if test="${employee.epro==3}">selected="selected"</c:if> value="3">促销员</option>
-                        <option name="epro" <c:if test="${employee.epro==4}">selected="selected"</c:if> value="4">收银员</option>
-                        <option name="epro" <c:if test="${employee.epro==5}">selected="selected"</c:if> value="5">收获员</option>
-                        <option name="epro" <c:if test="${employee.epro==6}">selected="selected"</c:if> value="6">理货员</option>
-                        <option name="epro" <c:if test="${employee.epro==7}">selected="selected"</c:if> value="7">保洁</option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==1}">selected="selected"</c:if> value="1">店长
+                        </option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==2}">selected="selected"</c:if> value="2">经理
+                        </option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==3}">selected="selected"</c:if> value="3">促销员
+                        </option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==4}">selected="selected"</c:if> value="4">收银员
+                        </option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==5}">selected="selected"</c:if> value="5">收获员
+                        </option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==6}">selected="selected"</c:if> value="6">理货员
+                        </option>
+                        <option name="epro"
+                                <c:if test="${employee.epro==7}">selected="selected"</c:if> value="7">保洁
+                        </option>
                     </select>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
@@ -347,8 +371,12 @@
                         <tr style="height:20px;">
                             <td id="comid" style="display:none">${emp.empid}</td>
                             <td style="width:4%;">${status.count}</td>
-                            <td style="width:6%;"><a href="javascript:void(0);" onclick="qryDetail(${emp.empid})"
-                                                     data-toggle="modal" data-target="#myModal">${emp.ename}</a></td>
+                            <td style="width:6%;"><a
+                                    <c:if test="${emp.empid!=10000}">
+                                        href="javascript:void(0);" onclick="qryDetail(${emp.empid})"
+                                        data-toggle="modal" data-target="#myModal"</c:if>
+                                    <c:if test="${emp.empid==1}"> href="javascript:return false;"</c:if>
+                            >${emp.ename}</a></td>
                             <td style="width:6%;"><c:if test="${emp.esex==1}">男</c:if>
                                 <c:if test="${emp.esex==2}">女</c:if></td>
                             <td style="width:6%;">${emp.eage}岁</td>
@@ -366,10 +394,13 @@
                             <td style="width:15%;">${emp.email}</td>
                             <td style="width:6%;">${emp.esal}</td>
                             <td style="width:10%;"><a
-                                            onclick="del1(${emp.empid})"
-                                            data-toggle="modal"
-                                            data-target="#myModal1"
-                                            href="javascript:void(0)"><b style="font-size: 16px; color: red;">&times;</b></a>
+                                    <c:if test="${emp.empid!=10000}">
+                                        onclick="del1(${emp.empid})"
+                                        data-toggle="modal"
+                                        data-target="#myModal1"
+                                        href="javascript:void(0)"</c:if>
+                                    <c:if test="${emp.empid==1}"> href="javascript:return false;"</c:if>
+                            ><b style="font-size: 16px; color: red;">&times;</b></a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -381,9 +412,9 @@
             <ul class="pagination" id="pagination1">
             </ul>
             <div style="float: right; margin-top: 20px">
-                <button class="button button-rounded button-small" data-dismiss="modal"
-                        onclick="javascript:location.reload()">导出
-                </button>
+                <a class="button button-rounded button-small" data-dismiss="modal"
+                   onclick="report(this,'commtable','员工列表')">导出
+                </a>
             </div>
         </div>
     </div>

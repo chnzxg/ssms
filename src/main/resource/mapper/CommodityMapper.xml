@@ -23,6 +23,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="month!=null">
 			and month = #{month}
 		</if>
+        <if test="cstatus!=null">
+            and cstatus = #{cstatus}
+        </if>
 		order by comid DESC
         <if test='firstRow!=null &amp; pageSize!=null'>
             limit #{firstRow},#{pageSize}
@@ -61,6 +64,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set cstatus = 0
 		where comid = #{comid}
 	</update>
-	
+	<update id="recComm">
+		update ssms.commodity
+		set ssms.commodity.cstatus = 1
+		where comid = #{comid}
+	</update>
 
 </mapper>

@@ -14,3 +14,5 @@
 	<!-- 通用css,js -->
 	<link rel="stylesheet" href="../css/general.css">
 	<script src="../js/general.js"></script>
+	<%--报表--%>
+	<script src="${pageContext.request.contextPath}/js/report/report.js"></script>

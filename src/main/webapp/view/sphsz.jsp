@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/page/splb.css">
     <script src="../js/page/splb.js"></script>
     <script>
-        $(function(){
+        $(function () {
             //分页插件初始化
             $('#pagination1').jqPaginator({
                 totalPages: ${pageCount},
@@ -24,10 +24,10 @@
                     $('#text').html('当前第' + num + '页');
                 }
             });
-            if(${page==1})
-                $(".up").attr("href","javascript:void(0)");
-            if(${pageCount==page})
-                $(".down").attr("href","javascript:void(0)");
+            if (${page==1})
+                $(".up").attr("href", "javascript:void(0)");
+            if (${pageCount==page})
+                $(".down").attr("href", "javascript:void(0)");
             //图片加载失败时的默认显示
             $("img").on("error", function () {
                 $(this).attr("src", "../img/fail.jpg");
@@ -35,16 +35,17 @@
 
 
             var imgs = $(".commimg");
-            for(var i=0;i<imgs.length;i++){
+            for (var i = 0; i < imgs.length; i++) {
                 var id = $(imgs[i]).attr("id");
                 id = id.substring(1);
-                $(imgs[i]).attr("src","${pageContext.request.contextPath}/img/commodity/"+id+".jpg");
+                $(imgs[i]).attr("src", "${pageContext.request.contextPath}/img/commodity/" + id + ".jpg");
             }
         });
-        function qryDetail(comid){
+
+        function qryDetail(comid) {
             $.ajax({
-                url:"${pageContext.request.contextPath}/splb/qryDetail.do?comid="+comid,
-                success:function(data){
+                url: "${pageContext.request.contextPath}/splb/qryDetail.do?comid=" + comid,
+                success: function (data) {
                     $("#myModalLabel").text(data.cname);
                     $("#cname").val(data.cname);
                     $("#finid").val(data.finid);
@@ -58,23 +59,26 @@
                     $("#cprodate").val(dformat(data.cprodate));
                     $("#cdesc").val(data.cdesc);
                     $("#ucomid").val(data.comid);
-                    $("#cimg").attr("src","../img/commodity/"+data.comid+".jpg");
+                    $("#cimg").attr("src", "../img/commodity/" + data.comid + ".jpg");
                 }
             });
         }
-        function changeView(){
-            if($("#divimg").css("display")=="none"){
+
+        function changeView() {
+            if ($("#divimg").css("display") == "none") {
                 $("#divtable").fadeOut();
                 $("#divimg").fadeIn();
             }
-            else{
+            else {
                 $("#divimg").fadeOut();
                 $("#divtable").fadeIn();
             }
         }
+
         function delComm1(comid) {
             $('#delcomid').val(comid);
         }
+
         function delComm2() {
             var comid = $('#delcomid').val();
             location.href = '${pageContext.request.contextPath}/splb/delsplb.do?comid=' + comid + '&page=${page}&pageSize=15';
@@ -114,7 +118,7 @@
         </div>
         <div id="dtable" style="width:96%;height:100%;margin:0 auto;">
             <div id="divtable" class="divtable" style="background-color:#fff;">
-                <table class="table table-hover table-condensed table-striped"  id="commtable">
+                <table class="table table-hover table-condensed table-striped" id="commtable">
                     <thead>
                     <tr>
                         <th style="display:none">id</th>
@@ -137,7 +141,8 @@
                         <tr style="height:20px;">
                             <td id="comid" style="display:none">${comm.comid}</td>
                             <td style="width:6%;">${status.count}</td>
-                            <td style="width:12%;"><a href="javascript:void(0);" onclick="qryDetail(${comm.comid})" data-toggle="modal" data-target="#myModal">${comm.cname}</a></td>
+                            <td style="width:12%;"><a href="javascript:void(0);" onclick="qryDetail(${comm.comid})"
+                                                      data-toggle="modal" data-target="#myModal">${comm.cname}</a></td>
                             <td style="width:8%;">${comm.fname}</td>
                             <td style="width:7%;">${comm.cspec}</td>
                             <td style="width:7%;">${comm.cweight}g</td>
@@ -148,9 +153,11 @@
                             <td style="width:7%;">${comm.cproder}</td>
                             <td style="width:18%;"><fmt:formatDate pattern="yyyy-MM-dd" value="${comm.cprodate}"/></td>
                             <td style="width:20%;"><a style="width:25px;height:20px;"
-                                                      href="javascript:void(0)" onclick="delComm1(${comm.comid})"
-                                                      data-toggle="modal"
-                                                      data-target="#myModal1"><b style="font-size: 16px; color: red;">&times;</b></a></td>
+                            href="${pageContext.request.contextPath}/sphsz/reccomm.do?comid=${comm.comid}&page=${page}">恢复</a>
+                                <a style="width:25px;height:20px;"
+                                   href="javascript:void(0)" onclick="delComm1(${comm.comid})"
+                                   data-toggle="modal"
+                                   data-target="#myModal1"><b style="font-size: 16px; color: red;">&times;</b></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -160,10 +167,14 @@
         </div>
         <div class="pagediv" style="width:95%;height:15%;">
             <ul class="pagination" id="pagination1"></ul>
+            <div style="float: right; margin-top: 20px">
+                <a class="button button-rounded button-small" data-dismiss="modal"
+                   onclick="report(this,'commtable','回收站列表')">导出
+                </a>
+            </div>
         </div>
     </div>
 </div>
-
 
 
 </body>

@@ -344,9 +344,9 @@
             <div style="float: right; margin-top: 20px">
                 <%--<button class="button button-rounded button-small" data-dismiss="modal" onclick="changeView()">切换显示
                 </button>--%>
-                <button class="button button-rounded button-small" data-dismiss="modal"
-                        onclick="javascript:location.reload()">导出
-                </button>
+                <a class="button button-rounded button-small" data-dismiss="modal"
+                        onclick="report(this,'commtable','商品列表')">导出
+                </a>
             </div>
         </div>
     </div>

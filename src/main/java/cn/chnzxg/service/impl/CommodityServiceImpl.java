@@ -45,4 +45,9 @@ public class CommodityServiceImpl implements CommodityService {
 		commodityDao.removeComm(commodity);
 	}
 
+	@Override
+	public void recComm(Integer comid) {
+		commodityDao.recComm(comid);
+	}
+
 }

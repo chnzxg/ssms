@@ -50,7 +50,7 @@
                             },
                             remote : {
                                 url : '${pageContext.request.contextPath}/role/checkrname.do',
-                                message : "该商品名已存在",
+                                message : "该角色名已存在",
                                 delay : 500,
                                 type : 'post',
                             }

@@ -31,7 +31,16 @@ public class SPHSZAction {
         return "sphsz";
     }
 
-
+    @RequestMapping(value = "/reccomm.do",method = RequestMethod.GET)
+    public String updStatus(HttpServletRequest request, String page, Integer comid){
+        commodityService.recComm(comid);
+        Commodity comm = pageMethod(page, "15", new Commodity());
+        comm.setCstatus(SSMSKey.COMM_STATUS_REMOVE);
+        request.setAttribute("list", getCommList(comm));
+        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(comm), "15"));
+        request.setAttribute("page", page);
+        return "sphsz";
+    }
 
 
     //获取商品集合

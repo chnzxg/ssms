@@ -57,7 +57,7 @@ public class SPLBAction {
 		return "splb";
 	}
 
-	@RequestMapping(value = "/sphsz", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/sphsz", method = RequestMethod.GET)
 	public String getSPHSZ(HttpServletRequest request, String page, String pageSize, Commodity commodity) {
 		if (!(MyUtil.isEmpty(page) || MyUtil.isEmpty(pageSize))) {
 			commodity = pageMethod(page, pageSize, commodity);
@@ -66,7 +66,7 @@ public class SPLBAction {
 			request.setAttribute("page", page);
 		}
 		return "sphsz";
-	}
+	}*/
 	//Commodity放入回收站
 	@RequestMapping("/removecomm")
 	public String removeComm(Commodity commodity, String page, String pageSize ,HttpServletRequest request) {
@@ -102,6 +102,7 @@ public class SPLBAction {
 		}
 		return "sphsz";
 	}
+
 	@RequestMapping("/updsplb.do")
     @ResponseBody
 	public String updSPBL(Commodity commodity, HttpServletRequest request,String page,String pageSize){

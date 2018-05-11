@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-forbidden!
+<img style="margin-left: 400px;margin-top: 100px" src="../img/timg.jpg">
+<h1 style="margin-left: 690px;"><a href="${pageContext.request.contextPath}/view/welcome.jsp">返回首页</a></h1>
 </body>
 </html>

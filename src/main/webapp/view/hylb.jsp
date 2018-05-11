@@ -146,6 +146,11 @@
         </div>
         <div class="pagediv" style="width:95%;height:15%;">
             <ul class="pagination" id="pagination1"></ul>
+            <div style="float: right; margin-top: 20px">
+                <a class="button button-rounded button-small" data-dismiss="modal"
+                   onclick="report(this,'commtable','会员列表')">导出
+                </a>
+            </div>
         </div>
     </div>
 </div>
