@@ -13,10 +13,10 @@
                 totalPages: ${pageCount},
                 visiblePages: 7,
                 currentPage: ${page},
-                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">首页</a></li>',
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">上一页</a></li>',
-                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">下一页</a></li>',
-                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">末页</a></li>',
+                first: '<li class="first"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=1&pageSize=15">&laquo;</a></li>',
+                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page-1}&pageSize=15">&lsaquo;</a></li>',
+                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${page+1}&pageSize=15">&lsaquo;</a></li>',
+                last: '<li class="last"><a class="down" href="${pageContext.request.contextPath}/yglb/qryyglb.do?page=${pageCount}&pageSize=15">&lsaquo;</a></li>',
                 page: '<li class="page"><a href="${pageContext.request.contextPath}/yglb/qryyglb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
                 onPageChange: function (num) {
                     $('#text').html('当前第' + num + '页');

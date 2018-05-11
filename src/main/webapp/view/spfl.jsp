@@ -14,8 +14,8 @@
                 totalPages: 10,
                 visiblePages: 2,
                 currentPage: 1,
-                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page-1}&pageSize=15">上一页</a></li>',
-                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page+1}&pageSize=15">下一页</a></li>',
+                prev: '<li class="prev"><a class="up" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page-1}&pageSize=15">&lsaquo;</a></li>',
+                next: '<li class="next"><a class="down" href="${pageContext.request.contextPath}/splb/qrysplb.do?page=${page+1}&pageSize=15">&lsaquo;</a></li>',
                 page: '<li class="page"><a href="${pageContext.request.contextPath}/splb/qrysplb.do?page={{page}}&pageSize=15">{{page}}</a></li>',
                 onPageChange: function (num) {
                 }
