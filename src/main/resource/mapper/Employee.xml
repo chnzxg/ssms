@@ -9,21 +9,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="qryEmp" resultType="Employee">
 		SELECT * from employee
-        <where>
-            <if test="ename">
-                ename like "%"#{ename}"%"
-            </if>
-            <if test="eage">
-                eage = #{eage}
-            </if>
-            <if test="esex">
-                esex = #{esex}
-            </if>
-            <if test="epro">
-                epro = #{epro}
-            </if>
-        </where>
         order BY empid DESC
+		<if test='firstRow!=null &amp; pageSize!=null'>
+			limit #{firstRow},#{pageSize}
+		</if>
+	</select>
+	<select id="qryEmployee" resultType="Employee">
+		SELECT * from employee
+		where 1 =1
+			<if test="ename!=null and ename!=''">
+				and ename like "%"#{ename}"%"
+			</if>
+			<if test="eage!=null and eage!=''">
+                and eage = #{eage}
+			</if>
+			<if test="esex!=null and esex!=''">
+                and esex = #{esex}
+			</if>
+			<if test="epro!=null and epro!=''">
+                and epro = #{epro}
+			</if>
+		order BY empid DESC
 		<if test='firstRow!=null &amp; pageSize!=null'>
 			limit #{firstRow},#{pageSize}
 		</if>

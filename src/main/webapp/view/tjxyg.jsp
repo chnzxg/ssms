@@ -14,19 +14,19 @@
             $('#formdiv').bootstrapValidator('validate');
             if ($('#formdiv').data("bootstrapValidator").isValid()) {
                 alert(1)
-                $.get({
+                $.post({
                     url: '${pageContext.request.contextPath}/yglb/addyglb.do',
                     data: $('#form').serialize(),
                     success: function (data) {
-                        alert(1)
+                        alert(2);
                         if (data == '1') {
-                            $('#info').text('添加会员成功');
+                            $('#info').text('添加员工成功');
                             setTimeout(function () {
                                 location.reload();
                             }, 1000);
                         }
                         else
-                            $('#info').text('添加会员失败，请稍后重试');
+                            $('#info').text('添加员工失败，请稍后重试');
                         $('#addinfo').modal('show');
                     }
 
@@ -46,7 +46,7 @@
                 message: 'This value is not valid',
                 live: 'enabled',
                 submitButtons: 'button[type="submit"]',
-                fields: {
+                /*fields: {
                     ename: {
                         enabled: true,
                         message: '输入值不合法',
@@ -64,24 +64,6 @@
                                 message: "该姓名已存在",
                                 delay: 500,
                                 type: 'post',
-                            }
-                        }
-                    },
-                    eno: {
-                        enabled: true,
-                        message: '输入值不合法',
-                        validators: {
-                            notEmpty: {
-                                message: '工号不能为空'
-                            },
-                            stringLength: {
-                                min: 6,
-                                max: 6,
-                                message: '必须为6位'
-                            },
-                            regexp: {
-                                regexp: /^[0-9]+$/,
-                                message: '必须为纯数字'
                             }
                         }
                     },
@@ -136,7 +118,7 @@
                             }
                         }
                     }
-                }
+                }*/
             });
 
         });
@@ -185,13 +167,6 @@
                             <input style="height: 15px;line-height: 30px;" type="radio" name="optionsRadiosinline"
                                    id="optionsRadios4" value="2"> 女
                         </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <span for="eno" class="col-sm-2 control-label">工号：</span>
-                    <div class="col-sm-3">
-                        <input autofocus type="text" class="form-control" id="eno" name="eno"
-                               placeholder="请输入6位工号，只能为数字">
                     </div>
                 </div>
                 <div class="form-group">

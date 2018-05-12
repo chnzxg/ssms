@@ -160,7 +160,7 @@
     <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div id="formdiv" style="width:100%;height:100%;">
-            <form id="form" action="${pageContext.request.contextPath}/splb/addsplb.do" class="form-horizontal"
+            <form id="form" enctype="multipart/form-data" action="${pageContext.request.contextPath}/splb/addsplb.do" class="form-horizontal"
                   role="form" autocomplete="on">
                 <div class="form-group">
                     <span for="cname" class="col-sm-2 control-label">商品名称：</span>
@@ -240,7 +240,7 @@
                 <div class="form-group">
                     <span for="cstock" class="col-sm-2 control-label">图片：</span>
                     <div class="col-sm-3">
-                        <input type="file" name="cimg" value=""/>
+                        <input type="file" name="uploadFile" value=""/>
                     </div>
                 </div>
                 <div class="form-group">

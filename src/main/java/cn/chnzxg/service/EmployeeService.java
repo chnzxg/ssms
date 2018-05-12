@@ -1,6 +1,7 @@
 package cn.chnzxg.service;
 
 import java.util.List;
+import java.util.Map;
 
 import cn.chnzxg.entity.Employee;
 
@@ -12,4 +13,5 @@ public interface EmployeeService {
 	Integer updEmp(Employee employee);
 	Integer addEmp(Employee employee);
 	Employee qryDetail(Employee employee);
+	List<Employee> qryEmployee(Map<String, Object> map);
 }

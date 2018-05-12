@@ -6,6 +6,8 @@ import cn.chnzxg.service.EmployeeService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
+
 @Service("employeeServiceImpl")
 public class EmployeeServiceImpl implements EmployeeService{
 	@Resource
@@ -42,6 +44,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	public Employee qryDetail(Employee employee) {
 		return employeeDao.qryDetail(employee);
+	}
+
+	@Override
+	public List<Employee> qryEmployee(Map<String, Object> map) {
+		map.put("ename", ((Employee)map.get("Employee")).getEname());
+		map.put("esex", ((Employee)map.get("Employee")).getEsex());
+		map.put("epro", ((Employee)map.get("Employee")).getEpro());
+		map.put("eage", ((Employee)map.get("Employee")).getEage());
+		return employeeDao.qryEmployee(map);
 	}
 
 }

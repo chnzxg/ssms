@@ -1,5 +1,6 @@
 package cn.chnzxg.action;
 
+import cn.chnzxg.entity.Admin;
 import cn.chnzxg.entity.Employee;
 import cn.chnzxg.service.EmployeeService;
 import cn.chnzxg.util.PageUtil;
@@ -21,14 +22,13 @@ public class YGLBAction {
 	@Resource
 	private EmployeeService employeeService;
 
-	@RequestMapping(value = "/seryglb", method = RequestMethod.GET)
+	@RequestMapping(value = "/seryglb.do", method = RequestMethod.GET)
 	public String searchEmployee(String page, HttpServletRequest request, Employee employee){
-        employee = pageMethod(page, "15", employee);
-        request.setAttribute("list", getEmployeeList(employee));
-        request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),"15"));
-        request.setAttribute("page", page);
-        request.setAttribute("pageSize", "15");
-        request.setAttribute("employee", employee);
+	    if(employee.getEpro()==0)
+	        employee.setEpro(null);
+	    if(employee.getEsex()==0)
+	        employee.setEsex(null);
+        getEmployees(request, employee, page);
         return "yglb";
     }
 
@@ -43,14 +43,15 @@ public class YGLBAction {
     }
 
 	@RequestMapping("/qryyglb.do")
-	public String qryYGLB(HttpServletRequest request,String page,String pageSize){
-		if(!"".equals(page)&&!"".equals(pageSize)){
+	public String qryYGLB(HttpServletRequest request, String page, Employee employee){
+		/*if(!"".equals(page)&&!"".equals(pageSize)){
 			Employee employee = pageMethod(page, pageSize, new Employee());
 			request.setAttribute("list", getEmployeeList(employee));
 			request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(),pageSize));
 			request.setAttribute("page", page);
 			request.setAttribute("pageSize", pageSize);
-		}
+		}*/
+		getEmployees(request, employee, page);
 		return "yglb";
 	}
 
@@ -81,7 +82,7 @@ public class YGLBAction {
 		return "yglb";
 	}
 
-	@RequestMapping(value = "/addyglb.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/addyglb.do", method = RequestMethod.POST)
     @ResponseBody
 	public Integer addEmployee(Employee employee){
         try{
@@ -117,6 +118,22 @@ public class YGLBAction {
 	public Integer getRowCount(){
 		return employeeService.qryEmp(new Employee()).size();
 	}
+
+
+	private void getEmployees(HttpServletRequest request, Employee employee, String page){
+	    Map<String, Object> paramMap = PageUtil.getParamMap(employee, page, "15");
+	    List<Employee> employees = employeeService.qryEmployee(paramMap);
+	    request.setAttribute("employee",employee);
+        request.setAttribute("list", employees);
+        request.setAttribute("page", page);
+        request.setAttribute("pageSize", "15");
+        request.setAttribute("pageCount", getPageCount(employee, "15"));
+    }
+
+    private Integer getPageCount(Employee employee, String pageSize) {
+        List<Employee> employees = employeeService.qryEmp(employee);
+        return PageUtil.getPageCount(employees.size(), pageSize);
+    }
 }
 
 

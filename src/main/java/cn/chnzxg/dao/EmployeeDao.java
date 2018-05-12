@@ -3,6 +3,7 @@ package cn.chnzxg.dao;
 import cn.chnzxg.entity.Employee;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EmployeeDao {
 	List<Employee> checkEName(String ename);
@@ -12,4 +13,5 @@ public interface EmployeeDao {
 	Integer updEmp(Employee employee);
 	Integer addEmp(Employee employee);
 	Employee qryDetail(Employee employee);
+	List<Employee> qryEmployee(Map<String, Object> map);
 }

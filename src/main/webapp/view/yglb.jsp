@@ -16,6 +16,10 @@
             $('#delvalue').val(id);
         }
 
+        function search() {
+            $('#serform').submit();
+        }
+
         function del2() {
             var id = $('#delvalue').val();
             location.href = '${pageContext.request.contextPath}/yglb/delyglb.do?empid=' + id + '&page=${page}&pageSize=15';
@@ -153,7 +157,7 @@
 <div id="main" style="background-color:#eee;">
     <div class="search-div card2">
         <div style="float: right;">
-            <form class="form-inline" role="form" autocomplete="off"
+            <form class="form-inline" id="serform" role="form" autocomplete="off"
                   method="get"
                   action="${pageContext.request.contextPath}/yglb/seryglb.do"
             >
@@ -170,45 +174,45 @@
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <label for="f2">性别</label>
-                    <select id="f2" class="form-control">
-                        <option>全部</option>
-                        <option name="esex"
+                    <select id="f2" class="form-control" name="esex">
+                        <option value="0">全部</option>
+                        <option
                                 <c:if test="${employee.esex==1}">selected="selected"</c:if> value="1">男
                         </option>
-                        <option name="esex"
+                        <option
                                 <c:if test="${employee.esex==2}">selected="selected"</c:if> value="2">女
                         </option>
                     </select>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <label for="f3">工种</label>
-                    <select id="f3" class="form-control">
-                        <option>全部</option>
-                        <option name="epro"
+                    <select id="f3" class="form-control" name="epro">
+                        <option value="0">全部</option>
+                        <option
                                 <c:if test="${employee.epro==1}">selected="selected"</c:if> value="1">店长
                         </option>
-                        <option name="epro"
+                        <option
                                 <c:if test="${employee.epro==2}">selected="selected"</c:if> value="2">经理
                         </option>
-                        <option name="epro"
+                        <option
                                 <c:if test="${employee.epro==3}">selected="selected"</c:if> value="3">促销员
                         </option>
-                        <option name="epro"
+                        <option
                                 <c:if test="${employee.epro==4}">selected="selected"</c:if> value="4">收银员
                         </option>
-                        <option name="epro"
+                        <option
                                 <c:if test="${employee.epro==5}">selected="selected"</c:if> value="5">收获员
                         </option>
-                        <option name="epro"
+                        <option
                                 <c:if test="${employee.epro==6}">selected="selected"</c:if> value="6">理货员
                         </option>
-                        <option name="epro"
+                        <option
                                 <c:if test="${employee.epro==7}">selected="selected"</c:if> value="7">保洁
                         </option>
                     </select>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">搜索</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="search()" class="btn btn-primary">搜索</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </form>
         </div>
@@ -312,7 +316,7 @@
                                     <span style="height: 34px;line-height: 34px;text-align: right" for="claid"
                                           class="col-sm-4 control-label">工种：</span>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="epro" id="epro">
+                                        <select class="form-control" id="epro" name="epro">
                                             <option value="1" disabled="disabled">店长</option>
                                             <option value="2">经理</option>
                                             <option value="3">促销员</option>

@@ -33,8 +33,9 @@ public class CommodityServiceImpl implements CommodityService {
 		return commodityDao.updComm(comm);
 	}
 
-	public Integer addComm(Commodity comm) {
-		return commodityDao.addComm(comm);
+	public Commodity addComm(Commodity comm) {
+		commodityDao.addComm(comm);
+		return comm;
 	}
 
 	public Commodity qryDetail(Commodity comm) {

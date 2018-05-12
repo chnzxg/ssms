@@ -14,7 +14,7 @@ public interface CommodityService {
 	List<Commodity> qryAllComm(Commodity comm);
 	Integer delComm(Commodity comm);
 	Integer updComm(Commodity comm);
-	Integer addComm(Commodity comm);
+	Commodity addComm(Commodity comm);
 	Commodity qryDetail(Commodity comm);
 	void removeComm(Commodity commodity);
 	void recComm(Integer comid);
