@@ -141,8 +141,7 @@
                         <tr style="height:20px;">
                             <td id="comid" style="display:none">${comm.comid}</td>
                             <td style="width:6%;">${status.count}</td>
-                            <td style="width:12%;"><a href="javascript:void(0);" onclick="qryDetail(${comm.comid})"
-                                                      data-toggle="modal" data-target="#myModal">${comm.cname}</a></td>
+                            <td style="width:12%;">${comm.cname}</td>
                             <td style="width:8%;">${comm.fname}</td>
                             <td style="width:7%;">${comm.cspec}</td>
                             <td style="width:7%;">${comm.cweight}g</td>
