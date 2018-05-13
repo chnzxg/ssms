@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Administrator on 2018/5/2.
@@ -25,23 +26,13 @@ public class SystemFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession();
 
-        StringBuffer url = request.getRequestURL();
-        String s1 = "http://localhost:8080/view/login.jsp";
-        String s2 = "http://localhost:8080/system/login.do";
-        String s3 = "http://localhost:8080/view/index.jsp";
-        if (s1.equals(url.toString()) || s2.equals(url.toString()) || s3.equals(url.toString())) {
+        String purl = request.getParameter("purl");
+        if (purl == null || Objects.equals("", purl))
             chain.doFilter(request, response);
-            return;
-        }
+
         Admin admin = (Admin) session.getAttribute("user");
         if (admin == null) {
             request.getRequestDispatcher(request.getContextPath() + "/view/login.jsp").forward(request, response);
-            return;
-        }
-
-        String purl = request.getParameter("purl");
-        if(purl == null || "".equals(purl)){
-            chain.doFilter(request, response);
             return;
         }
 
