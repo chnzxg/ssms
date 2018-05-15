@@ -60,16 +60,6 @@ public class SPLBAction {
         return "splb";
     }
 
-    /*@RequestMapping(value = "/sphsz", method = RequestMethod.GET)
-    public String getSPHSZ(HttpServletRequest request, String page, String pageSize, Commodity commodity) {
-        if (!(MyUtil.isEmpty(page) || MyUtil.isEmpty(pageSize))) {
-            commodity = pageMethod(page, pageSize, commodity);
-            request.setAttribute("list", getCommRmList(commodity));
-            request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity()), pageSize));
-            request.setAttribute("page", page);
-        }
-        return "sphsz";
-    }*/
     //Commodity放入回收站
     @RequestMapping("/removecomm")
     public String removeComm(Commodity commodity, String page, String pageSize, HttpServletRequest request) {
@@ -132,8 +122,8 @@ public class SPLBAction {
             if (!MyUtil.isEmpty(cprodatex) && !MyUtil.isEmpty(commodity)) {
                 commodity.setCprodate(Timestamp.valueOf(cprodatex + " 00:00:00"));
                 Commodity commodity1 = commodityService.addComm(commodity);
-                File file = new File(request.getContextPath() + "/img/commodity/", commodity1.getComid()+".jpg");
-                uploadFile.transferTo(file);
+                //File file = new File(request.getContextPath() + "/img/commodity/", commodity1.getComid()+".jpg");
+                //uploadFile.transferTo(file);
             }
         } catch (Exception e) {
             e.printStackTrace();

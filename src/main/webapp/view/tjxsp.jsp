@@ -104,9 +104,10 @@
         function addComm() {
             $('#form').bootstrapValidator('validate');
             if ($('#form').data("bootstrapValidator").isValid()) {
+                var formdata = new FormData($('#form'));
                 $.ajax({
                     url: '${pageContext.request.contextPath}/splb/addsplb.do',
-                    data: $('#form').serialize(),
+                    data: formdata,
                     success: function (data) {
                         if (data == '1') {
                             $('#info').text('添加商品成功');
@@ -160,7 +161,7 @@
     <div class="card2" style="width:95%;background-color:#fff;margin:0 auto;text-align:center">
         <br>
         <div id="formdiv" style="width:100%;height:100%;">
-            <form id="form" enctype="multipart/form-data" action="${pageContext.request.contextPath}/splb/addsplb.do" class="form-horizontal"
+            <form id="form" enctype="multipart/form-data"  class="form-horizontal"
                   role="form" autocomplete="on">
                 <div class="form-group">
                     <span for="cname" class="col-sm-2 control-label">商品名称：</span>

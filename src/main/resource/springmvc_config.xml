@@ -13,6 +13,14 @@
     <!-- 使用注解的包 -->
     <context:component-scan base-package="cn.chnzxg.action"></context:component-scan>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="50000000"></property>
+        <property name="maxUploadSizePerFile" value="50000000"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+    </bean>
+
+
+
     <!-- 注解的驱动，会自动注册几个bean -->
     <mvc:annotation-driven></mvc:annotation-driven>
 
@@ -20,12 +28,6 @@
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/view/"></property>
         <property name="suffix" value=".jsp"></property>
-    </bean>
-
-    <!-- 上传文件解析器 -->
-    <bean id="multipartResolver"
-          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="10000000"></property>
     </bean>
 
 </beans>
