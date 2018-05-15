@@ -161,7 +161,7 @@
                 <!-- logo -->
                 <div class="logo">
                     <a href="dashboard-1.html" class="logo-expanded">
-                        <img src="../assets/images/logo@2x.png" width="80" alt=""/>
+                        <img  width="80" alt=""/>
                     </a>
 
                     <a href="dashboard-1.html" class="logo-collapsed">
