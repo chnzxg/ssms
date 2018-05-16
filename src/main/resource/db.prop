@@ -1,4 +1,4 @@
 driver=com.mysql.jdbc.Driver
-url=jdbc:mysql://120.77.202.252:3306/ssms
+url=jdbc:mysql://192.168.254.128:3306/ssms
 username=root
 password=123
