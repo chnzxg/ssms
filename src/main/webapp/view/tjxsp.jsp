@@ -104,10 +104,9 @@
         function addComm() {
             $('#form').bootstrapValidator('validate');
             if ($('#form').data("bootstrapValidator").isValid()) {
-                var formdata = new FormData($('#form'));
                 $.ajax({
                     url: '${pageContext.request.contextPath}/splb/addsplb.do',
-                    data: formdata,
+                    data: $('#fomr').serialize(),
                     success: function (data) {
                         if (data == '1') {
                             $('#info').text('添加商品成功');
@@ -236,12 +235,6 @@
                         <div class="input-group"><input type="text" class="form-control" id="cstock" name="cstock"
                                                         placeholder="请输入库存数量"><span class="input-group-addon">个</span>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <span for="cstock" class="col-sm-2 control-label">图片：</span>
-                    <div class="col-sm-3">
-                        <input type="file" name="uploadFile" value=""/>
                     </div>
                 </div>
                 <div class="form-group">

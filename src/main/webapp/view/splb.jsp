@@ -108,16 +108,12 @@
                     <input name="cname" value="${comm.cname}" type="text" id="f1" class="form-control" placeholder="请输入商品名称"/>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
-                    <label for="f2">分类</label>
-                    <input name="finid" value="${comm.finid}" type="text" id="f2" class="form-control" placeholder="请输入密码"/>
-                </div>&nbsp;&nbsp;
-                <div class="form-group">
                     <label for="f3">重量</label>
-                    <input name="cweight" value="${comm.cweight}" type="text" id="f3" class="form-control" placeholder="请输入密码"/>
+                    <input name="cweight" value="${comm.cweight}" type="text" id="f3" class="form-control" placeholder="请输入重量"/>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <label for="f4">保质期</label>
-                    <input name="month" value="${comm.month}" type="text" id="f4" class="form-control" placeholder="请输入密码"/>
+                    <input name="month" value="${comm.month}" type="text" id="f4" class="form-control" placeholder="请输入保质期"/>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">搜索</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -231,15 +227,6 @@
                                         <td style="width:240px;"><input style="height:33px;" type="text"
                                                                         class="form-control" name="cproder" id="cproder"
                                                                         placeholder="请输入生产商"></td>
-                                        <td style="width:50px;"></td>
-                                    </tr>
-                                    <tr style="height:40px;">
-                                        <td style="width:50px;"></td>
-                                        <td align="right" style="width:100px;font-size:14px;">生产日期：</td>
-                                        <td style="width:240px;"><input style="height:33px;" type="date"
-                                                                        class="form-control" name="cprodate"
-                                                                        id="cprodate"
-                                                                        placeholder="请输入生产日期"></td>
                                         <td style="width:50px;"></td>
                                     </tr>
                                     <tr style="height:40px;">

@@ -21,7 +21,7 @@
                         if (data == '1') {
                             $('#info').text('修改密码成功，请重新登录');
                             setTimeout(function () {
-                                location.href='${pageContext.request.contextPath}/view/login.jsp';
+                                parent.window.location.href='${pageContext.request.contextPath}/view/login.jsp';
                             },500);
                         }
                         else

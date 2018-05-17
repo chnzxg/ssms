@@ -33,6 +33,7 @@ public class FormAction {
     @RequestMapping(value = "/updform.do", method = RequestMethod.GET)
     public String updFrom(HttpServletRequest request, Form form, String page, String pageSize){
         formService.updFrom(MyUtil.beanToMap(form));
+        form.setFstatus(null);
         getForms(form, page, pageSize, request);
         return "ddlb";
     }

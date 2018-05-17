@@ -46,7 +46,7 @@ public class SystemAction {
         return "login";
     }
 
-    @RequestMapping(value = "/password.do" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/password.do")
     @ResponseBody
     public Integer updPassword(HttpSession session, String apassword){
         try{
@@ -54,6 +54,7 @@ public class SystemAction {
             admin.setApassword(apassword);
             adminService.updAPassword(admin);
         }catch (Exception e){
+            e.printStackTrace();
             return 0;
         }
         session.invalidate();

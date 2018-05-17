@@ -39,6 +39,8 @@ public class MemberAction {
 
     @RequestMapping(value = "/qrymember.do", method = RequestMethod.GET)
     public String getMembers(HttpServletRequest request, String page, String pageSize, Member member){
+        if(member!=null || member.getMlevel()==-1)
+            member.setMlevel(null);
         getMembers(member, page, pageSize, request);
         return "hylb";
     }

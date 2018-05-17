@@ -98,32 +98,28 @@ public class SPLBAction {
     }
 
     @RequestMapping("/updsplb.do")
-    @ResponseBody
     public String updSPBL(Commodity commodity, HttpServletRequest request, String page, String pageSize) {
-        try {
-            if (!"".equals(page) && !"".equals(pageSize)) {
-                if (commodity != null)
-                    commodityService.updComm(commodity);
-                request.setAttribute("list", getCommList(commodity));
-                request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity(SSMSKey.COMM_STATUS_NORMAL)), pageSize));
-                request.setAttribute("page", page);
-                request.setAttribute("pageSize", pageSize);
-            }
-        } catch (Exception e) {
-            return "0";
+        if (!"".equals(page) && !"".equals(pageSize)) {
+            commodity.setCstatus(SSMSKey.COMM_STATUS_NORMAL);
+            commodity.setFinid(30);
+            if (commodity != null)
+                commodityService.updComm(commodity);
+            Commodity comm = pageMethod(page, pageSize, new Commodity());
+            request.setAttribute("list", getCommList(comm));
+            request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity(SSMSKey.COMM_STATUS_NORMAL)), pageSize));
+            request.setAttribute("page", page);
+            request.setAttribute("pageSize", pageSize);
         }
-        return "1";
+        return "splb";
     }
 
     @RequestMapping("/addsplb.do")
     @ResponseBody
-    public String addSPLB(HttpServletRequest request, @RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile, String cprodatex, Commodity commodity) {
+    public String addSPLB(HttpServletRequest request, String cprodatex, Commodity commodity) {
         try {
-            if (!MyUtil.isEmpty(cprodatex) && !MyUtil.isEmpty(commodity)) {
-                commodity.setCprodate(Timestamp.valueOf(cprodatex + " 00:00:00"));
+            if (!MyUtil.isEmpty(commodity)) {
+                // commodity.setCprodate(Timestamp.valueOf(cprodatex + " 00:00:00"));
                 Commodity commodity1 = commodityService.addComm(commodity);
-                //File file = new File(request.getContextPath() + "/img/commodity/", commodity1.getComid()+".jpg");
-                //uploadFile.transferTo(file);
             }
         } catch (Exception e) {
             e.printStackTrace();

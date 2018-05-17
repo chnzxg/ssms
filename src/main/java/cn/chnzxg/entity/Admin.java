@@ -82,6 +82,8 @@ public class Admin {
 
     public String getRoles() {
         StringBuffer stringBuffer = new StringBuffer();
+//        if(roles == null || roles.size()==0)
+//            return "";
         for (Role role : roles) {
             stringBuffer.append(role.getRname());
             stringBuffer.append(",");
@@ -97,6 +99,8 @@ public class Admin {
 
     public String getPowers() {
         StringBuffer stringBuffer = new StringBuffer();
+//        if(powers == null || powers.size()==0)
+//            return "";
         for (Power power : powers) {
             stringBuffer.append(power.getPname());
             stringBuffer.append(",");

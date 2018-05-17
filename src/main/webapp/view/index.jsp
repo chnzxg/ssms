@@ -27,8 +27,11 @@
         function jumpTo(url) {
             $("#main-iframe").attr("src", url);
         }
-        function ihome() {
-            $('#main-iframe').attr('src','${pageContext.request.contextPath}/view/welcome.jsp');
+        function tohome() {
+            location.href = '${pageContext.request.contextPath}/view/welcome.jsp';
+        }
+        function ihome(){
+            window.parent.location.href='${pageContext.request.contextPath}/view/welcome.jsp';
         }
         function irefresh() {
             document.getElementById('main-iframe').contentWindow.location.reload(true);
@@ -251,12 +254,12 @@
                                 <span class="title">添加会员</span>
                             </a>
                         </li>
-                        <li>
+                        <%--<li>
                             <a name="jgyg" href="javascript:void(0)"
                                onclick="jumpTo('${pageContext.request.contextPath}/discount/qrydiscount.do?purl=10')">
                                 <span class="title">折扣设置</span>
                             </a>
-                        </li>
+                        </li>--%>
                     </ul>
                 </li>
                 <li>

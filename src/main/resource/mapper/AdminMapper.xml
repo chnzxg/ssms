@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
     <update id="updAPassword">
         update admin set apassword = #{apassword}
-        where aid = a{id}
+        where aid = #{aid}
     </update>
     <select id="qryDetail" resultType="Admin">
         select * from ssms.admin

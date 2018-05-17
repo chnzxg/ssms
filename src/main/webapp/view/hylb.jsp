@@ -56,9 +56,9 @@
                     <input name="mtel" value="${member.mtel}" type="text" id="f2" class="form-control" placeholder="请输入电话"/>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
-                    <label for="f3">状态</label>
+                    <label for="f3">等级</label>
                     <select id="f3" class="form-control" name="mlevel">
-                        <option>全部</option>
+                        <option value="-1">全部</option>
                         <option <c:if test="${member.mlevel==1}">selected</c:if> value="1">1</option>
                         <option <c:if test="${member.mlevel==2}">selected</c:if> value="2">2</option>
                         <option <c:if test="${member.mlevel==3}">selected</c:if> value="3">3</option>
