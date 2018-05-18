@@ -14,7 +14,7 @@
             $('#formdiv').bootstrapValidator('validate');
             if ($('#formdiv').data("bootstrapValidator").isValid()) {
                 alert(1)
-                $.post({
+                $.ajax({
                     url: '${pageContext.request.contextPath}/yglb/addyglb.do',
                     data: $('#form').serialize(),
                     success: function (data) {
@@ -30,7 +30,7 @@
                         $('#addinfo').modal('show');
                     }
 
-                })
+                });
             }
         }
 

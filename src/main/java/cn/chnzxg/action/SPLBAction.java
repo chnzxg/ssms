@@ -113,9 +113,9 @@ public class SPLBAction {
         return "splb";
     }
 
-    @RequestMapping("/addsplb.do")
+    @RequestMapping(value = "/addsplb.do")
     @ResponseBody
-    public String addSPLB(HttpServletRequest request, String cprodatex, Commodity commodity) {
+    public String addSPLB(HttpServletRequest request, Commodity commodity) {
         try {
             if (!MyUtil.isEmpty(commodity)) {
                 // commodity.setCprodate(Timestamp.valueOf(cprodatex + " 00:00:00"));

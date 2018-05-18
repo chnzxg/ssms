@@ -37,8 +37,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<insert id="addComm" useGeneratedKeys="true" keyColumn="comid" keyProperty="comid">
 		insert into commodity
-		(comid,cname,finid,cspec,cweight,cprice,cproder,cprodate,month,ccode,cstock,cdesc,cstatus)values
-		(#{comid},#{cname},#{finid},#{cspec},#{cweight},#{cprice},#{cproder},#{cprodate},#{month},#{ccode},#{cstock},#{cdesc},1)
+		(comid,cname,finid,cspec,cweight,cprice,cproder,month,ccode,cstock,cdesc,cstatus)values
+		(#{comid},#{cname},#{finid},#{cspec},#{cweight},#{cprice},#{cproder},#{month},#{ccode},#{cstock},#{cdesc},1)
 	</insert>
 	<update id="updComm">
 		update commodity set

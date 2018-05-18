@@ -117,7 +117,7 @@
                         <th style="text-align:center;vertical-align:middle;">会员等级</th>
                         <th style="text-align:center;vertical-align:middle;">余额</th>
                         <th style="text-align:center;vertical-align:middle;">创建时间</th>
-                        <th style="text-align:center;vertical-align:middle;">总消费金额</th>
+                      <%--  <th style="text-align:center;vertical-align:middle;">总消费金额</th>--%>
                         <th style="text-align:center;vertical-align:middle;">操作</th>
                     </tr>
                     </thead>
@@ -131,7 +131,7 @@
                             <td>${member.mlevel}</td>
                             <td>${member.mrem}</td>
                             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${member.mdate}"/></td>
-                            <td>${member.mcount}</td>
+                        <%--    <td>${member.mcount}</td>--%>
                             <td style="width: 10%;"><a
                                    onclick="del1(${member.memid})"
                                    data-toggle="modal"

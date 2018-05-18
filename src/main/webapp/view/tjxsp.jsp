@@ -106,7 +106,7 @@
             if ($('#form').data("bootstrapValidator").isValid()) {
                 $.ajax({
                     url: '${pageContext.request.contextPath}/splb/addsplb.do',
-                    data: $('#fomr').serialize(),
+                    data: $('#form').serialize(),
                     success: function (data) {
                         if (data == '1') {
                             $('#info').text('添加商品成功');
@@ -209,12 +209,12 @@
                         <input type="text" class="form-control" id="cproder" name="cproder" placeholder="请输入生产商">
                     </div>
                 </div>
-                <div class="form-group">
+                <%--<div class="form-group">
                     <span for="cprodatex" class="col-sm-2 control-label">生产日期：</span>
                     <div class="col-sm-3">
                         <input type="date" class="form-control" id="cprodatex" name="cprodatex">
                     </div>
-                </div>
+                </div>--%>
                 <div class="form-group">
                     <span for="month" class="col-sm-2 control-label">保质期：</span>
                     <div class="col-sm-3">

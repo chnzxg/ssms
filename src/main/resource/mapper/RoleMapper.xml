@@ -39,7 +39,7 @@
         where aid = #{aid}
     </delete>
     <insert id="addAdminRole">
-        insert into adminrole values
+        insert into adminrole(aid,rid) values
         (#{aid}, #{rid})
     </insert>
     <select id="qryRoleByAdmin" resultType="Role">
@@ -47,7 +47,7 @@
         FROM role
         WHERE rid IN (SELECT rid
         FROM adminrole ar
-        WHERE ar.aid = 1);
+        WHERE ar.aid = #{aid});
     </select>
     <select id="qryPowerByAdmin" resultType="Power">
         SELECT *
@@ -56,7 +56,7 @@
         FROM rolepower
         WHERE rid IN (SELECT rid
         FROM adminrole ar
-        WHERE ar.aid = 1));
+        WHERE ar.aid = #{aid}));
     </select>
     <select id="qryAllRole" resultType="Role">
         select * from role

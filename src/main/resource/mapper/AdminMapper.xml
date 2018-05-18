@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
         where aid = #{aid}
     </update>
-    <insert id="addAdmin">
+    <insert id="addAdmin" useGeneratedKeys="true" keyProperty="aid" keyColumn="aid">
         insert into admin (aname, apassword, creattime) values
         (#{aname}, #{apassword}, now())
     </insert>
