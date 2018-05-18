@@ -163,7 +163,7 @@
                               action="${pageContext.request.contextPath}/splb/updsplb.do?page=1&pageSize=15">
                             <input type="hidden" id="ucomid" name="comid">
                             <input type="hidden" name="fname" value="">
-                            <div class="card" style="float:left;background-color:white;height:200px;width:30%;">
+                            <div class="card" style="float:left;background-color:white;height:100px;width:15%;visibility: hidden">
                                 <img style="height:100%;width:100%;" id="cimg"
                                      onerror="this.src='../img/commodity/1.jpg'">
                             </div>

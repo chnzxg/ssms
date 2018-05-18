@@ -13,12 +13,10 @@
         function add() {
             $('#formdiv').bootstrapValidator('validate');
             if ($('#formdiv').data("bootstrapValidator").isValid()) {
-                alert(1)
                 $.ajax({
                     url: '${pageContext.request.contextPath}/yglb/addyglb.do',
                     data: $('#form').serialize(),
                     success: function (data) {
-                        alert(2);
                         if (data == '1') {
                             $('#info').text('添加员工成功');
                             setTimeout(function () {
@@ -46,7 +44,7 @@
                 message: 'This value is not valid',
                 live: 'enabled',
                 submitButtons: 'button[type="submit"]',
-                /*fields: {
+                fields: {
                     ename: {
                         enabled: true,
                         message: '输入值不合法',
@@ -118,7 +116,7 @@
                             }
                         }
                     }
-                }*/
+                }
             });
 
         });
@@ -193,12 +191,12 @@
                         <input type="text" class="form-control" id="etel" name="etel" placeholder="请输入11位的电话号码">
                     </div>
                 </div>
-                <div class="form-group">
+                <%--<div class="form-group">
                     <span for="etime" class="col-sm-2 control-label">入职时间：</span>
                     <div class="col-sm-3">
                         <input type="date" class="form-control" id="etime" name="etime">
                     </div>
-                </div>
+                </div>--%>
                 <div class="form-group">
                     <span for="claid" class="col-sm-2 control-label">工种：</span>
                     <div class="col-sm-3">

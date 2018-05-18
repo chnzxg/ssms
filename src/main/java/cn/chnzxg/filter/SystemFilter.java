@@ -27,8 +27,10 @@ public class SystemFilter implements Filter {
         HttpSession session = request.getSession();
 
         String purl = request.getParameter("purl");
-        if (purl == null || Objects.equals("", purl))
+        if (purl == null || Objects.equals("", purl)) {
             chain.doFilter(request, response);
+            return ;
+        }
 
         Admin admin = (Admin) session.getAttribute("user");
         if (admin == null) {

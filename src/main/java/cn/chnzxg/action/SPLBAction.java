@@ -105,6 +105,7 @@ public class SPLBAction {
             if (commodity != null)
                 commodityService.updComm(commodity);
             Commodity comm = pageMethod(page, pageSize, new Commodity());
+            comm.setCstatus(SSMSKey.COMM_STATUS_NORMAL);
             request.setAttribute("list", getCommList(comm));
             request.setAttribute("pageCount", PageUtil.getPageCount(getRowCount(new Commodity(SSMSKey.COMM_STATUS_NORMAL)), pageSize));
             request.setAttribute("page", page);

@@ -1,4 +1,4 @@
 driver=com.mysql.jdbc.Driver
-url=jdbc:mysql://192.168.254.128:3306/ssms
+url=jdbc:mysql://192.168.254.128:3306/ssms?useUnicode=true&characterEncoding=UTF-8
 username=root
 password=123456
