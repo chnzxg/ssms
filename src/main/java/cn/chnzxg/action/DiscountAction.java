@@ -24,7 +24,7 @@ public class DiscountAction {
     private DiscountService discountService;
 
     @RequestMapping(value = "/qrydiscount.do", method = RequestMethod.GET)
-    public String qryDiscount(HttpServletRequest request){
+    public String qryDiscount(HttpServletRequest request) {
         List<Discount> discounts = discountService.qryDiscount();
         request.setAttribute("discounts", discounts);
         return "zksz";
@@ -32,7 +32,7 @@ public class DiscountAction {
 
     @RequestMapping(value = "/upddiscount.do", method = RequestMethod.GET)
     @ResponseBody
-    public Integer updDiscount(String str){
+    public Integer updDiscount(String str) {
 
         System.out.println(1);
         return 1;

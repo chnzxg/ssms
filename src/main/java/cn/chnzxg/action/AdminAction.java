@@ -32,7 +32,7 @@ public class AdminAction {
 
     @RequestMapping(value = "/checkaname.do", method = RequestMethod.POST)
     @ResponseBody
-    public String  checkAName(String aname){
+    public String checkAName(String aname) {
         Gson gson = new Gson();
         Map<String, Boolean> map = new HashMap<>();
         map.put("valid", adminService.checkAName(aname));
@@ -75,7 +75,7 @@ public class AdminAction {
             paramMap.put("admin", admin);
             paramMap.put("rids", rid);
             adminService.updAdmin(paramMap);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return 0;
         }
@@ -83,7 +83,7 @@ public class AdminAction {
     }
 
     @RequestMapping(value = "/qrydetail.do", method = RequestMethod.GET)
-    public String qryDetail(HttpServletRequest request, Admin admin, HttpSession session){
+    public String qryDetail(HttpServletRequest request, Admin admin, HttpSession session) {
         admin = adminService.qryDetail(admin);
         List<Role> roles = roleService.qryAllRole();
         session.setAttribute("admin", admin);

@@ -27,11 +27,11 @@ public class SystemAction {
     @Resource
     private AdminService adminService;
 
-    @RequestMapping(value = "/login.do" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/login.do", method = RequestMethod.POST)
     @ResponseBody
-    public Integer login(HttpSession session, Admin admin){
+    public Integer login(HttpSession session, Admin admin) {
         List<Admin> admins = adminService.login(MyUtil.beanToMap(admin));
-        if(admins.size() != 0){
+        if (admins.size() != 0) {
             Admin user = admins.get(0);
             adminService.updLoginTime(user);
             session.setAttribute("user", user);
@@ -40,20 +40,20 @@ public class SystemAction {
         return 0;
     }
 
-    @RequestMapping(value = "/logout.do" ,method = RequestMethod.GET)
-    public String logout(HttpSession session){
+    @RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+    public String logout(HttpSession session) {
         session.invalidate();
         return "login";
     }
 
     @RequestMapping(value = "/password.do")
     @ResponseBody
-    public Integer updPassword(HttpSession session, String apassword){
-        try{
+    public Integer updPassword(HttpSession session, String apassword) {
+        try {
             Admin admin = (Admin) session.getAttribute("user");
             admin.setApassword(apassword);
             adminService.updAPassword(admin);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return 0;
         }

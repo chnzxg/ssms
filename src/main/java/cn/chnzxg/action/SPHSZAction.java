@@ -20,7 +20,7 @@ public class SPHSZAction {
     private CommodityService commodityService;
 
     @RequestMapping(value = "/qrysphsz", method = RequestMethod.GET)
-    public String qryAllRecoveryCommodity(HttpServletRequest request, String page, String pageSize){
+    public String qryAllRecoveryCommodity(HttpServletRequest request, String page, String pageSize) {
         if (!"".equals(page) && !"".equals(pageSize)) {
             Commodity comm = pageMethod(page, pageSize, new Commodity());
             comm.setCstatus(SSMSKey.COMM_STATUS_REMOVE);
@@ -31,8 +31,8 @@ public class SPHSZAction {
         return "sphsz";
     }
 
-    @RequestMapping(value = "/reccomm.do",method = RequestMethod.GET)
-    public String updStatus(HttpServletRequest request, String page, Integer comid){
+    @RequestMapping(value = "/reccomm.do", method = RequestMethod.GET)
+    public String updStatus(HttpServletRequest request, String page, Integer comid) {
         commodityService.recComm(comid);
         Commodity comm = pageMethod(page, "15", new Commodity());
         comm.setCstatus(SSMSKey.COMM_STATUS_REMOVE);
@@ -44,17 +44,19 @@ public class SPHSZAction {
 
 
     //获取商品集合
-    public List<Commodity> getCommList(Commodity comm){
+    public List<Commodity> getCommList(Commodity comm) {
         return commodityService.qryAllComm(comm);
     }
+
     //计算分页数据
-    public Commodity pageMethod(String page,String pageSize,Commodity comm){
-        comm.setFirstRow(Integer.parseInt(pageSize)*Integer.parseInt(page)-Integer.parseInt(pageSize));
+    public Commodity pageMethod(String page, String pageSize, Commodity comm) {
+        comm.setFirstRow(Integer.parseInt(pageSize) * Integer.parseInt(page) - Integer.parseInt(pageSize));
         comm.setPageSize(Integer.parseInt(pageSize));
         return comm;
     }
+
     //获取总条数
-    public Integer getRowCount(Commodity commodity){
+    public Integer getRowCount(Commodity commodity) {
         commodity.setCstatus(SSMSKey.COMM_STATUS_REMOVE);
         return commodityService.qryAllComm(commodity).size();
     }

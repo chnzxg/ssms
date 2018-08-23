@@ -107,7 +107,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Boolean checkAName(String aname) {
         List<Admin> commoditys = adminDao.checkAName(aname);
-        if(commoditys.size() == 0)
+        if (commoditys.size() == 0)
             return true;
         return false;
     }

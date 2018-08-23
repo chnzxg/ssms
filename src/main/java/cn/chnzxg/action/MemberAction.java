@@ -29,7 +29,7 @@ public class MemberAction {
 
     @RequestMapping(value = "/checkmname.do", method = RequestMethod.POST)
     @ResponseBody
-    public String  checkMName(String mname){
+    public String checkMName(String mname) {
         Gson gson = new Gson();
         Map<String, Boolean> map = new HashMap<>();
         map.put("valid", memberService.checkMName(mname));
@@ -38,15 +38,15 @@ public class MemberAction {
     }
 
     @RequestMapping(value = "/qrymember.do", method = RequestMethod.GET)
-    public String getMembers(HttpServletRequest request, String page, String pageSize, Member member){
-        if(member!=null || member.getMlevel()==-1)
+    public String getMembers(HttpServletRequest request, String page, String pageSize, Member member) {
+        if (member != null || member.getMlevel() == -1)
             member.setMlevel(null);
         getMembers(member, page, pageSize, request);
         return "hylb";
     }
 
     @RequestMapping(value = "/delmember.do", method = RequestMethod.GET)
-    public String delMembers(HttpServletRequest request, String page, String pageSize, Member member){
+    public String delMembers(HttpServletRequest request, String page, String pageSize, Member member) {
         Map<String, Object> delParamMap = new HashMap<>();
         delParamMap.put("member", member);
         Integer i = memberService.delMember(delParamMap);
@@ -55,8 +55,8 @@ public class MemberAction {
     }
 
     @RequestMapping(value = "/updmember.do", method = RequestMethod.GET)
-    public String updMembers(HttpServletRequest request, String page, String pageSize, Member member){
-        if(!MyUtil.isEmpty(member)){
+    public String updMembers(HttpServletRequest request, String page, String pageSize, Member member) {
+        if (!MyUtil.isEmpty(member)) {
             memberService.updMember(MyUtil.beanToMap(member));
         }
         getMembers(member, page, pageSize, request);
@@ -65,19 +65,19 @@ public class MemberAction {
 
     @RequestMapping(value = "/addmember.do", method = RequestMethod.POST)
     @ResponseBody
-    public Integer addMembers(Member member){
+    public Integer addMembers(Member member) {
         try {
             if (!MyUtil.isEmpty(member)) {
                 memberService.addMember(MyUtil.beanToMap(member));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return 0;
         }
         return 1;
     }
 
-    private void getMembers(Member member, String page, String pageSize,HttpServletRequest request){
+    private void getMembers(Member member, String page, String pageSize, HttpServletRequest request) {
         Map<String, Object> paramMap = PageUtil.getParamMap(member, page, pageSize);
         paramMap.put("mname", member.getMname());
         paramMap.put("mtel", member.getMtel());
@@ -89,7 +89,7 @@ public class MemberAction {
         request.setAttribute("pageCount", getPageCount(member, pageSize));
     }
 
-    private Integer getPageCount(Member member, String pageSize){
+    private Integer getPageCount(Member member, String pageSize) {
         List<Member> members = memberService.qryAllMember();
         return PageUtil.getPageCount(members.size(), pageSize);
     }

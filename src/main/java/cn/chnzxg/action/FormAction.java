@@ -24,14 +24,14 @@ public class FormAction {
     private FormService formService;
 
     @RequestMapping(value = "/qryform.do", method = RequestMethod.GET)
-    public String qryForm(HttpServletRequest request, Form form, String page, String pageSize){
+    public String qryForm(HttpServletRequest request, Form form, String page, String pageSize) {
         getForms(form, page, pageSize, request);
         request.setAttribute("form", form);
         return "ddlb";
     }
 
     @RequestMapping(value = "/updform.do", method = RequestMethod.GET)
-    public String updFrom(HttpServletRequest request, Form form, String page, String pageSize){
+    public String updFrom(HttpServletRequest request, Form form, String page, String pageSize) {
         formService.updFrom(MyUtil.beanToMap(form));
         form.setFstatus(null);
         getForms(form, page, pageSize, request);
@@ -39,11 +39,11 @@ public class FormAction {
     }
 
     @RequestMapping(value = "/addform.do", method = RequestMethod.POST)
-    public String addFrom(){
+    public String addFrom() {
         return null;
     }
 
-    private void getForms(Form form, String page, String pageSize, HttpServletRequest request){
+    private void getForms(Form form, String page, String pageSize, HttpServletRequest request) {
         Map<String, Object> paramMap = PageUtil.getParamMap(form, page, pageSize);
         paramMap.put("cname", form.getCname());
         paramMap.put("mname", form.getMname());
@@ -55,7 +55,7 @@ public class FormAction {
         request.setAttribute("pageCount", getPageCount(form, pageSize));
     }
 
-    private Integer getPageCount(Form form, String pageSize){
+    private Integer getPageCount(Form form, String pageSize) {
         Map<String, Object> paramMap = MyUtil.beanToMap(form);
         List<Form> forms = formService.qryForm(paramMap);
         return PageUtil.getPageCount(forms.size(), pageSize);

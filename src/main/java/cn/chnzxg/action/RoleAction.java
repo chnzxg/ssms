@@ -33,7 +33,7 @@ public class RoleAction {
 
     @RequestMapping(value = "/checkrname.do", method = RequestMethod.POST)
     @ResponseBody
-    public String  checkRName(String rname){
+    public String checkRName(String rname) {
         Gson gson = new Gson();
         Map<String, Boolean> map = new HashMap<>();
         map.put("valid", roleService.checkRName(rname));
@@ -42,25 +42,25 @@ public class RoleAction {
     }
 
     @RequestMapping(value = "/qryallrole.do", method = RequestMethod.GET)
-    public String qryAllRole(HttpServletRequest request){
+    public String qryAllRole(HttpServletRequest request) {
         request.setAttribute("roles", roleService.qryAllRole());
         return "tjgly";
     }
 
     @RequestMapping(value = "/qryallpower.do", method = RequestMethod.GET)
-    public String qryAllPower(HttpServletRequest request){
+    public String qryAllPower(HttpServletRequest request) {
         request.setAttribute("powers", powerService.qryPower(new HashMap<String, Object>()));
         return "tjjs";
     }
 
     @RequestMapping(value = "/qryrole.do", method = RequestMethod.GET)
-    public String getRole(HttpServletRequest request, String page, String pageSize, Role role){
+    public String getRole(HttpServletRequest request, String page, String pageSize, Role role) {
         getRoles(role, page, pageSize, request);
         return "jslb";
     }
 
     @RequestMapping(value = "/delrole.do", method = RequestMethod.GET)
-    public String delRole(HttpServletRequest request, String page, String pageSize, Role role){
+    public String delRole(HttpServletRequest request, String page, String pageSize, Role role) {
         roleService.delRole(MyUtil.beanToMap(role));
         getRoles(role, page, pageSize, request);
         return "jslb";
@@ -68,20 +68,20 @@ public class RoleAction {
 
     @RequestMapping(value = "/addrole.do", method = RequestMethod.POST)
     @ResponseBody
-    public Integer addRole(Role role, int[] pid){
-        try{
+    public Integer addRole(Role role, int[] pid) {
+        try {
             Map<String, Object> paramMap = new HashMap<>();
             paramMap.put("role", role);
             paramMap.put("pids", pid);
             roleService.addRole(paramMap);
-        }catch (Exception e){
+        } catch (Exception e) {
             return 0;
         }
         return 1;
     }
 
     @RequestMapping(value = "/updrole.do", method = RequestMethod.POST)
-    public String updRole(HttpServletRequest request, String page,String pageSize, Role role, int[] pid){
+    public String updRole(HttpServletRequest request, String page, String pageSize, Role role, int[] pid) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("role", role);
         paramMap.put("pids", pid);
@@ -90,7 +90,7 @@ public class RoleAction {
         return "jslb";
     }
 
-    private void getRoles(Role role, String page, String pageSize, HttpServletRequest request){
+    private void getRoles(Role role, String page, String pageSize, HttpServletRequest request) {
         Map<String, Object> paramMap = PageUtil.getParamMap(role, page, pageSize);
         List<Role> roles = roleService.qryRole(paramMap);
         request.setAttribute("roles", roles);
@@ -99,7 +99,7 @@ public class RoleAction {
         request.setAttribute("pageCount", getPageCount(role, pageSize));
     }
 
-    private Integer getPageCount(Role role, String pageSize){
+    private Integer getPageCount(Role role, String pageSize) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("rname", role.getRname());
         List<Role> roles = roleService.qryRole(paramMap);

@@ -36,7 +36,7 @@ public class SPFLAction {
 
     @RequestMapping("/qryclass.do")
     @ResponseBody
-    public List<Clazz> qryClazz(){
+    public List<Clazz> qryClazz() {
         return clazzService.qryClazz(new Clazz());
     }
 

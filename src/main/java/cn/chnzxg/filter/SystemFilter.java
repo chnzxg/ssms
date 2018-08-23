@@ -29,7 +29,7 @@ public class SystemFilter implements Filter {
         String purl = request.getParameter("purl");
         if (purl == null || Objects.equals("", purl)) {
             chain.doFilter(request, response);
-            return ;
+            return;
         }
 
         Admin admin = (Admin) session.getAttribute("user");
